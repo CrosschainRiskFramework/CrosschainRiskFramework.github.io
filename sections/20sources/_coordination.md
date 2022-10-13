@@ -1,3 +1,3 @@
-## Coordination Protocols
+### Coordination Protocols
 
 Atomicity e.g. GPACT

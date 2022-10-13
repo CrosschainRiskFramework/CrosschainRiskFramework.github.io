@@ -5,3 +5,8 @@ Protocol architecture risks relate to the design of the cross-chain communicatio
 TODO diagram
 
 TODO diagram title Cross-chain protocol stack (adapted from Socket + L2 beats framework)
+
+{% include_relative sections/20sources/_messaging.md %}
+
+{% include_relative sections/20sources/_coordination.md %}
+

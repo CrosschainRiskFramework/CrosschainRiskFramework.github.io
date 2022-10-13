@@ -1,19 +1,19 @@
-## Messaging Protocol
+### Messaging Protocol
 
 A cross-chain messaging protocol is responsible for communicating state transition events from applications on one network to applications on another. It should guarantee that these events are valid according to the canonical ledger state of the source network (safety) and ensure that all relevant state transitions are eventually communicated to their destination network (liveness).
 
 From the perspective of safety, an ideal message protocol construction would introduce no additional trust assumptions beyond what is assumed about the networks themselves. This would involve a destination network independently being able to verify that a) a state transition that resulted in a given message is valid according to the state transition rules of the source network and b) that the message has been finalized on the network as per the network consensus rules of the source.
 
-### Full-client verification-based bridging
+#### Full-client verification-based bridging
 A full-client verification bridge involves one network validating all state transitions and consensus rules of another network, in effect achieving both properties stated above. This type of bridging retains the strongest guarantees of the underlying networks and does not introduce any additional trust assumption. However, this approach introduces significant complexities in implementation and is hard to scale across diverse ecosystems. To date, these are employed only by layer 2  chains (optimistic and ZK rollups), and not across independent L1 networks.
 
-### Light-client verification-based bridging
+#### Light-client verification-based bridging
 In a light-client verification bridge a destination network validates that a given block header (or state aggregate), from a source network, is valid only according to the consensus rules of a network, without executing and verifying individual state transitions. While light clients offer less security compared to full-client-based approaches, they too do not introduce additional trust assumptions, beyond those of the underlying networks. Different network protocols have different light-client protocols with differing levels of security assumptions and guarantees. The security guarantees of such bridges are subject to these limitations. We distinguish between two categories of light-client bridges:
 
 * On-chain light-client protocol implementations: these involve implementing the light-client protocol as a smart contract on another. Typically block headers are relayed from the source network to the smart contract on a destination network for validation. An arbitrary state in a source network can then be proved against a validated block header stored by the smart contract on the destination network. Implementing, operating, and maintaining light-client-based bridges can be difficult, expensive, or infeasible, making this difficult to apply across diverse ecosystems.
 * Validity Proof Bridges (aka ZK bridges)
 
-### Third-party attestation reliant bridging
+#### Third-party attestation reliant bridging
 While the above approaches offer better security guarantees because they remove the need for additional trust assumptions, they are difficult to implement and operate across diverse ecosystems. Hence, most cross-chain protocols introduce additional sources of trust in the form of third-party attestors. In general, such models rely on trusted third parties serving as oracles that attest and relay state events occurring in a source network, to a destination network. The security models of such bridges rely on the honest behavior of such attestors, either because they are game theoretically incentivized or have their reputation at stake. We generally distinguish between three categories of such bridges, based on the security model they employ.
 
 * Proof-of-Authority approaches: rely on well-known legal entities running nodes that attest to the validity of messages from one network to another. Such bridges assume that a) parties are strongly incentivized to maintain their reputation and would thus not misbehave and b) that in the event of misbehavior legal recourse could be pursued against such entities.
