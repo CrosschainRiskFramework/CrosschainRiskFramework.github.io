@@ -1,7 +1,5 @@
 
-# Section 1
-
-Introductory paragraph.
+# Example of recursively including files
 
 {% include_relative sections/sec1/_section1-1.md %}
 
