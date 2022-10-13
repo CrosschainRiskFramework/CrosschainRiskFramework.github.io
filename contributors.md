@@ -14,6 +14,6 @@
 
 
 ## Contributing
-[How to Contribute](!docs/CONTRIBUTING.html)
+[How to Contribute](docs/CONTRIBUTING.html)
 
-[Code of Conduct](!docs/CODE_OF_CONDUCT.html)
+[Code of Conduct](docs/CODE_OF_CONDUCT.html)
