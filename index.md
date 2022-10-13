@@ -7,4 +7,4 @@ layout: default
 {% include_relative sections/sec1/_section1.md %}
 
 
-[Link to example formatting](./sections/_example.md).
+[Link to example formatting](./sections/example.md).
