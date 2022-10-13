@@ -2,5 +2,5 @@
 layout: default
 ---
 
-{% include_relative _sections/sec1/section1.md %}
-{% include_relative _sections/example.md %}
+{% include_relative sections/sec1/_section1.md %}
+{% include_relative sections/_example.md %}
