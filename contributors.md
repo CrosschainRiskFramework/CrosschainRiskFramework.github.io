@@ -3,11 +3,11 @@
 ## Administrators
 
 
-| Name           | Company   | Github Handle                                  |
-|----------------|-----------|------------------------------------------------|
-| Ermyas Abebe   | ConsenSys | [ermyas](!https://github.com/ermyas)           |
-| Peter Robinson | ConsenSys | [drinkcoffee](!https://github.com/drinkcoffee) |
-|                |           |                                                |
+| Name           | Company   | Github Handle                                 |
+|----------------|-----------|-----------------------------------------------|
+| Ermyas Abebe   | ConsenSys | [ermyas](https://github.com/ermyas)           |
+| Peter Robinson | ConsenSys | [drinkcoffee](https://github.com/drinkcoffee) |
+|                |           |                                               |
 
 ## Other Contributors
 
