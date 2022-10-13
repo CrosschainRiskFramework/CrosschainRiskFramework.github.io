@@ -5,3 +5,7 @@
 {% include_relative sections/20sources/_network.md %}
 
 {% include_relative sections/20sources/_architecture.md %}
+
+{% include_relative sections/20sources/_messaging.md %}
+
+{% include_relative sections/20sources/_coordination.md %}
