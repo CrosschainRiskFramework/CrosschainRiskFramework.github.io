@@ -7,4 +7,3 @@ layout: default
 {% include_relative sections/20sources/_sources.md %}
 
 
-[Link to example formatting](./sections/example.md).
