@@ -7,5 +7,5 @@ be known as crosschain.
 
 ## How can I contribute?
 Please submit a pull request to this repo: 
-[https://crosschainriskframework.github.io/](https://crosschainriskframework.github.io/)
+[https://github.com/crosschainriskframework/crosschainriskframework.github.io/](https://github.com/crosschainriskframework/crosschainriskframework.github.io/)
 
