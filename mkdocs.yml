@@ -1,4 +1,5 @@
 site_name: Crosschain Risk Framework
+edit_uri: blob/main/docs/
 theme:
   name: material
   features:
