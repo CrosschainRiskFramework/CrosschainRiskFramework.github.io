@@ -1,3 +1,10 @@
+.DS_Store
 .idea/
 *.iml
-_site
+
+site/
+css/
+fonts/
+search/
+sitemap*
+*html

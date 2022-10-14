@@ -1,0 +1,18 @@
+site_name: Crosschain Risk Framework
+theme:
+  name: material
+  features:
+    - navigation.expand
+    - toc.integrate
+plugins:
+  - include-markdown
+  - search
+  - git-revision-date-localized:
+      enabled: true
+      enable_creation_date: true
+nav:
+  - Introduction: "framework/01intro/introduction.md"
+  - Stakeholders of Crosschain: "framework/10stakeholders/stakeholders.md"
+  - Sources of Risk: "framework/20sources/sources-of-risk.md"
+  - FAQ: "faq/faq.md"
+
