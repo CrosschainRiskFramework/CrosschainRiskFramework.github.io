@@ -8,6 +8,7 @@ theme:
   features:
     - navigation.expand
     - toc.integrate
+    - toc.follow
 plugins:
   - include-markdown
   - search
@@ -18,5 +19,13 @@ nav:
   - Introduction: "framework/01intro/introduction.md"
   - Stakeholders of Crosschain: "framework/10stakeholders/stakeholders.md"
   - Sources of Risk: "framework/20sources/sources-of-risk.md"
+  - Contributions: "authors/contributions.md"
   - FAQ: "faq/faq.md"
 
+# Provide access to emojis, used for the authors page:
+# https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
