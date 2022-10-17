@@ -1,4 +1,8 @@
 site_name: Crosschain Risk Framework
+
+# For documentation on the mkdocs configuration see:
+# mkdocs: https://www.mkdocs.org/user-guide/configuration/
+# Material theme: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
 theme:
   name: material
   features:
