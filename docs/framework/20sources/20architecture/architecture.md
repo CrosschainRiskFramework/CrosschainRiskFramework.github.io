@@ -4,7 +4,8 @@ Protocol architecture risks relate to the design of the cross-chain communicatio
 ![Cross-chain protocol stack (adapted from Socket + L2 beats framework)](protocolstack.png)
 
 
-{% include_relative sections/20sources/_messaging.md %}
-
-{% include_relative sections/20sources/_coordination.md %}
+{% include-markdown "messaging.md" %}
+{% include-markdown "coordination.md" %}
+{% include-markdown "token-bridges.md" %}
+{% include-markdown "liquidity-networks.md" %}
 

@@ -19,6 +19,7 @@ While the above approaches offer better security guarantees because they remove 
 * Proof-of-Authority approaches: rely on well-known legal entities running nodes that attest to the validity of messages from one network to another. Such bridges assume that a) parties are strongly incentivized to maintain their reputation and would thus not misbehave and b) that in the event of misbehavior legal recourse could be pursued against such entities.
 
   Considerations:
+ 
   * How many such entities are employed by the network? What are the specific honesty threshold assumptions for guaranteeing safety and liveness? What are the specific characteristics of the cryptographic schemes employed?
   * How reputable are such entities? What is the true cost of reputational damage for such entities? What is the market cap of such entities?
   * Do such entities have competing interests with users of this bridge? e.g. Trading firms that might benefit from cross-domain MEV?
@@ -29,6 +30,7 @@ While the above approaches offer better security guarantees because they remove 
 * Proof-of-Stake approaches: rely on a set of parties having a financial stake in honestly relaying valid state information from one network to another.
 
   Considerations:
+
   * How many such entities are employed by the network? What are the specific honesty threshold assumptions for guaranteeing safety and liveness? What are the specific characteristics of the cryptographic schemes employed?
   * How is the stake distributed across networks? (i.e. concentrated amongst few parties vs diffuse across many parties)
   * What exactly is staked by validators? Is it a bridge-specific token? What are the dynamics that drive the value of such tokens?
