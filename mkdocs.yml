@@ -19,8 +19,11 @@ nav:
   - Introduction: "framework/01intro/introduction.md"
   - Stakeholders of Crosschain: "framework/10stakeholders/stakeholders.md"
   - Sources of Risk: "framework/20sources/sources-of-risk.md"
+  - Comparison: "comparison/comparison.md"
   - Contributions: "authors/contributions.md"
   - FAQ: "faq/faq.md"
+  - Reference: "reference/ref.md"
+
 
 # Provide access to emojis, used for the authors page:
 # https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
