@@ -1,9 +1,9 @@
 # Sources of Risk
 
-At its essence, cross-chain protocols create a dependency relationship between networks. This dependency could be uni-directional or bi-directional, transient or persistent. The core security requirement of cross-chain infrastructure is to guarantee two key properties:
-
-* The correct representation of the state of one network to another in a complete and timely manner.
-* The preservation of the integrity and validity of all state changes in a network that result from the communication of state in another e.g. ensuring any dependency invariants across chains are preserved (e.g. wrapped asset supply matches native asset supply) or events resulting from forks and reorgs of underlying networks.
+At its essence, cross-chain communications create dependency relationships between two or more networks. Such dependency relationships typically involve state change in one network driving state change in another. These relationships can be _unidirectional_ or _bidirectional_, _transient_ or _persistent_.  The goal of cross-chain protocols is to enable and guarantee the integrity of these dependencies. To this end, given two networks, a source network and a destination network, where the state in the destination network is dependent on the state in the source network, cross-chain protocols must satisfy the following core properties:
+1. only states that are valid in the canonical ledger of the source network are communicated to the destination
+1. all relevant state transitions in the source network are relayed to the destination network in a timely manner
+1. any invariants that emerge from the cross-chain interactions are always preserved e.g. total supply of wrapped asset in the destination matches supply of underlying native asset in the source.
 
 Broadly, there are four key sources of risk in cross-chain infrastructure:
 
