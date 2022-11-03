@@ -2,9 +2,12 @@ name: build
 on:
   push:
     branches:
-      - main
+      - '*'
+      - '!main'
+  pull_request:
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,6 +23,3 @@ jobs:
 
       - name: Build documentation
         run: make build
-
-      - name: Deploy documentation
-        run: mkdocs gh-deploy --force --clean --verbose
