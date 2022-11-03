@@ -30,7 +30,7 @@ To view the documentation locally using MkDocs execute the command below. This w
 ```
 make serve
 ```
-Then, open browser to http://127.0.0.1:8000/
+Then open a browser with the following address: http://127.0.0.1:8000/
 
 ### Remote deployment
 The website is automatically updated when new commits are pushed to the `main` branch. More specifically, the documentation site is generated from the updated source code on the `main` branch, and then committed to the `gh-pages` branch using Github actions. The updated files in `gh-pages` are then automatically [deployed](https://crosschainriskframework.github.io/).
