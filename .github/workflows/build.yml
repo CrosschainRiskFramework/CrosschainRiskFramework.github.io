@@ -1,27 +1,22 @@
-name: build
+name: Build branches and PRs
 on:
   push:
-    branches:
-      - '*'
-      - '!main'
+    branches-ignore:
+      - 'main'
   pull_request:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Install Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
-
       - name: Install MkDocs
         run: make install
-
       - name: Build documentation
         run: make build
