@@ -9,17 +9,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Install Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
-
       - name: Install MkDocs
         run: make install
-
       - name: Build documentation
         run: make build
-
       - name: Deploy documentation
         run: mkdocs gh-deploy --force --clean --verbose
