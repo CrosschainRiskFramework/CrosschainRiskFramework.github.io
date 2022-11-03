@@ -17,8 +17,8 @@ plugins:
       enable_creation_date: true
 nav:
   - Introduction: "framework/01intro/introduction.md"
-  - Stakeholders of Crosschain: "framework/10stakeholders/stakeholders.md"
-  - Sources of Risk: "framework/20sources/sources-of-risk.md"
+  - Stakeholders: "framework/10stakeholders/stakeholders.md"
+  - Categories of Risk: "framework/20categories/categories-of-risk.md"
   - Comparison: "comparison/comparison.md"
   - Contributions: "authors/contributions.md"
   - FAQ: "faq/faq.md"
