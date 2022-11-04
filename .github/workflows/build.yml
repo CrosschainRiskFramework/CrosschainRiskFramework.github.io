@@ -1,10 +1,13 @@
-name: Build and deploy main
+name: Build branches and PRs
 on:
   push:
+    branches-ignore:
+      - 'main'
+  pull_request:
     branches:
       - main
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,5 +20,3 @@ jobs:
         run: make install
       - name: Build documentation
         run: make build
-      - name: Deploy documentation
-        run: mkdocs gh-deploy --force --clean --verbose
