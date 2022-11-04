@@ -1,6 +1,6 @@
 ### Mixing of Control and Data Plane
 
-The terms *Control Plane* and *Data Plane* come from networking [[1](https://en.wikipedia.org/wiki/Control_plane)]. In the
+The terms *Control Plane* and *Data Plane* come from networking [[Wikipedia](https://en.wikipedia.org/wiki/Control_plane)]. In the
 context of networking, the Control Plane configures the network topology 
 and routing tables, and the Data Plane is the information that is 
 communicated across the network. In the context of computing, the 
