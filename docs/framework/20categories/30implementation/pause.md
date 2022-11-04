@@ -11,7 +11,7 @@ attack.
 For Ethereum based projects, the OpenZeppelin project has an example 
  contract [Pausable.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/security/Pausable.sol)
 that can be used to implement pausing. Using this template, 
-pausing a function becomes as simple as adding a modifier **whenNotPaused**. 
+pausing a function becomes as simple as adding a modifier `whenNotPaused`. 
 The code below shows how this would work in practice.
 
 ```solidity
@@ -36,9 +36,9 @@ just some parts of the project.
 ***
 #### Example
 For example, in [August 2022 the Nomad Bridge](https://rekt.news/nomad-rekt/) had an issue.
-An attacker was able to determine a methodology for stealing funds using the **Replica** 
-contract's **process()** function. Depite most of the Data Plane processing functions 
-in the project being pausable, the **process()** function was not. This meant that the 
+An attacker was able to determine a methodology for stealing funds using the `Replica` 
+contract's `process()` function. Depite most of the Data Plane processing functions 
+in the project being pausable, the `process()` function was not. This meant that the 
 attack was able to proceed without the administrators of the project being able to stop it. 
 
 
