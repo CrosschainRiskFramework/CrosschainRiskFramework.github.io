@@ -1,6 +1,10 @@
 ### Role Based Access Control
 [Role Based Access Control (RBAC)](https://en.wikipedia.org/wiki/Role-based_access_control) 
-allows different entites to be responsible for different configuration actions. With 
+allows different entites to be responsible for different configuration actions. 
+Systems that are managed by a single entity are inherently less secure 
+than those with narrowly-scoped privileges for different entities and specific contexts.
+
+With 
 contracts, this can be used to limit which accounts can execute which functions. For 
 example, imagine a contract that operates as a crosschain bridge. It could have a role 
 called **PAUSER**. This role could be required to call a function that enables 
@@ -33,6 +37,8 @@ However, it is better to deploy a contract configured for fine grain
 Role Based Access Control, where all roles are initially assigned to the one account.
 In this way, as the project using the contract matures, new accounts can be granted
 roles and the original account's access can be revoked.
+It should be noted that the benefits of RBAC are only realised once 
+access for different roles is allocated to additional accounts. 
 
 For Ethereum based projects, the OpenZeppelin project has an example
 contract [AccessControl.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/AccessControl.sol)
