@@ -1,5 +1,5 @@
 # Stakeholders
-Different stakeholders in cross-chain protocols have different interests and perspectives. This section explores the different types of stakeholders.
+Cross-chain protocols often involve the interaction of several different stakeholders. Stakeholders are individuals, groups, or organizations that participate directly or indirectly in a protocol. They interact through defined roles within the system and have different capabilities, constraints, goals, and incentives. Consequently, different risks within a cross-chain protocol might impact each stakeholder differently. Analyzing risks from the perspective of actors within the system enables a better understanding of their potential impact. To this end, we identify four types of stakeholders in cross-chain protocols:
 
 ## Users
 A user is an actor in the system that either directly or indirectly uses a cross-chain protocol. This could include a user directly transferring assets from one network to another through a token bridge, or a user of a Dapp, which utilizes a cross-chain protocol on its backend. The interaction of such actors with cross-chain infrastructure is often short-lived.
