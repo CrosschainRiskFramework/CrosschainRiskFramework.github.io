@@ -1,14 +1,14 @@
 # Stakeholders
-Cross-chain protocols often involve the interaction of several different stakeholders. Stakeholders are individuals, groups, or organizations that participate directly or indirectly in a protocol. They interact through defined roles within the system and have different capabilities, constraints, goals, and incentives. Consequently, different risks within a cross-chain protocol might impact each stakeholder differently. Analyzing risks from the perspective of actors within the system enables a better understanding of their potential impact. To this end, we identify four types of stakeholders in cross-chain protocols:
+Cross-chain protocols can have several distinct stakeholders with direct or indirect involvement and interest in the system. These stakeholders can be individuals, groups, or organizations and often have different capabilities, constraints, goals, and incentives. Consequently, the types and magnitudes of risk borne by each stakeholder might vary considerably across protocols. Analyzing risks from the perspective of the different actors within the system enables a better understanding of the potential impact. To this end, we identify four types of stakeholders in cross-chain protocols:
 
 ## Users
-A user is an actor in the system that either directly or indirectly uses a cross-chain protocol. This could include a user directly transferring assets from one network to another through a token bridge, or a user of a Dapp, which utilizes a cross-chain protocol on its backend. The interaction of such actors with cross-chain infrastructure is often short-lived.
+Users are the primary customers of the service offered by a cross-chain protocol. They interact with the system directly to exchange assets or transfer data and value across chains. A user might directly interface with a cross-chain protocol (e.g., token bridge) or get mediated through other contracts and applications. A user's involvement with a protocol is typically short-lived and ends once their cross-chain transaction has settled.
+
+## Bridge Liability Holder
+A common approach to enabling the transfer of assets from one chain to another is through a lock-and-mint mechanism, in which cross-chain protocols lock assets on one network and mint corresponding synthetic assets on another. These synthetic assets are, in effect, a liability of the bridge that can later be redeemed for the underlying asset. We refer to any entity that holds such synthetic assets as a _bridge liability holder_. A _bridge liability holder_ might or might not be a user of a cross-chain protocol. More importantly, such stakeholders are exposed to the idiosyncratic risks of a protocol so long as they hold the asset. If a protocol's underlying assets are compromised the corresponding synthetic assets could lose some or all of their value. 
 
 ## Liquidity Provider
 A liquidity provider is an actor that provides liquidity to users for the purposes of cross-chain asset exchanges. Liquidity providers often have longer-duration exposure to cross-chain protocols and their associated risks.
-
-## Bridge Token Holder
-Token bridges might issue bridge-specific wrapped assets. A bridge token holder is any entity that holds these assets. A token holder might also be a user or liquidity provider but might also include entities that have not interacted with the cross-chain protocol altogether. The latter is an important point to note, as entities that might never have directly accessed or used a bridge could nevertheless have risk exposure to a bridge.
 
 ## Bridge Validators
 A set of off-chain systems and actors responsible for ensuring the communication of valid messages across chains.
