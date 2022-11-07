@@ -11,7 +11,7 @@ A common approach to enabling the transfer of assets from one chain to another i
 In a cross-chain asset exchange, a _liquidity provider_ is the counter-party to a user. For a fee, it exchanges its assets in one network for a user's assets in another. It might compete with other liquidity providers to offer this service and have defined performance and service-level constraints in its operations. Liquidity providers typically maintain longer exposure to the risks of a protocol and might also need to account for market-related risks beyond specific protocol risks.  
 
 ## Bridge Validators
-A set of off-chain systems and actors responsible for ensuring the communication of valid messages across chains.
+Cross-chain protocols typically coordinate several off-chain systems and actors that collectively ensure the integrity of state communication across chains. Such entities might be responsible for verifying, validating, proving, attesting, or relaying cross-chain states. How different protocols coordinate and incentivize such actors to offer specific security properties varies significantly. However, in general, _bridge validators_ are the primary entities that ensure the security and continued operation of a cross-chain protocols and thus represent a significant source of potential risk to the overall system.
 
 ## Bridge Operators
 One or more entities responsible for managing the operation of the core elements of a cross-chain protocol (e.g. upgrading on-chain smart contracts, updating validator registries)
