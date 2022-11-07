@@ -1,17 +1,20 @@
 # Stakeholders
-Different stakeholders in cross-chain protocols have different interests and perspectives. This section explores the different types of stakeholders.
+Cross-chain protocols can have several distinct stakeholders with direct or indirect involvement in the system. These stakeholders can be individuals, groups, or organizations and have different roles, constraints, goals, and incentives. Consequently, the types and magnitudes of risk borne by each stakeholder might vary considerably across protocols. Understanding the dynamics of cross-chain risk from the perspective of different actors will aid in a more sound analysis. To this end, we identify four types of stakeholders in cross-chain protocols:
 
 ## Users
-A user is an actor in the system that either directly or indirectly uses a cross-chain protocol. This could include a user directly transferring assets from one network to another through a token bridge, or a user of a Dapp, which utilizes a cross-chain protocol on its backend. The interaction of such actors with cross-chain infrastructure is often short-lived.
+Users are the primary customers of the service offered by a cross-chain protocol. They interact with the system directly to exchange assets or transfer data and value across chains. A user might directly interface with a cross-chain protocol (e.g., token bridge) or through an intermediary applications. A user's involvement with a protocol is typically short-lived and ends once their cross-chain transaction has settled.
 
 ## Liquidity Provider
-A liquidity provider is an actor that provides liquidity to users for the purposes of cross-chain asset exchanges. Liquidity providers often have longer-duration exposure to cross-chain protocols and their associated risks.
+In a cross-chain asset exchange, a _liquidity provider_ is the counter-party to a user. For a fee, it exchanges its assets in one network for a user's assets in another. It might compete with other liquidity providers to offer this service and have defined performance and service-level constraints in its operations. Liquidity providers typically maintain longer exposure to the risks of a protocol and might also need to account for market-related risks beyond protocol risks.  
 
-## Bridge Token Holder
-Token bridges might issue bridge-specific wrapped assets. A bridge token holder is any entity that holds these assets. A token holder might also be a user or liquidity provider but might also include entities that have not interacted with the cross-chain protocol altogether. The latter is an important point to note, as entities that might never have directly accessed or used a bridge could nevertheless have risk exposure to a bridge.
+## Bridge Liability Holder
+A common approach to enabling the transfer of assets from one chain to another is through a lock-and-mint mechanism, in which cross-chain protocols lock assets on one network and mint corresponding synthetic assets on another. These synthetic assets are, in effect, a liability of the bridge that can later be redeemed for the underlying asset. We refer to any entity that holds such synthetic assets as a _bridge liability holder_. A _bridge liability holder_ might or might not be a user of a cross-chain protocol. More importantly, such stakeholders are exposed to the idiosyncratic risks of a protocol so long as they hold the asset. If a protocol's underlying assets are compromised the corresponding synthetic assets could lose some or all of their value.
 
 ## Bridge Validators
-A set of off-chain systems and actors responsible for ensuring the communication of valid messages across chains.
+Cross-chain protocols typically coordinate several off-chain systems and actors that collectively ensure the integrity of state communication across chains. Such entities might be responsible for verifying, validating, proving, attesting, or relaying cross-chain states. How different protocols coordinate and incentivize such actors to offer specific security properties varies significantly. However, in general, _bridge validators_ are the primary entities that ensure the security and continued operation of a cross-chain protocols and thus represent a significant source of potential risk to the overall system.
 
 ## Bridge Operators
-One or more entities responsible for managing the operation of the core elements of a cross-chain protocol (e.g. upgrading on-chain smart contracts, updating validator registries)
+_Bridge operators_ are actors that can update or reconfigure key elements of a cross-chain protocol (e.g. upgrading on-chain smart contracts, updating validator registries). How many bridge operators a protocol has, what they are allowed to change and what  policies govern their actions can significantly influence the risk profile of a protocol and varies considerably across projects.
+
+## Bridge Developers
+_Bridge developers_ design, build, test, and maintain the codebase behind a cross-chain protocol. Given the complex nature of such systems, the possibility of introducing bugs and vulnerabilities is considerable. The experience and competence of bridge developers and the policies and procedures they put in place to address incidents, significantly influence the level of [implementation risk](TBA) of a protocol.
