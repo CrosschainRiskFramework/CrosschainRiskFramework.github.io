@@ -8,11 +8,11 @@ for actions to occur on one chain based on the state of a contract on another ch
 [General Purpose Atomic Crosschain Transactino (GPACT)](https://arxiv.org/abs/2011.12783)
 ([github](https://github.com/ConsenSys/gpact)) and [Cross Framework](https://datachainlab.github.io/cross-docs/)
 are examples of Coordination Protocols. Both are a type of [two-phase commitment protocol](https://en.wikipedia.org/wiki/Two-phase_commit_protocol).
-The first phase executes parts of the crosschain execution on various chains, recording a
-set of provisional state updates to be applied. The end of this phase is to request the
+The first phase executes segments of the crosschain execution on various chains, recording a
+set of provisional state updates to be applied. The end of this phase is to request that the
 crosschain transaction be committed. The second phase performs the update; applying the
 provisional state updates. If the second phase did not complete, then it is reapplied as
-many times as needed to complete the algorithm. If in the first phase any part of the
+many times as needed to complete the algorithm. If in the first phase any segment of the
 crosschain transaction fails, then the second phase is to discard the provisional updates
 on all chains.
 
@@ -32,7 +32,8 @@ to communicate this information to the coordination contract on a remote chain s
 that the information can be trusted.
 
 Considerations:
-* Coordination protocols reply on messaging protocols communicating information from 
+
+* Coordination protocols rely on messaging protocols communicating information from 
   remote chains honestly. 
 * The messaging protocol used to prove events occurred on one chain may be different
   from that used to prove events occured on other chains, despite all of the chains 
@@ -43,8 +44,8 @@ Considerations:
   finality time for transactions on different chains will depend on the consensus 
   protocol and other security parameters of the chain. Having this chain specific 
   configuration increases the complexity of the overall crosschain system.
-* Coorindation Protocols require at least two transactions per chain where updates 
-  occur, and the chain which acts as the coorination point also has at least two 
+* Coordindation Protocols require at least two transactions per chain where updates 
+  occur, and the chain which acts as the coordination point also has at least two 
   transactions. This is in contrast to simplistic crosschain protocols that don't provide
   atomic updates across chains that require only one transaction per chain. The 
   increased number of transactions means that the latency for applications using 
@@ -55,19 +56,25 @@ Considerations:
   of the overall crosschain transaction (that is committed or discarded).
 * Different coordination protocols provide different features and different security
   guarantees. Understanding the differences is important as the protocols are not
-  interchangable. For example:
-  * True atomicity: Some protocols (Cross Framework) do not provide true atomicity. 
-    They rely on a segments being executed on each chain, and then being reversed if there
+  interchangeable. For example:
+     * True atomicity: Some protocols (Cross Framework) do not provide true atomicity. 
+    They rely on segments being executed on each chain, and then being reversed if there
     is a failure on any chain. This is in contrast to other protocols (GPACT) that
     provide locking and true atomicity. Not providing true atomicity means that 
     other transactions may interact with the transaction state prior to it being 
     rolled-back.
-  * Isolation: GPACT has programmable locking mechanisms. Using the example contracts 
-    does not provide lock on read, and hence no crosschain transaction isolation. 
-    Users can implement locking mechanisms that do support isolation, but it is not
-    the default. Cross Framework doesn't have the ability to provide isolation.
-  * Function call returning values: Some protocols allow function call return results
-    where as others do not provide this capability. 
+     * Isolation: Crosschain transactions are executed concurrently with other crosschain
+       transactiosns and with single chain transactions (that is, non-crosschain transactions).
+       That is, there could be multiple transactions reading from and writing to the state 
+       of the same contract while a crosschain transaction is in progress. This occurs because
+       the segments of crosschain transactions are not all executed simultaneously, and are 
+       executed as a two phase commitment protocol. Isolation ensures that concurrent 
+       execution of transactions leaves the contract state in the same state that would 
+       have been obtained if the transactions were executed sequentially. For coordination 
+       protocols this comes down to the locking mechanisms provided by the protocol: 
+       lock on write, lock on read, or no locking.
+     * Function call returning values: Some protocols allow function call return results
+    whereas others do not provide this capability. 
 
 
 
