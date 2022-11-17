@@ -36,7 +36,7 @@ Considerations:
 * Coordination protocols rely on messaging protocols communicating information from 
   remote chains honestly. 
 * The messaging protocol used to prove events occurred on one chain may be different
-  from that used to prove events occured on other chains, despite all of the chains 
+  from that used to prove events occurred on other chains, despite all of the chains 
   being involved in the same crosschain transaction. Having multiple messaging 
   protocols, one for each chain information will be transferred from, will increase 
   the complexity of the overall crosschain system. 
@@ -44,7 +44,7 @@ Considerations:
   finality time for transactions on different chains will depend on the consensus 
   protocol and other security parameters of the chain. Having this chain specific 
   configuration increases the complexity of the overall crosschain system.
-* Coordindation Protocols require at least two transactions per chain where updates 
+* Coordination Protocols require at least two transactions per chain where updates 
   occur, and the chain which acts as the coordination point also has at least two 
   transactions. This is in contrast to simplistic crosschain protocols that don't provide
   atomic updates across chains that require only one transaction per chain. The 
@@ -63,8 +63,7 @@ Considerations:
     provide locking and true atomicity. Not providing true atomicity means that 
     other transactions may interact with the transaction state prior to it being 
     rolled-back.
-     * Isolation: Crosschain transactions are executed concurrently with other crosschain
-       transactiosns and with single chain transactions (that is, non-crosschain transactions).
+     * Isolation: Crosschain transactions are executed concurrently with other transactions.
        That is, there could be multiple transactions reading from and writing to the state 
        of the same contract while a crosschain transaction is in progress. This occurs because
        the segments of crosschain transactions are not all executed simultaneously, and are 
