@@ -5,7 +5,7 @@ functionality and data on one blockchain to be combined with functionality on an
 blockchain. They allow state to be updated across two or more chains atomically, or
 for actions to occur on one chain based on the state of a contract on another chain.
 
-[General Purpose Atomic Crosschain Transactino (GPACT)](https://arxiv.org/abs/2011.12783)
+[General Purpose Atomic Crosschain Transaction (GPACT)](https://arxiv.org/abs/2011.12783)
 ([github](https://github.com/ConsenSys/gpact)) and [Cross Framework](https://datachainlab.github.io/cross-docs/)
 are examples of Coordination Protocols. Both are a type of [two-phase commitment protocol](https://en.wikipedia.org/wiki/Two-phase_commit_protocol).
 The first phase executes segments of the crosschain execution on various chains, recording a
