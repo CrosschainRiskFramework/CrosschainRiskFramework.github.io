@@ -49,7 +49,7 @@ Considerations:
   transactions. This is in contrast to simplistic crosschain protocols that don't provide
   atomic updates across chains that require only one transaction per chain. The 
   increased number of transactions means that the latency for applications using 
-  these protocols will be higher that for simplistic non-atomic protocols.
+  these protocols will be higher than for simplistic non-atomic protocols.
 * The incentivization at the application level must be designed such that parties
   executing the crosschain transactions for the application are incentivised to 
   unlock all provisional state updates on all chains, irrespective of the outcome
