@@ -37,6 +37,19 @@ While the above approaches offer better security guarantees because they remove 
   * What is the cost of bribing or corrupting a threshold of such validators to violate safety or liveness?
   * How does the bridge adapt to active misbehavior by a portion of the validators?
 
-* Optimistic approaches - honest minority (but incentive alignment that such a minority exists)
+* Optimistic approaches: rely on agents that validate cross-chain transactions by signing a merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify cross-chain transactions.
 
-A number of protocols employ a hybrid approach, that utilizes different approaches for different legs of the cross-chain interaction.
+  Considerations:
+  
+  * How many agents are employed by the bridge to sign and validate transactions? Is this set of agents centralized? If so, can the agents conduct a Denial-of-Service (DoS) attack by not signing a merkle root? In such cases, will the system halt?
+  * What exactly is the bonded stake of agents? Is it a bridge-specific token? What are the dynamics that drive the value of such tokens?
+  * What is the cost of bribing or corrupting the agents to violate safety? Is this correlated with the price of a token?
+  * Can agents, on their own or due to regulations, censor messages? Can such entities be removed from the set of agents to prevent censorship?
+  * How will the liveness of an application be affected if an agent faces downtime? Will the application stop receiving messages?
+  * How many actors are watching the network to detect fraudulent transactions?
+  * Can anyone monitor the system to detect fraudulent transactions? If not, and the set of actors watching the system is permissioned, does that make the cost of corrupting it known? 
+  * Is the optimistic bridge “spam-proof” – meaning can an actor watching the system arbitrarily dispute transactions without penalty? Can such actors permanently halt a communication channel by spamming it?
+  * Can anyone watching the system, on their own or due to regulations, censor messages? Can such entities be removed from the set of actors watching the system to prevent censorship?
+  * Do the actors watching the system have competing interests with users of the bridge? e.g. trading firms that could benefit from front-running a big volume cross-chain transaction or from cross-domain MEV?
+
+A number of protocols employ a hybrid approach to bridging that leverages different approaches for a more robust cross-chain solution. For example, Celer Inter-chain Message (Celer IM), utilizes a proof of stake approach by default but offers an optimistic-rollup inspired security model as a fallback solution in the worst-case scenario where validators behave maliciously in the PoS approach. 
