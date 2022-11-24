@@ -1,11 +1,11 @@
 ### Bridge Aggregation Protocols
-Bridge aggregators operate similarly to DEX aggregators. However, instead of DEXs, they integrate various bridges to facilitate the efficient movement of funds and data between blockchains. Since bridges support a limited number of tokens, aggregating only bridges is not enough. As a result, almost all bridge aggregators have also integrated DEXs and DEX aggregators on all the blockchains they support. 
+Bridge aggregators operate similarly to DEX aggregators. However, instead of DEXs, they integrate various bridges to facilitate the efficient movement of funds and data between blockchains. Since bridges support a limited number of tokens, aggregating only bridges is not enough. As a result, almost all bridge aggregators have also integrated DEXs and DEX aggregators on all the blockchains they support.
 
-Bridge aggregation is synonymous with liquidity aggregation – meaning bridge aggregators source liquidity from token bridges, DEXs, and DEX aggregators in order to algorithmically and efficiently move funds between blockchains. 
+Bridge aggregation is synonymous with liquidity aggregation – meaning bridge aggregators source liquidity from token bridges, DEXs, and DEX aggregators in order to algorithmically and efficiently move funds between blockchains.
 
-For example, if a user wants to swap USDC on Arbitrum to ETH on Ethereum, they would not be able to do so via a bridge aggregator that doesn’t support DEXs. However, a bridge aggregator with DEXs can facilitate such a cross-chain swap by bridging USDC from Arbitrum to Ethereum and then swapping it for ETH via a DEX (like Uniswap). 
+For example, if a user wants to swap USDC on Arbitrum to ETH on Ethereum, they would not be able to do so via a bridge aggregator that doesn’t support DEXs. However, a bridge aggregator with DEXs can facilitate such a cross-chain swap by bridging USDC from Arbitrum to Ethereum and then swapping it for ETH via a DEX (like Uniswap).
 
-In essence, bridge aggregators help users find the most optimal route for a cross-chain swap from token X on blockchain A to token Y on blockchain B in a single user interface. Furthermore, they enable users to compare alternate routes based on factors like cost, speed, security, and slippage, and choose the best one that fits their requirements and preferences. 
+In essence, bridge aggregators help users find the most optimal route for a cross-chain swap from token X on blockchain A to token Y on blockchain B in a single user interface. Furthermore, they enable users to compare alternate routes based on factors like cost, speed, security, and slippage, and choose the best one that fits their requirements and preferences.
 
 Most aggregators have an on-chain and an off-chain component for routing cross-chain transactions:
 
@@ -20,6 +20,7 @@ Bridge aggregation protocols can be classified based on how they interact with t
 In such systems, bridge aggregation protocols work in the background and do not directly interact with the end users. Instead, the bridge aggregation protocols are integrated into a dApp’s cross-chain service offering. For example, in [MetaMask Bridges](https://portfolio.metamask.io/bridge), cross-chain transfers are executed via two bridge aggregation protocols: [LI.FI](https://li.fi/) and [Socket](https://socket.tech/).
 
 The benefits of using a bridge aggregator over an individual bridge for dApps include:
+
 * Access to liquidity from multiple sources (bridges, DEXs, and DEX aggregators).
 * Connectivity with more blockchains.
 * No single point of failure, as bridge aggregators provide fallback solutions in the form of alternate bridges.
@@ -32,6 +33,7 @@ The benefits of using a bridge aggregator over an individual bridge for dApps in
 In such systems, bridge aggregation protocols interact directly with the end-user via front-ends hosted by them. For example, LI.FI and Socket offer bridge aggregation services directly to users via [TransferTo.xyz](https://transferto.xyz/swap) and [Bungee](https://bungee.exchange/), respectively.
 
 The benefits of using a bridge aggregator over an individual bridge for users include:
+
 * The convenience of having multiple bridges, DEXs, and DEX aggregators all on one platform saves users time and money.
 * Rather than assessing bridges and choosing which one to use, users get access to multiple bridges (and DEXs).
 * Finding the optimal route and quote for their cross-chain swap via routing algorithms.
