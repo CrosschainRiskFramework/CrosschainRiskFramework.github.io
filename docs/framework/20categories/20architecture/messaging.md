@@ -53,7 +53,7 @@ In this model, block headers from a source network are sent to a destination net
 - The increased complexity of building such protocols significantly increases implementation risk.
 
 ##### Off-chain Consensus Verification
-In this model, using zero-knowledge cryptography, an off-chain system (a Prover) receives blocks from a source network and generates proof of the consensus achieved on the block. The system then relays the proof and associated block header to a destination chain. The destination chain verifies the validity proof on-chain through logic implemented in a smart contract. This approach attempts to offload the complexity and some of the costs associated with *On-chain Consensus Verifying* schemes. These approaches are still nascent but could represent a promising path forward for trustless cross-chain messaging. Current constructions of such protocols are limited in the chains they support, complex and still very costly to operate. 
+In this model, an off-chain system called the *Prover* generates a validity proof (zero-knowledge proof) that a block from a source network has been finalized according to the source network's consensus rules. A Relayer then sends the validity proof and block header from a prover to one or more destination chains. Destination chains then use logic implemented in a smart contract (called the verifier) to verify the proof submitted by the Relayer. If the proof is correct, the associated block header can be used to prove messages from the source network.
 
 <figure markdown>
   ![Validity Proof Protocols](images/zk-bridges.png){width=700}
@@ -63,10 +63,12 @@ In this model, using zero-knowledge cryptography, an off-chain system (a Prover)
 The same considerations as those laid out for *On-chain Consensus Verification* schemes apply to these protocols. Additional considerations are listed below.
 **Considerations**
 
-- Is the role of prover permissionless? If not, the prover can censor transactions. 
-- If the prover role is permissioned, how many provers are there? Carrying out an eclipse attack against a single prover is more tractable than several provers.
+- Is the role of prover permissionless? 
+- If the prover role is permissioned: how many provers are there? What are the criteria for becoming a prover? In general, more provers are desirable. However, there are generally high costs to operating a prover. Some of the reasons why more provers are desirable are:
+    - Provers can technically censor transactions or become a source of liveness issues for the network
+    - Carrying out an eclipse attack against a single prover is more tractable than several provers.
 - Are there trusted setup assumptions of the underlying cryptographic mechanisms?
-- The increased complexity of building such protocols significantly increases implementation risk.
+- The increased complexity of building such protocols increases implementation risk.
 
 #### External Validator Protocols
 While the above approaches offer better security guarantees because they remove the need for additional trust assumptions, they are complex and costly to build and operate across diverse ecosystems. Hence, most cross-chain protocols introduce other sources of trust in the form of third-party attestors. In general, such models rely on trusted third parties serving as oracles that attest and relay state events occurring in a source network to a destination network. The security models of such bridges rely on the honest behavior of such attestors because they are game theoretically incentivized or have their reputation at stake. We generally distinguish between three categories of such bridges based on the security model they employ.
