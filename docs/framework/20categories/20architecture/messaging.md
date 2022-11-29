@@ -62,6 +62,7 @@ In this model, using zero-knowledge cryptography, an off-chain system (a Prover)
 
 The same considerations as those laid out for *On-chain Consensus Verification* schemes apply to these protocols. Additional considerations are listed below.
 **Considerations**
+
 - Is the role of prover permissionless? If not, the prover can censor transactions. 
 - If the prover role is permissioned, how many provers are there? Carrying out an eclipse attack against a single prover is more tractable than several provers.
 - Are there trusted setup assumptions of the underlying cryptographic mechanisms?
