@@ -15,10 +15,12 @@ The architecture of cross-chain messages is largely differentiated in how they o
 A protocol that performs one or both of the above verifications to ensure the validity of a remote network's state is considered *trustless*. Conversely, a protocol that relies on intermediaries vouching for the validity of a remote state is considered *trusted*, or *semi-trusted*. In line with this, four broad architectural patterns are identified below. The first two patterns, State Validating Bridges and Consensus Verifying Bridges, fall in the trustless category, while the other schemes rely on external validators to different degrees. 
 
 #### State Validating Bridges
-A state verification bridge involves one network validating both the state transitions and consensus rules of another, in effect achieving both properties stated above. This type of bridging retains the strongest guarantees of the underlying networks and does not introduce new trust assumptions. The native bridge between rollups (Optimistic and ZK rollups) and their underlying layer-1 employ this model. While this model offers significant security advantages applying it across independent layer-1 networks is complex, costly, and not broadly viable at present.  
+A state validation bridge involves networks validating both the state transitions and consensus rules of one another, achieving both properties stated above. This type of bridging inherits the security guarantees of the underlying networks and does not introduce new trust assumptions. 
+
+Currently, the only examples of such architecture are the native bridges between layer one networks and their associated rollups (Optimistic and Zero-Knowledge rollups). In such models, there is, in effect, only a single source of truth, the state of the layer one network. This is different from cross-chain communication across independent layer one networks. While this model offers significant security advantages applying it across separate networks is currently not viable. 
 
 <figure markdown>
-  ![state validating bridges](images/state-validating-bridges.png){width=700}
+  ![State Validating Bridges](images/state-validating-bridges.png){width=650}
   <figcaption>State Validating Bridges</figcaption>
 </figure>
 
@@ -30,7 +32,7 @@ In a light-client verification bridge, a destination network validates that a gi
 These involve implementing the light-client protocol as a smart contract on another. Typically block headers are relayed from the source network to the smart contract on a destination network for validation. An arbitrary state in a source network can then be proved against a validated block header stored by the smart contract on the destination network. Implementing, operating, and maintaining light-client-based bridges can be difficult, expensive, or infeasible, making this difficult to apply across diverse ecosystems.
 
 <figure markdown>
-  ![consensus validating bridges](images/consensus-verifying-bridges.png){width=700}
+  ![consensus validating bridges](images/consensus-verifying-bridges.png){width=650}
   <figcaption>Consensus Verifying Bridges</figcaption>
 </figure>
 
@@ -44,13 +46,13 @@ These involve implementing the light-client protocol as a smart contract on anot
 While the above approaches offer better security guarantees because they remove the need for additional trust assumptions, they are complex and costly to build and operate across diverse ecosystems. Hence, most cross-chain protocols introduce other sources of trust in the form of third-party attestors. In general, such models rely on trusted third parties serving as oracles that attest and relay state events occurring in a source network to a destination network. The security models of such bridges rely on the honest behavior of such attestors because they are game theoretically incentivized or have their reputation at stake. We generally distinguish between three categories of such bridges based on the security model they employ.
 
 <figure markdown>
-  ![external validator set bridges](images/external-validator-set-bridges.png){width=700}
+  ![external validator set bridges](images/external-validator-set-bridges.png){width=650}
   <figcaption>External Validator Set Bridges</figcaption>
 </figure>
 
 <figure markdown>
-  ![external validator set bridges](images/external-validator-network-bridges.png){width=700}
-  <figcaption>External Validator Set Bridges</figcaption>
+  ![External Validator Set with Networ](images/external-validator-network-bridges.png){width=700}
+  <figcaption>External Validator Set - using intermediary network</figcaption>
 </figure>
 
 #### Proof-of-Authority 
