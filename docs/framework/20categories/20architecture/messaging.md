@@ -1,26 +1,64 @@
 ### Messaging Protocol
+Messaging protocols provide the following three foundational capabilities that are relied upon by cross-chain applications.
 
-A cross-chain messaging protocol is responsible for communicating state transition events from applications on one network to applications on another. It should guarantee that these events are valid according to the canonical ledger state of the source network (safety) and ensure that all relevant state transitions are eventually communicated to their destination network (liveness).
+1. Transmission of state information from a source network to a destination network
+1. Ensuring the validity of any information from a foreign network
+1. Executing state changes as a consequence of a message from a foreign network
 
-From the perspective of safety, an ideal message protocol construction would not introduce additional trust assumptions beyond what is assumed about the networks themselves. This would involve destination networks independently verifying that:
-1. A state transition that resulted in a given message is valid according to the state transition rules of the source network and
-1. That the message has been finalized on the network as per the network consensus rules of the source.
+Messaging protocols must ensure the transmission and eventual execution of all cross-chain messages (capabilities 1 and 3) while providing strong guarantees on the validity of cross-chain events (capability 2), according to the canonical ledger state of the source network. The former mainly highlights liveness and censorship resistance considerations, while the latter relates to safety.
+
+The architecture of cross-chain messages is largely differentiated in how they offer guarantees around safety (capability 2). An ideal message protocol construction would introduce no additional trust assumptions beyond what is assumed about the networks. This would involve destination networks independently:
+
+1. Validating that a state transition that resulted in a given message is valid according to the state transition rules of the source network and
+1. Verifying that the message is final on the network as per the consensus rules of the source network.
+
+A protocol that performs one or both of the above verifications to ensure the validity of a remote network's state is considered *trustless*. Conversely, a protocol that relies on intermediaries vouching for the validity of a remote state is considered *trusted*, or *semi-trusted*. In line with this, four broad architectural patterns are identified below. The first two patterns, State Validating Bridges and Consensus Verifying Bridges, fall in the trustless category, while the other schemes rely on external validators to different degrees. 
 
 #### State Validating Bridges
-A state verification bridge involves one network validating state transitions and consensus rules of another, in effect achieving both properties stated above. This type of bridging retains the strongest guarantees of the underlying networks and does not introduce new trust assumptions. The native bridge between rollups (Optimistic and ZK rollups) and their underlying layer-1 employ this model. While this model offers significant security advantages applying it across independent layer-1 networks is complex, costly, and not broadly viable at present.  
+A state verification bridge involves one network validating both the state transitions and consensus rules of another, in effect achieving both properties stated above. This type of bridging retains the strongest guarantees of the underlying networks and does not introduce new trust assumptions. The native bridge between rollups (Optimistic and ZK rollups) and their underlying layer-1 employ this model. While this model offers significant security advantages applying it across independent layer-1 networks is complex, costly, and not broadly viable at present.  
+
+<figure markdown>
+  ![state validating bridges](images/state-validating-bridges.png){width=700}
+  <figcaption>State Validating Bridges</figcaption>
+</figure>
 
 #### Consensus Verifying Bridges
 In a light-client verification bridge, a destination network validates that a given block header (or state aggregate) from a source network is valid only according to the consensus rules of a network without executing and verifying individual state transitions. While light clients offer less security compared to full-client-based approaches, they, too, do not introduce additional trust assumptions beyond those of the underlying networks. Light-client protocols do not have the same security assumptions and guarantees. The security guarantees of such bridges are subject to these limitations. We distinguish between two categories of light-client bridges:
 
-* On-chain light-client protocol implementations: these involve implementing the light-client protocol as a smart contract on another. Typically block headers are relayed from the source network to the smart contract on a destination network for validation. An arbitrary state in a source network can then be proved against a validated block header stored by the smart contract on the destination network. Implementing, operating, and maintaining light-client-based bridges can be difficult, expensive, or infeasible, making this difficult to apply across diverse ecosystems.
-* Validity Proof Bridges (aka ZK bridges)
+#### On-chain Consensus Verifying Bridges (aka Light-client bridges)
+
+These involve implementing the light-client protocol as a smart contract on another. Typically block headers are relayed from the source network to the smart contract on a destination network for validation. An arbitrary state in a source network can then be proved against a validated block header stored by the smart contract on the destination network. Implementing, operating, and maintaining light-client-based bridges can be difficult, expensive, or infeasible, making this difficult to apply across diverse ecosystems.
+
+<figure markdown>
+  ![consensus validating bridges](images/consensus-verifying-bridges.png){width=700}
+  <figcaption>Consensus Verifying Bridges</figcaption>
+</figure>
+
+#### Validity Proof Bridges (aka ZK bridges)
+<figure markdown>
+  ![Validity Proof Bridges](images/zk-bridges.png){width=700}
+  <figcaption>Validaity Proof Bridges (ZK Bridges)</figcaption>
+</figure>
 
 #### External Validator Bridges
 While the above approaches offer better security guarantees because they remove the need for additional trust assumptions, they are complex and costly to build and operate across diverse ecosystems. Hence, most cross-chain protocols introduce other sources of trust in the form of third-party attestors. In general, such models rely on trusted third parties serving as oracles that attest and relay state events occurring in a source network to a destination network. The security models of such bridges rely on the honest behavior of such attestors because they are game theoretically incentivized or have their reputation at stake. We generally distinguish between three categories of such bridges based on the security model they employ.
 
-* Proof-of-Authority approaches: rely on well-known legal entities running nodes that attest to the validity of messages from one network to another. Such bridges assume that a) parties are strongly incentivized to maintain their reputation and would thus not misbehave and b) that in the event of misbehavior, legal recourse could be pursued against such entities.
+<figure markdown>
+  ![external validator set bridges](images/external-validator-set-bridges.png){width=700}
+  <figcaption>External Validator Set Bridges</figcaption>
+</figure>
+
+<figure markdown>
+  ![external validator set bridges](images/external-validator-network-bridges.png){width=700}
+  <figcaption>External Validator Set Bridges</figcaption>
+</figure>
+
+#### Proof-of-Authority 
+
+Rely on well-known legal entities running nodes that attest to the validity of messages from one network to another. Such bridges assume that a) parties are strongly incentivized to maintain their reputation and would thus not misbehave and b) that in the event of misbehavior, legal recourse could be pursued against such entities.
 
   Considerations:
+
   * How many such entities are employed by the network? What are the specific honesty threshold assumptions for guaranteeing safety and liveness? What are the particular characteristics of the cryptographic schemes used?
   * How reputable are such entities? What is the actual cost of reputational damage for such entities? What is the market cap of such entities?
   * Do such entities have competing interests with users of this bridge? e.g., Trading firms that might benefit from cross-domain MEV?
@@ -29,7 +67,9 @@ While the above approaches offer better security guarantees because they remove 
   * Can regulations coerce these entities to censor transactions?
 
 
-* Proof-of-Stake approaches: rely on a set of parties having a financial stake in honestly relaying valid state information from one network to another.
+#### Proof-of-Stake
+
+Rely on a set of parties having a financial stake in honestly relaying valid state information from one network to another.
 
   Considerations:
   * How many such entities are employed by the network? What are the specific honesty threshold assumptions for guaranteeing safety and liveness? What are the particular characteristics of the cryptographic schemes used?
@@ -38,7 +78,8 @@ While the above approaches offer better security guarantees because they remove 
   * What is the cost of bribing or corrupting a threshold of such validators to violate safety or liveness?
   * How does the bridge adapt to active misbehavior by a portion of the validators?
 
-* Optimistic approaches: rely on agents that validate cross-chain transactions by signing a merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify cross-chain transactions.
+#### Optimistic 
+Rely on agents that validate cross-chain transactions by signing a merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify cross-chain transactions.
 
   Considerations:
   
