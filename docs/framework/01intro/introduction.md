@@ -1,33 +1,26 @@
 # Introduction
+With several layer-one protocols gaining meaningful traction over the last couple of years and layer-two protocols taking [center stage in the scalability roadmap for Ethereum](https://vitalik.ca/general/2021/12/06/endgame.html), it is increasingly becoming clear that the future will be multichain. This thesis is further reinforced by emerging patterns such as modular blockchains, application-specific chains, and fractal scaling. A multichain world is one in which disparate chains co-exist as thriving ecosystems. 
 
-Risk is the measure of the extent to which an entity is threatened by potential circumstances or events, and is typically a function of (i) the adverse impacts that would arise if the circumstance or event occurs, and (ii) the likelihood of occurrence.  [NIST - National Institute of Standards and Technology]
+In the absence of a countervailing force, the proliferation of chains would naturally lead to increased fragmentation and the siloing of ecosystems. Crosschain protocols directly address this problem by enabling interoperation across distinct chains. They reduce fragmentation, enable scalability, and improve market efficiency. In addition, such protocols potentially open up new design spaces for novel crosschain native applications and use cases. Hence, crosschain protocols have emerged as a crucial building block enabling the multichain future. 
 
-This document provides a high-level systematic overview of the security risks in cross-chain protocols by identifying, classifying, and analyzing the elements of risk inherent in the design, implementation and operation of such infrastructure. In addition, it profers a set of risk-controls and best practices to mitigate the likelihood and magnitude of various risks. While this document offers a general toolkit for reasoning about cross-chain protocols, it does not directly analyse individual protocols.
+The growth and adoption of such protocols over the last couple of years have been astounding. The total value locked in token bridges on Ethereum alone, which only offers a partial picture of the scale of adoption of such protocols, reached a high of $27B in late 2021, growing more than ten-fold from six months prior. There are currently numerous crosschain-focused projects and significant venture capital funding backing such efforts.
 
-## Crosschain Communication Protocols
+The flip side to this rapid growth and adoption has been the slew of high-profile hacks and failures of these protocols. Between 2021 and 2022, more than $2.5B was stolen due to bridge hacks. This is more than two-thirds of all DeFI hacks within that period. In addition, roughly $1B was at risk from vulnerabilities discovered in such protocols. The knock-on effects of these failures included extended halts of several underlying chains and notable regulatory scrutiny. Overall, these events have undermined confidence in crosschain infrastructure and the viability of a multichain future. They have also highlighted shortcomings in how crosschain protocols are designed, built, and operated today and the need to understand their risks and challenges better.
 
-**Working definition**: ...
+To this end, this document provides a high-level systematic overview of the security risks in crosschain protocols by identifying, classifying, and analyzing the risk elements inherent in the design, implementation, and operation of such infrastructure. In addition, it offers a set of risk controls and best practices to mitigate the likelihood and severity of risks. While this document provides a general toolkit for reasoning about crosschain protocols, it does not directly analyze individual protocols. The ultimate objective of this document is to enable progress toward more secure, robust, and decentralized crosschain infrastructures that can serve as solid foundations for a multichain future. 
 
-**Modalities of Cross-chain Communication**: ...
+## Types of Crosschain Interaction
+Broadly defined, crosschain protocols enable the exchange of data and value across chains through one of the following three types of interactions:
 
-- Asset Exchange
+-  **Asset Exchange:** The transfer of ownership of an asset in one network for a corresponding change of ownership in another.
+- **Asset Transfer:** The movement of the value of an asset from a source ledger to a destination ledger. This typically involves locking an asset in the source ledger and minting a synthetic representation on the destination ledger. 
+- **General-purpose Messaging:** The transfer of arbitrary data across chains for the purposes of orchestrating general crosschain application behaviors. 
 
-- Asset Transfer
+## Security Risks
+At its essence, crosschain communication creates a dependency relationship between two or more networks. Such dependency relationships typically involve state change in one network driving state change in another. These relationships can be _unidirectional_ or _bidirectional_, _transient_ or _persistent_. The goal of crosschain protocols is to enable and guarantee the integrity of these dependencies. Specifically, given two networks, a source, and a destination, where the state in the destination network is dependent on the state in the source network, crosschain protocols must guarantee the following core security properties:
 
-- General Purpose Communication:
+1. Only states that are valid and final in the source network are communicated to the destination network
+1. All relevant state transitions in the source network are relayed to the destination network in a timely manner
+1. Any invariants that emerge from the crosschain interactions are always preserved
 
-## Security Challenges
-At its essence, cross-chain communications create dependency relationships between two or more networks. Such dependency relationships typically involve state change in one network driving state change in another. These relationships can be _unidirectional_ or _bidirectional_, _transient_ or _persistent_.  The goal of cross-chain protocols is to enable and guarantee the integrity of these dependencies. To this end, given two networks, a source network and a destination network, where the state in the destination network is dependent on the state in the source network, cross-chain protocols must satisfy the following core properties:
-
-1. only states that are valid in the canonical ledger of the source network are communicated to the destination
-
-1. all relevant state transitions in the source network are relayed to the destination network in a timely manner
-
-1. any invariants that emerge from the cross-chain interactions are always preserved e.g. total supply of wrapped asset in the destination matches supply of underlying native asset in the source.
-
-
-TBA
-- _note about the size scale and magnitude of hacks_
-- _challenges in systematically reasoning about the Security and risk in this space_
-
-## Purpose and Scope of this Framework
+This document primarily discusses and assesses the risk of crosschain protocols by considering factors that affect these core security requirements. 
