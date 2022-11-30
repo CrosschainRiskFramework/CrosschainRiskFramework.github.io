@@ -17,14 +17,14 @@ A protocol that performs one or both of the above verifications to ensure the va
 #### State Validating Protocols
 In *State Validating Protocols*, a destination chain independently verifies that any state it receives is valid and final according to the source network's state transition and consensus rules. This model inherits the security guarantees of the underlying networks without introducing new trust assumptions.  
 
-The only examples of such architecture, at present, are the native bridges between layer-one networks and their associated rollups (Optimistic and Zero-Knowledge rollups). In such models, there is, in effect, only a single source of truth, the state of the layer-one network. This is different from cross-chain communication across independent layer-one networks. Hence, while this model offers significant security advantages applying it across separate networks is currently not viable. However, with advances in Zero-Knowledge cryptography, this could change.
+The only examples of such architecture, at present, are the native bridges between layer-one networks and their associated rollups (Optimistic and Zero-Knowledge rollups). In such models, there is, in effect, only a single source of truth, the state of the layer-one network. This is different from cross-chain communication across independent layer-one networks. Hence, while this model offers significant security advantages, applying it across separate networks is currently not viable. However, with advances in Zero-Knowledge cryptography, this could change.
 
 <figure markdown>
   ![State Validating Protocols](images/state-validating-bridges.png){width=650}
   <figcaption>State Validating Protocols</figcaption>
 </figure>
 
-**Considerations:** While this approach offers strong security guarantees from a design perspective, it is worth noting that implementation and operational risks are still present.
+*Considerations:* While this approach offers strong security guarantees from a design perspective, it is worth noting that implementation and operational risks are still present.
 
 #### Consensus Verifying Protocols
 In *Consensus Verifying Protocols*, a destination network independently verifies that any state received from a source chain has been finalized according to the source chain's consensus rules. Unlike *State Validating Protocols*, this approach does not execute or verify that the transaction that created the state is valid. Hence, this approach offers less security than *State Validating Protocols*. However, like *State Validating Protocols*, it does not introduce additional trust assumptions beyond those of the underlying networks. 
@@ -104,7 +104,7 @@ Proof-of-Authority models rely on reputable legal entities serving as attestors.
   * Do such entities have competing interests with users of this bridge? e.g., Trading firms that might benefit from cross-domain MEV?
   * Can the claims around decentralization be verified on-chain? For instance: 
     * The number of validators and the threshold for achieving a quorum. Multi-signature schemes are easier to verify on-chain compared to MPC or threshold signature schemes. 
-    * The active validator set. While a bridge might employ many validators, it is possible that only a few actively participate in validating and attesting to messages. This could be because the economics of validating messages are not worthwhile to some validators. This means that the effective validator set is smaller, and the decentralization and security guarantees of the bridge weaker. The Ronin bridge hack highlights an example of this scenario.
+    * The active validator set. While a bridge might employ many validators, it is possible that only a few actively participate in validating and attesting to messages. This could be because the economics of validating messages are not worthwhile to some validators. This means that the effective validator set is smaller, and the decentralization and security guarantees of the bridge weaker. The [Ronin bridge hack](https://rekt.news/ronin-rekt/) highlights an example of this scenario.
   * How do the above disincentives to misbehavior compare against the TVL or total volume transacted by layers atop the messaging bridge?
   * In what jurisdictions are the entities domiciled?
   * Can regulations coerce these entities to censor transactions?
@@ -117,16 +117,16 @@ Proof-of-Stake models rely on validators having financial incentives to behave h
 
   * How many distinct attestors does the protocol have? What are the specific thresholds for guaranteeing safety and liveness? What are the particular characteristics of the cryptographic schemes used?
   * Can the claims around decentralization be verified on-chain? For instance: 
-    * the distribution of staked tokens across validators (i.e., concentrated amongst few parties vs. diffuse across many parties)
-    * the number of validators and the threshold for achieving a quorum (multi-signature schemes might be easier to verify on-chain than threshold signature schemes). 
-    * the active validator set. While a bridge might employ many validators, it is possible that only a few actively participate in validating and attesting to messages. 
+    * The distribution of staked tokens across validators (i.e., concentrated amongst few parties vs. diffuse across many parties)
+    * The number of validators and the threshold for achieving a quorum (multi-signature schemes might be easier to verify on-chain than threshold signature schemes). 
+    * The active validator set. While a bridge might employ many validators, it is possible that only a few actively participate in validating and attesting to messages. 
   * What exactly is staked by validators? Is it a bridge-specific token? What are the dynamics that drive the value of such tokens? How liquid is the token?
   * How does the value of staked funds compare against the volume of assets transacted across the bridge?
   * What is the cost of bribing or corrupting a threshold of such validators to violate safety or liveness?
   * How does the bridge adapt to active misbehavior by a portion of the validators?
 
 #### Optimistic Protocols
-Rely on agents that validate cross-chain transactions by signing a merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify cross-chain transactions.
+Optimistic protocols rely on agents that validate cross-chain transactions by signing a merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify cross-chain transactions.
 
   *Considerations*
   
