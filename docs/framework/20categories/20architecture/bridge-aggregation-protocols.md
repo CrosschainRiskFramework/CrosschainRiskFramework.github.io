@@ -20,6 +20,7 @@ Bridge aggregation protocols can be classified based on how they interact with t
 In such systems, bridge aggregation protocols work in the background and do not directly interact with the end users. Instead, the bridge aggregation protocols are integrated into a dApp’s cross-chain service offering. For example, in [MetaMask Bridges](https://portfolio.metamask.io/bridge), cross-chain transfers are executed via two bridge aggregation protocols: [LI.FI](https://li.fi/) and [Socket](https://socket.tech/).
 
 The benefits of using a bridge aggregator over an individual bridge for dApps include:
+
 * Access to liquidity from multiple sources (bridges, DEXs, and DEX aggregators).
 * Connectivity with more blockchains.
 * No single point of failure, as bridge aggregators provide fallback solutions in the form of alternate bridges.
@@ -32,6 +33,7 @@ The benefits of using a bridge aggregator over an individual bridge for dApps in
 In such systems, bridge aggregation protocols interact directly with the end-user via front-ends hosted by them. For example, LI.FI and Socket offer bridge aggregation services directly to users via [TransferTo.xyz](https://transferto.xyz/swap) and [Bungee](https://bungee.exchange/), respectively.
 
 The benefits of using a bridge aggregator over an individual bridge for users include:
+
 * The convenience of having multiple bridges, DEXs, and DEX aggregators all on one platform saves users time and money.
 * Rather than assessing bridges and choosing which one to use, users get access to multiple bridges (and DEXs).
 * Finding the optimal route and quote for their cross-chain swap via routing algorithms.
