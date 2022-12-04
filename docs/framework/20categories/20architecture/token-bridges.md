@@ -26,7 +26,7 @@ From a design perspective, there are two inherent risks that this model creates:
 
 #### Burn and Mint 
 
-Some assets have a specified issuer that can authoritatively mint original assets on several networks (e.g., Circle for USDC). A user that holds such assets in one network might want to swap them for the same asset in another network. While [Liquidity Networks]() generally satisfy this requirement, an issuer might want to rebalance the supply of these assets across networks based on differences in demand.  
+Some assets have a specified issuer that can authoritatively mint original assets on several networks (e.g., Circle for USDC). A user that holds such assets in one network might want to swap them for the same asset in another network. While [Liquidity Networks](liquidity-networks.md) generally satisfy this requirement, an issuer might want to rebalance the supply of these assets across networks based on differences in demand.  
 
 Token bridges address this requirement through a burn-and-mint mechanism. Specifically, to move an asset from one network to another, the asset is first burnt on the source and an equivalent amount minted on the destination. The burning-and-minting of the asset is performed by the asset's smart contract, while the token bridge orchestrates the required actions across chains using an underlying messaging protocol.
 
