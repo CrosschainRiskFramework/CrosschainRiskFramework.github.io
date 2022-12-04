@@ -30,7 +30,7 @@ Some assets have a specified issuer that can authoritatively mint original asset
 
 Token bridges address this requirement through a burn-and-mint mechanism. Specifically, to move an asset from one network to another, the asset is first burnt on the source and an equivalent amount minted on the destination. The burning-and-minting of the asset is performed by the asset's smart contract, while the token bridge orchestrates the required actions across chains using an underlying messaging protocol.
 
-The risk posed by this mechanism is comparatively lower than lock-and-mint mechanisms for a couple of reasons: 1) it does not require locking assets and creating honeypots 2) token holders hold original assets instead of bridge-specific IOUs.  
+The risk posed by this mechanism is comparatively lower than lock-and-mint mechanisms for a couple of reasons: 1) it does not create honeypots 2) token holders possess original assets instead of bridge-specific IOUs.  
 
 *Considerations:*
 
