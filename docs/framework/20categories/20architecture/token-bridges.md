@@ -1,5 +1,5 @@
 ### Token Bridges
-One of the most common cross-chain use cases is the [transfers of assets](../../01intro/introduction.md#types-of-crosschain-interaction) from one network to another to be used in applications in the destination network. For instance, a user might want to transfer her ETH from Ethereum to Avalanche so she can use it as collateral in a lending protocol on Avalanche. A token bridge is a protocol that enables this requirement.
+One of the most common cross-chain use cases is the [transfer of assets](../../01intro/introduction.md#types-of-crosschain-interaction) from one network to another. This enables an asset in one network to be used inside applications in another. For instance, a user might want to transfer her ETH from Ethereum to Avalanche so she can use it as collateral in a lending protocol on Avalanche. A token bridge is a protocol that enables this requirement.
 
 A core security requirement of such a protocol is preventing cross-chain double-spends by ensuring that the original asset's value can only be realized in one network. There are two models for enabling this requirement, depending on the characteristics of the underlying asset.
 
