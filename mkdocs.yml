@@ -17,12 +17,14 @@ plugins:
       enable_creation_date: true
 nav:
   - Introduction: "framework/01intro/introduction.md"
-  - Stakeholders: "framework/10stakeholders/stakeholders.md"
   - Categories of Risk: "framework/20categories/categories-of-risk.md"
-  - Comparison: "comparison/comparison.md"
+  - Network Consensus Risk: "framework/20categories/10network/network.md"
+  - Protocol Architecture Risk: "framework/20categories/20architecture/architecture.md"
+  - Protocol Implementation Risk: "framework/20categories/30implementation/protocol-implementation-risk.md"
+  - Protocol Operational Risk: "framework/20categories/40operation/protocol-operation-risk.md"
   - Contributions: "authors/contributions.md"
   - FAQ: "faq/faq.md"
-  - Reference: "reference/ref.md"
+  - References: "reference/ref.md"
 
 
 # Provide access to emojis, used for the authors page:

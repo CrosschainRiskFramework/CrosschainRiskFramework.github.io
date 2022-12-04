@@ -1,22 +1,22 @@
 ### Messaging Protocol
-Messaging protocols provide the following three foundational capabilities that are relied upon by cross-chain applications.
+Messaging protocols provide the following three foundational capabilities that are relied upon by crosschain applications.
 
 1. Transmission of state information from a source network to a destination network
 1. Ensuring the validity of any information from a foreign network
 
-Messaging protocols must ensure the transmission of all cross-chain messages (capability 1) while providing strong guarantees on the validity of cross-chain events (capability 2) according to the canonical ledger state of the source network. The former mainly highlights liveness and censorship resistance considerations, while the latter relates to safety.
+Messaging protocols must ensure the transmission of all crosschain messages (capability 1) while providing strong guarantees on the validity of crosschain events (capability 2) according to the canonical ledger state of the source network. The former mainly highlights liveness and censorship resistance considerations, while the latter relates to safety.
 
-The architecture of cross-chain messages is largely differentiated in how they offer guarantees around safety (capability 2). An ideal construction would introduce no additional trust assumptions beyond what is assumed about the networks. This would involve destination networks independently:
+The architecture of crosschain messages is largely differentiated in how they offer guarantees around safety (capability 2). An ideal construction would introduce no additional trust assumptions beyond what is assumed about the networks. This would involve destination networks independently:
 
 1. Validating that a state transition that resulted in a given message is valid according to the state transition rules of the source network and
 1. Verifying that the message is final on the network as per the consensus rules of the source network.
 
-A protocol that performs one or both of the above verifications to ensure the validity of a remote network's state is considered *trustless*. Conversely, a protocol that relies on intermediaries, or a subset of network validators, vouching for the validity of a remote state is considered *trusted*, or *semi-trusted*. In line with this, four broad architectural patterns are identified below. Not all cross-chain protocols in the wild neatly fit into these categories, and some employ hybrid approaches. 
+A protocol that performs one or both of the above verifications to ensure the validity of a remote network's state is considered *trustless*. Conversely, a protocol that relies on intermediaries, or a subset of network validators, vouching for the validity of a remote state is considered *trusted*, or *semi-trusted*. In line with this, four broad architectural patterns are identified below. Not all crosschain protocols in the wild neatly fit into these categories, and some employ hybrid approaches. 
 
 #### State Validating Protocols
 In *State Validating Protocols*, a destination chain independently verifies that any state it receives is valid and final according to the source network's state transition and consensus rules. This model inherits the security guarantees of the underlying networks without introducing new trust assumptions.  
 
-The only examples of such architecture, at present, are the native bridges between layer-one networks and their associated rollups (Optimistic and Zero-Knowledge rollups). In such models, there is, in effect, only a single source of truth, the state of the layer-one network. This is different from cross-chain communication across independent layer-one networks. Hence, while this model offers significant security advantages, applying it across separate networks is currently not viable. However, with advances in Zero-Knowledge cryptography, this could change.
+The only examples of such architecture, at present, are the native bridges between layer-one networks and their associated rollups (Optimistic and Zero-Knowledge rollups). In such models, there is, in effect, only a single source of truth, the state of the layer-one network. This is different from crosschain communication across independent layer-one networks. Hence, while this model offers significant security advantages, applying it across separate networks is currently not viable. However, with advances in Zero-Knowledge cryptography, this could change.
 
 <figure markdown>
   ![State Validating Protocols](images/state-validating-bridges.png){width=650}
@@ -30,7 +30,7 @@ In *Consensus Verifying Protocols*, a destination network independently verifies
 
 Examples of the type of verification performed by *Consensus Verifying Protocotols* include checking that sufficient proof-of-work has been expended on a block, in the case of Proo-of-Work protocols, or that a quorum of network validators has signed a block in BFT-based protocols. A *Consensus Verifying Protocol*, in effect, implements a light-client protocol of a source network on a  destination network and thus inherits the associated light-client protocol's security properties, limitations, and potential attack vectors. 
 
-A significant constraint to the overall viability of such approaches is the complexity associated with building and maintaining such protocols and the prohibitive costs associated with operating them. In addition, the cost of running such infrastructure is a factor of the source network's block production rate rather than a function of the demand for cross-chain messaging. Hence, such bridges might need to charge high fees and gain significant usage to offset operation costs. 
+A significant constraint to the overall viability of such approaches is the complexity associated with building and maintaining such protocols and the prohibitive costs associated with operating them. In addition, the cost of running such infrastructure is a factor of the source network's block production rate rather than a function of the demand for crosschain messaging. Hence, such bridges might need to charge high fees and gain significant usage to offset operation costs. 
 
 There are two distinct models for constructing *Consensus Verifying Protocols*. They primarily differ based on whether the consensus verification is performed on-chain or off-chain. 
 
@@ -72,7 +72,7 @@ The same considerations as those laid out for *On-chain Consensus Verification* 
 - The increased complexity of building such protocols increases implementation risk.
 
 #### Third-party Attestation Protocols
-While the above approaches offer better security guarantees because they remove the need for additional trust assumptions, they are complex and costly to build, operate, and scale across diverse ecosystems. Hence, most cross-chain protocols introduce intermediary sources of trust in the form of third-party attestors (also referred to as validators). These third-party attestors attest to the validity of states in a source network and then relay them over to a destination network. These protocols generally require a majority of attestors to certify a state for it to be considered valid by a destination chain. 
+While the above approaches offer better security guarantees because they remove the need for additional trust assumptions, they are complex and costly to build, operate, and scale across diverse ecosystems. Hence, most crosschain protocols introduce intermediary sources of trust in the form of third-party attestors (also referred to as validators). These third-party attestors attest to the validity of states in a source network and then relay them over to a destination network. These protocols generally require a majority of attestors to certify a state for it to be considered valid by a destination chain. 
 
 <figure markdown>
   ![third-party attestation bridges](images/external-validator-set-bridges.png){width=650}
@@ -126,7 +126,7 @@ Proof-of-Stake models rely on validators having financial incentives to behave h
   * How does the bridge adapt to active misbehavior by a portion of the validators?
 
 #### Optimistic Protocols
-Optimistic protocols rely on agents that validate cross-chain transactions by signing a merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify cross-chain transactions.
+Optimistic protocols rely on agents that validate crosschain transactions by signing a merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify crosschain transactions.
 
   *Considerations*
   
@@ -139,6 +139,6 @@ Optimistic protocols rely on agents that validate cross-chain transactions by si
   * Can anyone monitor the system to detect fraudulent transactions? If not, and the set of actors watching the system is permissioned, does that make the cost of corrupting it known? 
   * Is the optimistic bridge “spam-proof” – meaning can an actor watching the system arbitrarily dispute transactions without penalty? Can such actors permanently halt a communication channel by spamming it?
   * Can anyone watching the system, on their own or due to regulations, censor messages? Can such entities be removed from the set of actors watching the system to prevent censorship?
-  * Do the actors watching the system have competing interests with users of the bridge? e.g. trading firms that could benefit from front-running a big volume cross-chain transaction or from cross-domain MEV?
+  * Do the actors watching the system have competing interests with users of the bridge? e.g. trading firms that could benefit from front-running a big volume crosschain transaction or from cross-domain MEV?
 
-A number of protocols employ a hybrid approach to bridging that leverages different approaches for a more robust cross-chain solution. For example, Celer Inter-chain Message (Celer IM), utilizes a proof of stake approach by default but offers an optimistic-rollup inspired security model as a fallback solution in the worst-case scenario where validators behave maliciously in the PoS approach. 
+A number of protocols employ a hybrid approach to bridging that leverages different approaches for a more robust crosschain solution. For example, Celer Inter-chain Message (Celer IM), utilizes a proof of stake approach by default but offers an optimistic-rollup inspired security model as a fallback solution in the worst-case scenario where validators behave maliciously in the PoS approach. 

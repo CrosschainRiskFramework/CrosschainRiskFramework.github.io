@@ -1,7 +1,7 @@
 # Crosschain Risk Framework
 
 The [Crosschain Risk Framework](https://crosschainriskframework.github.io/) website provides a high-level systematic
-overview of the security risks in cross-chain protocols by identifying,
+overview of the security risks in crosschain protocols by identifying,
 classifying, and analyzing the elements of risk inherent in the design,
 implementation and operation of such infrastructure. In addition, it
 profers a set of risk-controls and best practices to mitigate the

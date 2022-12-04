@@ -1,4 +1,4 @@
-## Protocol Operation Risk
+# Protocol Operation Risk
 
 {% include-markdown "operational-security.md" %}
 {% include-markdown "ability-pause.md" %}
