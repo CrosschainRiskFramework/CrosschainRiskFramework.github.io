@@ -1,4 +1,4 @@
-## Network Consensus Risk
+# Network Consensus Risk
 Cross-chain protocols enable the coordination of state changes across networks. This typically requires sending state information from a source network to one or more destination networks and performing consequent state changes. A fundamental assumption in this process is that: a) states in the source network are valid and final according to its consensus rules, and b) the underlying network can process all transactions in a timely manner.
 
 From the perspective of risk in cross-chain protocols, there are at least three considerations relating to these assumptions:

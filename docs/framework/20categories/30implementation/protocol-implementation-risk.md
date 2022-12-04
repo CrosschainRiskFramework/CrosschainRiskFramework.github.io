@@ -1,4 +1,4 @@
-## Protocol Implementation Risk
+# Protocol Implementation Risk
 
 The design of contracts and code implementation changes the risk 
 profile of the project. This section discusses design features 
