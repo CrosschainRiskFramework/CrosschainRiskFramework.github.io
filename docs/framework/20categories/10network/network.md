@@ -2,6 +2,7 @@
 Crosschain protocols enable the coordination of state changes across networks. This typically requires sending state information from a source network to one or more destination networks and performing consequent state changes. A fundamental assumption in this process is that: a) states in the source network are valid and final according to its consensus rules, and b) the underlying network can process all transactions in a timely manner.
 
 From the perspective of risk in crosschain protocols, there are at least three considerations relating to these assumptions:
+
 1. Protocols should only communicate states that have been finalized in the source network
 1. Protocol security should be resilient to network liveness failures
 1. Protocols should mitigate the impact of network safety violations
