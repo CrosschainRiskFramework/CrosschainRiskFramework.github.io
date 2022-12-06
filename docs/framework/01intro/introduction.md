@@ -13,7 +13,7 @@ To this end, this document provides a high-level systematic overview of the secu
 Broadly defined, crosschain protocols enable the exchange of data and value across chains through one of the following three types of interactions:
 
 #### Asset Exchange
-The transfer of ownership of an asset in one network for a corresponding change of ownership in another.
+The transfer of ownership of an asset in one [network](../../faq/faq.md#what-is-a-network) for a corresponding change of ownership in another.
 
 #### Asset Transfer
 The movement of the value of an asset from a source ledger to a destination ledger. This typically involves locking an asset in the source ledger and minting a synthetic representation on the destination ledger. 
