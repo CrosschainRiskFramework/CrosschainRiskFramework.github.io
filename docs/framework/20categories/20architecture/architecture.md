@@ -2,7 +2,7 @@
 Risks that stem from the security assumptions, trade-offs, and limitations of the design of a protocol are collectively referred to as _Protocol Architecture Risks_. To methodically analyze such risks, we first introduce a framework for organizing crosschain protocols into layers of abstraction based on scope and functionality. Each layer depends on layers below it for functionality and security. Hence, the architectural risks at each layer subsume those below it. The framework was adapted from [work introduced by L2Beat and Socket](https://gov.l2beat.com/t/l2bridge-risk-framework/31) and is illustrated in the diagram below.
 
 <figure markdown>
-  ![Layers of crosschain communication protocols](images/protocolstack.png){width=700}
+  ![Layers of crosschain communication protocols](images/protocolstack.png){width=600}
   <figcaption>Layers of crosschain communication</figcaption>
 </figure>
 
