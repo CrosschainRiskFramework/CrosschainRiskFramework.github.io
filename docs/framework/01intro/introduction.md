@@ -37,16 +37,16 @@ A common approach to enabling the transfer of assets from one chain to another i
 Crosschain protocols typically coordinate several off-chain systems and actors that collectively ensure the integrity of state communication across chains. Such entities might be responsible for verifying, validating, proving, attesting, or relaying crosschain states. How different protocols coordinate and incentivize such actors to offer specific security properties varies significantly. However, in general, _bridge validators_ are the primary entities that ensure the security and continued operation of a crosschain protocol and thus represent a significant source of potential risk to the overall system.
 
 #### Bridge Operators
-_Bridge operators_ are actors that can update or reconfigure key elements of a crosschain protocol (e.g. upgrading on-chain smart contracts, updating validator registries). How many bridge operators a protocol has, what they are allowed to change and what policies govern their actions can significantly influence the risk profile of a protocol and varies considerably across projects.
+_Bridge operators_ are actors that can update or reconfigure key elements of a crosschain protocol (e.g., upgrading on-chain smart contracts, updating validator registries, or moving contract funds). How many bridge operators a protocol has, what they are allowed to change and what policies govern their actions can significantly influence the risk profile of a protocol and varies considerably across projects.
 
 #### Bridge Developers
-_Bridge developers_ design, build, test, and maintain the codebase behind a crosschain protocol. Given the complex nature of such systems, the possibility of introducing bugs and vulnerabilities is considerable. The experience and competence of bridge developers and the policies and procedures they put in place to address incidents significantly influence the level of [implementation risk](TBA) of a protocol.
+_Bridge developers_ design, build, test, and maintain the codebase behind a crosschain protocol. Given the complex nature of such systems, the possibility of introducing bugs and vulnerabilities is considerable. The experience and competence of such teams, their development practices, and the policies and procedures they put in place to respond to incidents significantly influence a protocol's level of [implementation risk](../20categories/30implementation/protocol-implementation-risk.md).
 
 ## Security Risks
 At its essence, crosschain communication creates a dependency relationship between two or more networks. Such dependency relationships typically involve state change in one network driving state change in another. These relationships can be _unidirectional_ or _bidirectional_, _transient_ or _persistent_. The goal of crosschain protocols is to enable and guarantee the integrity of these dependencies. Specifically, given two networks, a source, and a destination, where the state in the destination network is dependent on the state in the source network, crosschain protocols must guarantee the following core security properties:
 
 1. Only states that are valid and final in the source network are communicated to the destination network
 1. All relevant state transitions in the source network are relayed to the destination network in a timely manner
-1. Any invariants that emerge from the crosschain interactions are always preserved
+1. Any invariants that emerge from the crosschain interactions are preserved
 
 This document primarily discusses and assesses the risk of crosschain protocols by considering factors that affect these core security requirements. 
