@@ -13,13 +13,13 @@ To this end, this document provides a high-level systematic overview of the secu
 Broadly defined, crosschain protocols enable the exchange of data and value across chains through one of the following three types of interactions:
 
 #### Asset Exchange
-The transfer of ownership of an asset in one [network](../../faq/faq.md#what-is-a-network) for a corresponding change of ownership in another.
+Asset Exchange involves coordinating the transfer of ownership of an asset in one [network](../../faq/faq.md#what-is-a-network) with a corresponding transfer of ownership in another. This enables two or more parties to swap assets across networks under pre-agreed exchange terms.
 
 #### Asset Transfer
-The movement of the value of an asset from a source ledger to a destination ledger. This typically involves locking an asset in the source ledger and minting a synthetic representation on the destination ledger. 
+Asset Transfer involves moving the value of an asset from a source ledger to a destination ledger. It enables an asset in one network to be used inside applications in another. For instance, a user might want to transfer her ETH from Ethereum to Avalanche so she can use it as collateral in a lending protocol on Avalanche. This typically involves locking an asset in the source ledger and minting a synthetic representation on the destination ledger.
 
 #### General-purpose Messaging
-The transfer of arbitrary data across chains for the purposes of orchestrating general crosschain application behaviors. 
+General-purpose messaging refers to the communication of any data across chains. It can enable asset exchanges and transfers but also orchestrate complex application behavior across chains for a broad range of use cases. Examples include coordinating and managing DAO governance and actions across chains. 
 
 ## Stakeholders
 Crosschain protocols can have several distinct stakeholders with direct or indirect involvement in the system. These stakeholders can be individuals, groups, or organizations and have different roles, constraints, goals, and incentives. Consequently, the types and magnitudes of risk borne by each stakeholder might vary considerably across protocols. Understanding the dynamics of crosschain risk from the perspective of different actors will aid in a more sound analysis. To this end, we identify four types of stakeholders in crosschain protocols:
