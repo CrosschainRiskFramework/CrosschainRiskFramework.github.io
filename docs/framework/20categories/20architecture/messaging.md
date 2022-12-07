@@ -33,11 +33,13 @@ A significant constraint to the overall viability of such approaches is the comp
 There are two distinct models of such, based on whether the consensus verification is performed on-chain or off-chain. 
 
 ##### On-chain Consensus Verification
-In this model, block headers from a source network are sent to a destination network by off-chain actors called Relayers. The destination chain then performs consensus verification checks on the block, typically through logic implemented in a smart contract. Users can then prove that a state exists in the source network using the verified block header and trigger a subsequent action on the destination chain. Importantly, this model typically implements the consensus verification logic in an on-chain smart contract. Because of the constraints of most smart contract languages and execution environments, such models can be complicated to build and prohibitively expensive to operate (i.e., gas costs associated with verifying consensus on-chain).
+This model involves performing light-client verification of a source chain's state in the execution environment of the destination. First, block headers from a source network are sent to a destination network by off-chain actors called *Relayers*. The destination chain then performs consensus verification on the block, typically through logic implemented in a smart contract. A user can then prove that a state exists in the source network using a [Merkle proof](https://computersciencewiki.org/index.php/Merkle_proof) against the verified block header on the destination. This proof can then be used to trigger a subsequent transaction on the destination chain. 
+
+Because of the constraints of most smart contract languages and blockchain execution environments, such models can be complicated to build and prohibitively expensive to operate (e.g., gas costs).
 
 <figure markdown>
-  ![consensus validating bridges](images/consensus-verifying-bridges.png){width=650}
-  <figcaption>Consensus Verifying Protocols</figcaption>
+  ![On-chain Consensus Validating Bridges](images/consensus-verifying-bridges.png){width=650}
+  <figcaption>On-chain Consensus Verifying Protocols</figcaption>
 </figure>
 
 *Considerations*
@@ -50,8 +52,10 @@ In this model, block headers from a source network are sent to a destination net
 - Can the on-chain implementation adapt to changes in the source network's consensus protocol? What are there challenges and constraints to making such changes?
 - The increased complexity of building such protocols significantly increases implementation risk.
 
-##### Off-chain Consensus Verification
-In this model, an off-chain system called a *Prover* generates a *Succinct Non-Interactive Argument of Knowledge (SNARK)* proof that a block from a source network has been finalized according to the light-client verification mechanism of the network. The proof, and the associated block header, are sent to one or more destination chains by Relayers. Destination chains verify the validity of the proof using logic implemented in a smart contract (*Verifier*). If the proof is correct, the associated block header is considered valid and can be used to prove the existence of any state in the source network. These types of bridges are also referred to as Zero-knowledge Bridges (ZK Bridges). However, this terminology is misleading, as such protocols rely only on the succinctness properties of SNARKs and do not involve information hiding (i.e., Zero-knowledge).
+##### Validity-Proof based Consensus Verification
+In this model, an off-chain system called a *Prover* generates a [SNARK](https://z.cash/technology/zksnarks/) proof that a state in a source network has been finalized according to its consensus protocol. The proof is sent to a destination chain, which then verifies its validity using logic implemented in a smart contract (*Verifier*). Hence, this model shifts most of the complexity and cost of performing light-client consensus verification off-chain while retaining the security advantages of crosschain consensus verification.
+
+These types of bridges are also referred to as Zero-knowledge Bridges (ZK Bridges). However, this terminology is misleading, as such protocols rely only on the *succinctness* properties of SNARKs and do not apply information hiding (i.e., Zero-knowledge).
 
 <figure markdown>
   ![Validity Proof Protocols](images/zk-bridges.png){width=700}
