@@ -66,23 +66,26 @@ These types of bridges are also referred to as Zero-knowledge Bridges (ZK Bridge
 
 The same considerations as those laid out for *On-chain Consensus Verification* schemes apply to these protocols. Additional considerations include:
 
-- Is the role of prover permissionless? 
-- If the prover role is permissioned: how many provers are there? What are the criteria for becoming a prover? In general, more provers are desirable. However, there are generally high costs to operating a prover. Some of the reasons why more provers are desirable are:
+- Is the role of prover permissionless? If not, how many provers are there? What are the criteria for becoming a prover? How are they coordinated? 
     - Provers can technically censor transactions or become a source of liveness issues for the network
-    - Carrying out an eclipse attack against a single prover is more tractable than several provers.
-- Are there trusted setup assumptions of the underlying cryptographic mechanisms?
+    - Carrying out an eclipse attack against a single prover is more tractable than several provers
+    - How are provers incentivized?
+    - The computations performed by a prover can be expensive, which might discourage participation.
+- What are there trusted setup assumptions of the underlying cryptographic mechanisms? 
 - The increased complexity of building such protocols increases implementation risk.
 
 #### Third-party Attestation Protocols
-While the above approaches offer better security guarantees because they remove the need for additional trust assumptions, they are complex and costly to build, operate, and scale across diverse ecosystems. Hence, most crosschain protocols introduce intermediary sources of trust in the form of third-party attestors (also referred to as validators). These third-party attestors attest to the validity of states in a source network and then relay them over to a destination network. These protocols generally require a majority of attestors to certify a state for it to be considered valid by a destination chain. 
+The above approaches derive their security guarantees from the underlying chains because they involve each chain locally verifying, to some extent, the validity of the state from another chain. This avoids introducing additional trust assumptions and offers better security guarantees. However, such protocols are complex and costly to build, operate, and scale across diverse ecosystems. 
+
+Hence, most crosschain protocols introduce intermediary sources of trust in the form of third-party attestors (also referred to as validators). These third-party attestors attest to the validity of crosschain messages from a source network and then send them to a destination network. A destination network accepts as valid any state that is certified by a majority of the trusted third-party attestors. Hence the safety and liveness properties of such protocols rely on a threshold of honest attestors (M of N security model).
 
 <figure markdown>
-  ![third-party attestation bridges](images/external-validator-set-bridges.png){width=650}
+  ![Third-party Attestation Protocols](images/external-validator-set-bridges.png){width=650}
   <figcaption>Third-party Attestation Protocols</figcaption>
 </figure>
 
 <figure markdown>
-  ![third-party attestation bridges with intermediary network](images/external-validator-network-bridges.png){width=700}
+  ![Third-party Attestation Protocols with Intermediary Network](images/external-validator-network-bridges.png){width=700}
   <figcaption>Third-party Attestation Protocols with Intermediary Network</figcaption>
 </figure>
 
@@ -92,28 +95,28 @@ Protocols in this category vary widely on at least the following three dimension
 1. Cryptographic mechanism: Multi-Signature, Threshold signature, Trusted Execution Environment (e.g., Intel SGX)
 1. Security model (Proof-of-Authority, Proof-of-Stake)
 
-The security model of these protocols defines the security properties and assumptions about the third-party attestors. 
+The security model of these protocols defines the security properties of and assumptions about the third-party attestors. 
 There are generally two models, Proof-of-Authority and Proof-of-Stake, which are further discussed below.
 
 ##### Proof-of-Authority 
 
-Proof-of-Authority models rely on reputable legal entities serving as attestors. These bridges assume that a) such parties are strongly incentivized to maintain their reputation and would thus not misbehave and b) that in the event of misbehavior, stakeholders can pursue legal recourse against such entities. These factors are difficult to objectively and quantitatively reason about and primarily rely on external structural assurances (e.g., legal systems) instead of internal protocol mechanisms.
+Proof-of-Authority models rely on reputable legal entities serving as attestors. These bridges assume that a) such parties are strongly incentivized to maintain their reputation and would thus not act maliciously and b) that in the event of misbehavior, stakeholders can pursue legal recourse against such entities. These assumptions are difficult to reason about and rely on external structural assurances (e.g., legal systems) instead of internal protocol mechanisms.
 
   *Considerations*
 
   * How many distinct attestors does the protocol have? What are the specific honesty threshold assumptions for guaranteeing safety and liveness? What are the particular characteristics of the cryptographic schemes used?
   * How reputable are such entities? What is the actual cost of reputational damage for such entities? What is the market cap of such entities?
+  * How do the above disincentives to misbehavior compare against the TVL or total volume transacted by layers atop the messaging bridge?
   * Do such entities have competing interests with users of this bridge? e.g., Trading firms that might benefit from cross-domain MEV?
   * Can the claims around decentralization be verified on-chain? For instance: 
     * The number of validators and the threshold for achieving a quorum. Multi-signature schemes are easier to verify on-chain compared to MPC or threshold signature schemes. 
     * The active validator set. While a bridge might employ many validators, it is possible that only a few actively participate in validating and attesting to messages. This could be because the economics of validating messages are not worthwhile to some validators. This means that the effective validator set is smaller, and the decentralization and security guarantees of the bridge weaker. The [Ronin bridge hack](https://rekt.news/ronin-rekt/) highlights an example of this scenario.
-  * How do the above disincentives to misbehavior compare against the TVL or total volume transacted by layers atop the messaging bridge?
   * In what jurisdictions are the entities domiciled?
   * Can regulations coerce these entities to censor transactions?
 
 ##### Proof-of-Stake
 
-Proof-of-Stake models rely on validators having financial incentives to behave honestly according to the rules of the protocol. This is typically achieved by having each validator stake funds in the protocol that can be slashed if the validator misbehaves. This model relies on crypto-economic guarantees and metes immediate penalties for misbehavior, unlike proof-of-authority schemes. 
+Proof-of-Stake models rely on validators having financial incentives to behave honestly according to the rules of the protocol. This is typically achieved by having each validator stake funds in the protocol that can be slashed if the validator misbehaves. Unlike proof-of-authority schemes, this offers an immediate and in-protocol method of punishing malicious behavior. 
 
    *Considerations*
 
@@ -128,7 +131,7 @@ Proof-of-Stake models rely on validators having financial incentives to behave h
   * How does the bridge adapt to active misbehavior by a portion of the validators?
 
 #### Optimistic Protocols
-Optimistic protocols rely on agents that validate crosschain transactions by signing a merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify crosschain transactions.
+Optimistic protocols rely on agents that validate crosschain transactions by signing a Merkle root with data from the source network and post it on the destination network. Once this data is posted, a challenge window begins, during which anyone monitoring the bridging system can challenge a fraudulent transaction by submitting fraud proofs on the source network and prevent it from being confirmed on the destination network. Such bridges assume that a) agents are incentivized to sign only legitimate transactions because their bonded funds will be slashed if they act maliciously and b) that in the event an agent does sign a fraudulent transaction, one honest actor will be watching the system, and they will flag the fraudulent transaction by submitting a fraud-proof on the source network within the challenge window. Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to correctly verify crosschain transactions.
 
   *Considerations*
   
