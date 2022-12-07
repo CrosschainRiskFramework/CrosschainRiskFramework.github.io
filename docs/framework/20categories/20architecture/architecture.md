@@ -3,7 +3,7 @@ Risks that stem from the security properties, assumptions, trade-offs, and limit
 
 <figure markdown>
   ![Layers of crosschain communication protocols](images/protocolstack.png){width=600}
-  <figcaption>Layers of crosschain communication protocols</figcaption>
+  <figcaption>Layers of Crosschain Communication Protocols</figcaption>
 </figure>
 
 
