@@ -1,17 +1,15 @@
 ### Messaging Protocol
-Messaging protocols provide the following three foundational capabilities that are relied upon by crosschain applications.
+Messaging protocols provide the following two foundational capabilities that are relied upon by crosschain applications built on top of them.
 
-1. Transmission of state information from a source network to a destination network
-1. Ensuring the validity of any information from a foreign network
+1. Transmission of state information from a source network to a destination network in a timely manner
+1. Ensuring the validity and finality of any information sent from a source network to a destination network
 
-Messaging protocols must ensure the transmission of all crosschain messages (capability 1) while providing strong guarantees on the validity of crosschain events (capability 2) according to the canonical ledger state of the source network. The former mainly highlights liveness and censorship resistance considerations, while the latter relates to safety.
-
-The architecture of crosschain messages is largely differentiated in how they offer guarantees around safety (capability 2). An ideal construction would introduce no additional trust assumptions beyond what is assumed about the networks. This would involve destination networks independently:
+Messaging protocols must ensure the transmission of all crosschain messages (capability 1) while providing strong guarantees about their validity and finality (capability 2) in the source network. The former mainly highlights [liveness](https://en.wikipedia.org/wiki/Safety_and_liveness_properties#Liveness) and censorship resistance property, while the latter emphasizes [safety](https://en.wikipedia.org/wiki/Safety_and_liveness_properties#Safety). The architecture of crosschain protocols is largely differentiated by how they offer guarantees around safety. An ideal construction would introduce no additional trust assumptions beyond what is assumed about the underlying networks. For a message sent from a source network to a destination network, this would involve the destination networks independently:
 
 1. Validating that a state transition that resulted in a given message is valid according to the state transition rules of the source network and
-1. Verifying that the message is final on the network as per the consensus rules of the source network.
+1. Verifying that the message has been finalized according to its consensus rules of the source network
 
-A protocol that performs one or both of the above verifications to ensure the validity of a remote network's state is considered *trustless*. Conversely, a protocol that relies on intermediaries, or a subset of network validators, vouching for the validity of a remote state is considered *trusted*, or *semi-trusted*. In line with this, four broad architectural patterns are identified below. Not all crosschain protocols in the wild neatly fit into these categories, and some employ hybrid approaches. 
+A protocol that performs one or both of the above verifications to ensure the validity of a remote network's state is considered *trustless* or *trust-minimized*. Conversely, a protocol that relies on intermediaries, or a subset of network validators, vouching for the validity of a remote state is considered *trusted*, or *semi-trusted*. In line with this, four broad architectural patterns are identified below. Not all crosschain protocols in the wild neatly fit into these categories, and some employ hybrid approaches. 
 
 #### State Validating Protocols
 In *State Validating Protocols*, a destination chain independently verifies that any state it receives is valid and final according to the source network's state transition and consensus rules. This model inherits the security guarantees of the underlying networks without introducing new trust assumptions.  
