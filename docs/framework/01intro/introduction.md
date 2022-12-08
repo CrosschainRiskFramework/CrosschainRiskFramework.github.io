@@ -16,7 +16,7 @@ Broadly defined, crosschain protocols enable the exchange of data and value acro
 Asset Exchange involves coordinating the transfer of ownership of an asset in one [network](../../faq/faq.md#what-is-a-network) with a corresponding transfer of ownership in another. This enables two or more parties to swap assets across networks under pre-agreed exchange terms.
 
 #### Asset Transfer
-Asset Transfer involves moving the value of an asset from a source ledger to a destination ledger. It enables an asset in one network to be used inside applications in another. For instance, a user might want to transfer her ETH from Ethereum to Avalanche so she can use it as collateral in a lending protocol on Avalanche. This typically involves locking an asset in the source ledger and minting a synthetic representation on the destination ledger.
+Asset Transfer involves moving the value of an asset from a source ledger to a destination ledger. It enables assets in one network to be used inside applications in another. For instance, a user might want to transfer her ETH from Ethereum to Avalanche so she can use it as collateral in a lending protocol on Avalanche. This typically involves locking an asset in the source ledger and minting a synthetic representation on the destination ledger.
 
 #### General-purpose Messaging
 General-purpose messaging refers to the communication of any data across chains. It can enable asset exchanges and transfers but also orchestrate complex application behavior across chains for a broad range of use cases. Examples include coordinating and managing DAO governance and actions across chains. 
