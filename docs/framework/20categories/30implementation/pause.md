@@ -1,4 +1,7 @@
 ### Ability to Pause Project
+This section described the implementation risks associated with being able to pause a project. 
+Operational risks related to pausing are covered in the [Ability to Pause Operational Risk section](../40operation/ability-pause.md).
+
 All Data Plane functions should be *pausable*. For example, a bridge contract could 
 have a function that could transfer coins based on actions on another blockchain. 
 The ability to *pause* a function in a 
