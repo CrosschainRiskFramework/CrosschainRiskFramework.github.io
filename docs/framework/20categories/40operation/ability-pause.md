@@ -13,6 +13,7 @@ For projects that are operated by multiple organizations the pausing capability 
 
 Many projects also incorporate services that monitor the operation of the project. The services could be authorized to call the ```pause()``` function automatically based on the detection of anomalous conditions. This automatic pausing capability needs to operate in parallel with the other manual approaches described above.
 
+The pausing operations described above typically are performed by [Bridge Operators](../../01intro/introduction.md#bridge-operators). Granting [Bridge Validators](../../01intro/introduction.md#bridge-validators) the right to pause bridges has merit as the validators role is to verify state updates. They are likely to be able to detect anomalous behavior. 
 
 Things to consider when setting up a multi-signature wallet and the threshold, are:
 
