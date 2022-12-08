@@ -1,15 +1,18 @@
 ### Ability to Pause
 The pausing capability described in the [Ability to Pause Implementation Risk section](../30implementation/pause.md)
 is only effective if the ```pause()``` function can be executed expeditiously. Typically, attacks on protocols are mounted in time periods ranging from minutes to hours. As such, pausing a project several hours after an attack has commenced 
-is unlikely to effective, as by this time, the project may have already been drained of funds.
+is unlikely to be effective, as by this time, the project may have already been drained of funds.
 
 To prevent malicious parties unnecessarily halting the project by calling the ```pause()``` function, ```pause()``` functions need to have some form of [access control](../30implementation/access-control.md). 
 
 For projects operated by a single organization, a simple administration set-up could be used. However, as described below, this has serious issues. For example, a single administrator account (that is an *owner* account) could be the only party authorized to call the ```pause()``` function. However, to be responsive to the need to pause the project, the private key belonging to the administrator account would need to be shared with support staff who live in time zones around the world. The issue with sharing a single private key is that it would be impossible to determine which support staff member used the key to pause the project. Additionally, if one of the support staff left the company or were compromised, then the shared key would need to be changed.
 
-An better approach to using a shared key is to provide each support staff member with their own administrator account, and provide all accounts with the *Pauser Role*. The advantage of this approach over using a shared key is that the account that pauses the project can be associated with a specific support staff member. Additionally, if one of the support staff left the company or were compromised, then only their account would need to be disabled. This would allow the other support staff to operate without changing their keys.
+A better approach to using a shared key is to provide each support staff member with their own administrator account, and provide all accounts with the *Pauser Role*. The advantage of this approach over using a shared key is that the account that pauses the project can be associated with a specific support staff member. Additionally, if one of the support staff left the company or were compromised, then only their account would need to be disabled. This would allow the other support staff to operate without changing their keys.
 
-For projects that are operated by multiple organizations the pausing capability should be controlled by a [multi-signature wallet](https://medium.com/gauntlet-networks/multisig-transactions-with-gnosis-safe-f5dbe67c1c2d). Multi-signature wallets have a threshold number of owners that must vote for a proposed transaction. In the case of pausing, the proposed transaction would be to call the ```pause()``` function. 
+For projects that are operated by multiple organizations the pausing capability should be controlled by a [multi-signature wallet](https://medium.com/gauntlet-networks/multisig-transactions-with-gnosis-safe-f5dbe67c1c2d). Multi-signature wallets have a threshold number of owners that must vote for a proposed transaction. In the case of pausing, the proposed transaction would be to call the ```pause()``` function. Within the application contract, the multi-signature wallet contract would be authorized to call the ```pause()``` function.
+
+Many projects also incorporate services that monitor the operation of the project. The services could be authorized to call the ```pause()``` function automatically based on the detection of anomalous conditions. This automatic pausing capability needs to operate in parallel with the other manual approaches described above.
+
 
 Things to consider when setting up a multi-signature wallet and the threshold, are:
 
