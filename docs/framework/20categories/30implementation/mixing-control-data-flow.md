@@ -21,26 +21,25 @@ and then use that to change the configuration of the project, accessing the
 Control Plane part of the mixed function. This can lead to the attacker 
 having the ability to control aspects of the project such as minting tokens.
 
-***
 #### Example
 As example of this type of issue being exploited is the 
 [August 2021 PolyNetwork issue](https://rekt.news/polynetwork-rekt/). The 
-PolyNetwork code was written such that its **EthCrossChainManager** contract
-was the owner of the **EthCrossChainData** contract. The **EthCrossChainData** 
+PolyNetwork code was written such that its `EthCrossChainManager` contract
+was the owner of the `EthCrossChainData` contract. The `EthCrossChainData` 
 contract held important information including the public keys used to verify
-crosschain requests. Doing this allows for function calls for **EthCrossChainData**
-to go via the **EthCrossChainManager** contract. Access from the **EthCrossChainManager** contract
-to the **EthCrossChainData** contract could be deemed part of the Control Plane. 
-The **EthCrossChainManager** contract also had a function 
-**verifyHeaderAndExecuteTx** that was used to process  Data Plane requests. 
+crosschain requests. Doing this allows for function calls for `EthCrossChainData`
+to go via the `EthCrossChainManager` contract. Access from the `EthCrossChainManager` contract
+to the `EthCrossChainData` contract could be deemed part of the Control Plane. 
+The `EthCrossChainManager` contract also had a function 
+`verifyHeaderAndExecuteTx` that was used to process  Data Plane requests. 
 The attacker was able to create a carefully constructed call to
-**verifyHeaderAndExecuteTx** that allowed the Data Plane request to modify
-data in the **EthCrossChainData**, that ultimately led to the attacker being 
+`verifyHeaderAndExecuteTx` that allowed the Data Plane request to modify
+data in the `EthCrossChainData`, that ultimately led to the attacker being 
 able to steal funds. 
 
 The PolyNetwork code would not have been vulnerable to this type 
 of attack if there had been a clear separation of Control Plane and Data 
-Plane. For example, rather than doing updates to the **EthCrossChainData** 
-contract via the **EthCrossChainManager** contract, updates could have been 
+Plane. For example, rather than doing updates to the `EthCrossChainData` 
+contract via the `EthCrossChainManager` contract, updates could have been 
 only allowed from an Externally Owned Account (EOA) or a MultiSig Wallet
 account.

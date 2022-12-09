@@ -36,7 +36,6 @@ to check whether all data processing functions can be paused, or
 just some parts of the project. 
 
 
-***
 #### Example
 For example, in [August 2022 the Nomad Bridge](https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd) had an issue
 (see [Rekt](https://rekt.news/nomad-rekt/) for an analysis of the issue from 
