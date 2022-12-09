@@ -15,6 +15,7 @@ The first step of Operational Security is identifying what information needs to 
 * Information about and code fixes for security vulnerabilities that have not yet been deployed into production.
 
 Sensitive information could also include:
+
 * The organization's [Org Chart](https://en.wikipedia.org/wiki/Organizational_chart). This allows attackers to identify specific individuals to target with [Spear Phishing](https://www.trendmicro.com/vinfo/us/security/definition/spear-phishing) attacks. Note that social media platforms such as [LinkedIn](https://www.linkedin.com/) are used by attackers to determine organizations' org charts.
 * Identities of validators or other entities that help operate the crosschain protocol. Attackers could target entities involved in the protocol with Spear Phishing attacks.
 * Internal organizational procedures. Sensitive procedures include obvious ones such as vulnerability response procedures and what security software is installed on company computers, but also includes whether employees use company issued computers or use their own computer (that is [Bring Your Own Device](https://en.wikipedia.org/wiki/Bring_your_own_device)), software development practices, and HR policies.
