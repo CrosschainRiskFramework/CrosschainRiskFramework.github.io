@@ -37,6 +37,11 @@ The website is automatically updated when new commits are pushed to the `main` b
 
 *Note: do not edit files in the `gh-pages` branch as these files are overwritten each time a new PR is merged to the `main` branch.*
 
+### Generating a PDF version of the Crosschain Risk Framework
+To generate a PDF file of the website, first install [Weasyprint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation). Then execute the command:
+```
+make build
+```
 
 ### How to contribute
 See the [Contribution](https://crosschainriskframework.github.io/authors/contributions/)
