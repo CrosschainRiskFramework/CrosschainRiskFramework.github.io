@@ -34,6 +34,7 @@ From the perspective of users, the benefits of bridge aggregators include the fo
 * Ability to compare different routes and choose one based on their preference.
 
 *Considerations*
+
 - Because aggregators enable multi-step or multi-hop bridging, there is an increased chance that a user's transaction might fail midway. How does the aggregator handle or mitigate these scenarios?
 - Aggregators combine a wide range of protocols (i.e., different bridges and DEXs) with different security properties and risks. Users must largely trust aggregators to offer a curated set of options to minimize risk. What decision criteria does an aggregator use to select bridges it integrates? How are security and risk considerations surfaced to the user?
 - Does the aggregator introduce additional trust assumptions beyond what is required by the underlying bridge? What are these assumptions, and under what conditions do they apply? 
