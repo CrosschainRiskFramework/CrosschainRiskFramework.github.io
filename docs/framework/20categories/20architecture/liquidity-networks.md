@@ -24,7 +24,9 @@ From a security standpoint, such liquidity networks rely on the security propert
 
 - What are the trust assumptions and security properties of the underlying messaging protocol?
 - Does the approach ensure atomicity of the exchange? Is there a possibility that one party might not get their owed funds? What are these conditions? Which party does this scenario affect?
+- Does the user always receive their requested assets, or are there failure scenarios where they might receive intermediary bridge-minted tokens instead?
 - Is the role of an LP permissionless? How many LPs does the protocol have? Can these entities censor user swaps?
 - What are the fairness properties of the protocol? Does it disadvantage one party over another (e.g., optionality)? 
+- Can LPs grief users by refusing to fulfill exchange requests? If so, are there mechanisms to penalize such behavior (e.g., slashing)?
 - What are the trust assumptions placed on the off-chain mechanisms that support this protocol and the parties that operate them? 
 - Can the off-chain mechanisms that support the protocol censor transactions? 
