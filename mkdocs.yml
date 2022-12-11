@@ -16,7 +16,7 @@ plugins:
         copyright: Copyright &copy; 2022 Crosschain Risk Framework Authors
         cover_subtitle: PDF version of https://crosschainriskframework.github.io/
         output_path: ../CrosschainRiskFramework.pdf
-        toc_level: 3
+        toc_level: 0
   - include-markdown
   - search
   - git-revision-date-localized:
