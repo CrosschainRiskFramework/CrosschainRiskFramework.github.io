@@ -20,10 +20,11 @@ Clone this repo, then `cd` into it and execute:
 ```
 
 #### Build documentation
-To build the documentation using MkDocs, execute the following :
+To build the documentation using MkDocs, execute the following:
 ```
 make build
 ```
+In addition to building the website, this will generate a copy of the website in PDF format.
 
 #### Serve documentation locally
 To view the documentation locally using MkDocs execute the command below. This will build and serve the documentation site locally, and automatically update the site if the underlying files are changed .
@@ -36,12 +37,6 @@ Then open a browser with the following address: http://127.0.0.1:8000/
 The website is automatically updated when new commits are pushed to the `main` branch. More specifically, the documentation site is generated from the updated source code on the `main` branch, and then committed to the `gh-pages` branch using Github actions. The updated files in `gh-pages` are then automatically [deployed](https://crosschainriskframework.github.io/).
 
 *Note: do not edit files in the `gh-pages` branch as these files are overwritten each time a new PR is merged to the `main` branch.*
-
-### Generating a PDF version of the Crosschain Risk Framework
-To generate a PDF file of the website, first install [Weasyprint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation). Then execute the command:
-```
-make build
-```
 
 ### How to contribute
 See the [Contribution](https://crosschainriskframework.github.io/authors/contributions/)
