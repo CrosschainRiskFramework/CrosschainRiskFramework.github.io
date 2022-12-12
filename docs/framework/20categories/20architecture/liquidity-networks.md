@@ -1,7 +1,7 @@
 ### Liquidity Networks
 Liquidity networks enable the [exchange of assets](../../01intro/introduction.md#asset-exchange) between [users](../../01intro/introduction.md#users) and [Liquidity Providers (LPs)](../../01intro/introduction.md#liquidity-provider) across different networks. For example, Alice has ETH on Ethereum and would like to swap this for AVAX on Avalanche. Bob, a liquidity provider, has sufficient AVAX on Avalanche that he is willing to swap for ETH for a fee. Liquidity networks enable these two parties to swap their assets without having to trust each other. There are a number of desirable security properties for such protocols, such as atomicity and fairness, which are discussed later in the *considerations* section.
 
-Typically, such protocols involve liquidity providers locking their assets upfront in smart contracts. LPs can provide liquidity for several assets across different networks. A user that wants to swap its assets advertises its requirement to LPs, typically through some off-chain mechanism. LPs that can service the request send the user an offer, which includes fees and other exchange terms. The user then selects the LP with the best offer. The specifics of this discovery and matching process between users and LPs vary across protocols. Once a user identifies its preferred LP, it commences the swap by locking its funds on the source network, thus committing to the agreed exchange terms. 
+Typically, such protocols involve liquidity providers locking their assets upfront in smart contracts. LPs can provide liquidity for several assets across different networks. A user that wants to swap its assets advertises its requirement to LPs, typically through some off-chain mechanism. LPs bid to service the request, and the best offer is selected. The specifics of this discovery and matching process between users and LPs vary across protocols. Once a user identifies its preferred LP, it commences the swap by locking its funds on the source network, thus committing to the agreed exchange terms. 
 
 In such protocols, liquidity providers generally bear higher risk because they have funds locked for extended periods in smart contracts. These funds could be stolen because of failures in the underlying messaging protocol or hacks on the liquidity network contracts. Unlike users, LPs maintain long-term exposure to such risks of protocol failure.
 
@@ -24,7 +24,11 @@ From a security standpoint, such liquidity networks rely on the security propert
 
 - What are the trust assumptions and security properties of the underlying messaging protocol?
 - Does the approach ensure atomicity of the exchange? Is there a possibility that one party might not get their owed funds? What are these conditions? Which party does this scenario affect?
+- How are midway failures in multi-hop routes handled?
+- Does the user always receive their requested asset, or are there scenarios where they might end up with intermediary assets (e.g., bridge-minted tokens)?
 - Is the role of an LP permissionless? How many LPs does the protocol have? Can these entities censor user swaps?
 - What are the fairness properties of the protocol? Does it disadvantage one party over another (e.g., optionality)? 
+- Can LPs grief users by refusing to fulfill exchange requests? If so, are there mechanisms to penalize such behavior (e.g., slashing)?
 - What are the trust assumptions placed on the off-chain mechanisms that support this protocol and the parties that operate them? 
 - Can the off-chain mechanisms that support the protocol censor transactions? 
+- How much liquidity does the protocol have across routes? How are liquidity shortages for in-flight transactions handled? 
