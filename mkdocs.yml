@@ -11,13 +11,6 @@ theme:
     - toc.integrate
     - toc.follow
 plugins:
-# https://pypi.org/project/mkdocs-with-pdf/
-  - with-pdf:
-        author: Crosschain Risk Framework Authors (see Authors and Contributing section)
-        copyright: Copyright &copy; 2022 Crosschain Risk Framework Authors
-        cover_subtitle: PDF version of https://crosschainriskframework.github.io/
-        output_path: ../CrosschainRiskFramework.pdf
-        toc_level: 0
   - include-markdown
   - search
   - git-revision-date-localized:

@@ -38,6 +38,25 @@ The website is automatically updated when new commits are pushed to the `main` b
 
 *Note: do not edit files in the `gh-pages` branch as these files are overwritten each time a new PR is merged to the `main` branch.*
 
+### PDF Generation
+To generate a PDF version of the website:
+
+- Install: [Weasy Print](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
+- Execute: ```pip install mkdocs-with-pdf```
+- Add the following to the plugins section of the mkdocs.yml file:
+    ```
+    - with-pdf:
+            author: Crosschain Risk Framework Authors (see Authors and Contributing section)
+            copyright: Copyright &copy; 2022 Crosschain Risk Framework Authors
+            cover_subtitle: PDF version of https://crosschainriskframework.github.io/
+            output_path: ../CrosschainRiskFramework.pdf
+            toc_level: 0
+    ```
+- Execute: ```mkdocs build```
+
+More information about the mkdocs with PDF plugin can be found here: https://pypi.org/project/mkdocs-with-pdf/
+
+
 ### How to contribute
 See the [Contribution](https://crosschainriskframework.github.io/authors/contributions/)
 section of the website.
