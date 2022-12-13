@@ -13,7 +13,6 @@ likelihood and magnitude of various risks. This repository holds the source code
 #### Prerequisites
 - Python 3.x.x
 
-
 #### Install dependencies
 Clone this repo, then `cd` into it and execute:
 ```
@@ -40,10 +39,6 @@ The website is automatically updated when new commits are pushed to the `main` b
 *Note: do not edit files in the `gh-pages` branch as these files are overwritten each time a new PR is merged to the `main` branch.*
 
 ### PDF Generation
-To generate a PDF version of the website:
-
-- Install: [Weasy Print](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
-- Execute: ```pip install mkdocs-with-pdf```
 To generate a PDF version of the website:
 
 - Install: [Weasy Print](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
