@@ -13,6 +13,7 @@ likelihood and magnitude of various risks. This repository holds the source code
 #### Prerequisites
 - Python 3.x.x
 
+
 #### Install dependencies
 Clone this repo, then `cd` into it and execute:
 ```
@@ -37,6 +38,29 @@ Then open a browser with the following address: http://127.0.0.1:8000/
 The website is automatically updated when new commits are pushed to the `main` branch. More specifically, the documentation site is generated from the updated source code on the `main` branch, and then committed to the `gh-pages` branch using Github actions. The updated files in `gh-pages` are then automatically [deployed](https://crosschainriskframework.github.io/).
 
 *Note: do not edit files in the `gh-pages` branch as these files are overwritten each time a new PR is merged to the `main` branch.*
+
+### PDF Generation
+To generate a PDF version of the website:
+
+- Install: [Weasy Print](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
+- Execute: ```pip install mkdocs-with-pdf```
+To generate a PDF version of the website:
+
+- Install: [Weasy Print](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
+- Execute: ```pip install mkdocs-with-pdf```
+- Add the following to the plugins section of the mkdocs.yml file:
+    ```
+    - with-pdf:
+            author: Crosschain Risk Framework Authors (see Authors and Contributing section)
+            copyright: Copyright &copy; 2022 Crosschain Risk Framework Authors
+            cover_subtitle: PDF version of https://crosschainriskframework.github.io/
+            output_path: ../CrosschainRiskFramework.pdf
+            toc_level: 0
+    ```
+- Execute: ```mkdocs build```
+
+More information about the mkdocs with PDF plugin can be found here: https://pypi.org/project/mkdocs-with-pdf/
+
 
 ### How to contribute
 See the [Contribution](https://crosschainriskframework.github.io/authors/contributions/)
