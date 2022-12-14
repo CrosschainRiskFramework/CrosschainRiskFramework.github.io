@@ -36,11 +36,10 @@ to check whether all data processing functions can be paused, or
 just some parts of the project. 
 
 
-#### Example
-For example, in [August 2022 the Nomad Bridge](https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd) had an issue
-(see [Rekt](https://rekt.news/nomad-rekt/) for an analysis of the issue from 
-people outside the team).
-An attacker was able to determine a methodology for stealing funds using the `Replica` 
+**Example**
+
+For example, in [August 2022 the Nomad Bridge](https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd) had an issue (see [Rekt](https://rekt.news/nomad-rekt/) for an analysis of the issue from 
+people outside the team). An attacker was able to determine a methodology for stealing funds using the `Replica` 
 contract's `process()` function. Depite most of the Data Plane processing functions 
 in the project being pausable, the `process()` function was not. This meant that the 
 attack was able to proceed without the administrators of the project being able to stop it. 
