@@ -21,7 +21,8 @@ and then use that to change the configuration of the project, accessing the
 Control Plane part of the mixed function. This can lead to the attacker 
 having the ability to control aspects of the project such as minting tokens.
 
-#### Example
+**Example**
+
 As example of this type of issue being exploited is the 
 [August 2021 PolyNetwork issue](https://rekt.news/polynetwork-rekt/). The 
 PolyNetwork code was written such that its `EthCrossChainManager` contract
