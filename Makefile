@@ -1,5 +1,8 @@
 .PHONY:  install build serve
 
+serve:
+		mkdocs serve
+
 install:
 		pip install mkdocs
 		pip install mkdocs-material
@@ -9,5 +12,5 @@ install:
 build:
 		mkdocs build
 
-serve:
-		mkdocs serve
+all: install build
+
