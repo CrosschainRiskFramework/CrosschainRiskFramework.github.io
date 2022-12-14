@@ -11,3 +11,6 @@ install:
 
 build:
 		mkdocs build
+
+all: install build
+
