@@ -18,49 +18,29 @@ The lessons, patterns, and practices learned over the years in how to build secu
 The rest of this section will discuss specific practices and considerations that expand on the above framework.
 
 ***
+## Reducing Risk
 
 {% include-markdown "mixing-control-data-flow.md" %}
-***
-{% include-markdown "pause.md" %}
-***
-
 {% include-markdown "access-control.md" %}
-***
-
 {% include-markdown "upgrade.md" %}
-***
-
-{% include-markdown "ban-address.md" %}
-***
-
-{% include-markdown "known-platform.md" %}
-***
-
-{% include-markdown "known-language.md" %}
-***
-
-{% include-markdown "open-source.md" %}
-***
-
-{% include-markdown "audit.md" %}
-***
-
-{% include-markdown "verified-code.md" %}
-***
-
-{% include-markdown "testing.md" %}
-***
-
-{% include-markdown "formal-verification.md" %}
-***
-
-{% include-markdown "documentation.md" %}
-***
-
 {% include-markdown "secret-storage.md" %}
-***
-
 {% include-markdown "maturity.md" %}
+{% include-markdown "known-platform.md" %}
+{% include-markdown "known-language.md" %}
+
+***
+## Uncovering Extant Risk
+{% include-markdown "formal-verification.md" %}
+{% include-markdown "testing.md" %}
+{% include-markdown "audit.md" %}
+{% include-markdown "open-source.md" %}
+{% include-markdown "verified-code.md" %}
+{% include-markdown "documentation.md" %}
+
+***
+## Responding to Materialized Risk
+{% include-markdown "pause.md" %}
+{% include-markdown "ban-address.md" %}
 
 
 
