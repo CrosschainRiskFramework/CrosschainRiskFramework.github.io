@@ -31,7 +31,7 @@ have provisional updates. The coordination protocol would rely on messaging prot
 to communicate this information to the coordination contract on a remote chain such
 that the information can be trusted.
 
-Considerations:
+*Considerations:*
 
 * Coordination protocols rely on messaging protocols communicating information from 
   remote chains honestly. 
