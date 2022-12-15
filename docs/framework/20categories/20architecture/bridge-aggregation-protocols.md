@@ -33,7 +33,7 @@ From the perspective of users, the benefits of bridge aggregators include the fo
 * Finding the optimal route and quote for their crosschain swap via routing algorithms.
 * Ability to compare different routes and choose one based on their preference.
 
-*Considerations*
+*Considerations:*
 
 - Because aggregators enable multi-step or multi-hop bridging, there is an increased chance that a user's transaction might fail midway. How does the aggregator handle or mitigate these scenarios?
 - By adding a layer atop other protocols bridge aggregators add additional implementation risk.

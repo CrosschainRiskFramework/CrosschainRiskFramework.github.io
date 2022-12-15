@@ -42,7 +42,7 @@ Because of the constraints of most smart contract languages and blockchain execu
   <figcaption>On-chain Consensus Verifying Protocols</figcaption>
 </figure>
 
-*Considerations*
+*Considerations:*
 
 - How does the protocol deal with the security limitations and potential attack vectors of the associated light-client protocols? (e.g., Eclipse Attacks, Long-range attacks)
 - Is the role of relaying blocks across chains permissionless? If the role is permissioned, then Relayers can censor transactions.
@@ -62,7 +62,7 @@ These types of bridges are also referred to as Zero-knowledge Bridges (ZK Bridge
   <figcaption>Validaity Proof Protocols (ZK Bridges)</figcaption>
 </figure>
 
-*Considerations*
+*Considerations:*
 
 The same considerations as those laid out for *On-chain Consensus Verification* schemes apply to these protocols. Additional considerations include:
 
@@ -102,7 +102,7 @@ There are generally two models, Proof-of-Authority and Proof-of-Stake, which are
 
 Proof-of-Authority models rely on reputable legal entities serving as attestors. These bridges assume that a) such parties are strongly incentivized to maintain their reputation and would thus not act maliciously and b) that in the event of misbehavior, stakeholders can pursue legal recourse against such entities. These assumptions are difficult to reason about and rely on external structural assurances (e.g., legal systems) instead of internal protocol mechanisms.
 
-  *Considerations*
+  *Considerations:*
 
   * How many distinct attestors does the protocol have? What are the specific honesty threshold assumptions for guaranteeing safety and liveness? What are the particular characteristics of the cryptographic schemes used?
   * How reputable are such entities? What is the actual cost of reputational damage for such entities? What is the market cap of such entities?
@@ -118,7 +118,7 @@ Proof-of-Authority models rely on reputable legal entities serving as attestors.
 
 Proof-of-Stake models rely on validators having financial incentives to behave honestly according to the rules of the protocol. This is typically achieved by having each validator stake funds in the protocol that can be slashed if the validator misbehaves. Unlike proof-of-authority schemes, this offers an immediate and in-protocol method of punishing malicious behavior. 
 
-   *Considerations*
+   *Considerations:*
 
   * How many distinct attestors does the protocol have? What are the specific thresholds for guaranteeing safety and liveness? What are the particular characteristics of the cryptographic schemes used?
   * Can the claims around decentralization be verified on-chain? For instance: 
@@ -137,7 +137,7 @@ Such bridges assume that: a) attestors are incentivized to sign only legitimate 
 
 Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to verify crosschain transactions correctly. A large number of active watchers increases the security of such protocols. An ideal construction of such a protocol involves a permissionless watcher set. Such a model would make it difficult for an attacker to bribe a set of known watchers to overlook fraud. However, a permissionless watcher set might involve notable liveness tradeoffs for some protocols. 
 
-  *Considerations*
+  *Considerations:*
 
 Attestors:
 
