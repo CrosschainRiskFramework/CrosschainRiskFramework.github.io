@@ -1,6 +1,6 @@
 ## Operational Risk Scoring
 
-The following aspects of Operational Risk Scoring are currently not taken into account when assessing the Operational Risk Score: [Operational Security](../20categories/40operation/operational-security.md), [Decentralization of Operations](../20categories/40operation/decentralization.md), [Diversity of Codebase](../20categories/40operation/diversity-code.md), [Off-chain Security](../20categories/40operation/offchain-security.md), and [Vulnerability Response Planning](../20categories/40operation/vulnerability.md).
+The following aspects of Operational Risk Scoring are currently not taken into account when assessing the Operational Risk Score: [Operational Security](../20categories/40operation/operational-security.md#operational-security), [Decentralization of Operations](../20categories/40operation/decentralization.md#decentralization-of-operations), [Diversity of Codebase](../20categories/40operation/diversity-code.md#codebase-diversity), [Off-chain Security](../20categories/40operation/offchain-security.md#security-of-off-chain-systems), and [Vulnerability Response Planning](../20categories/40operation/vulnerability.md#vulnerability-response-plan).
 
 The equation for the *Operational Risk Score* is:
 
@@ -9,7 +9,8 @@ Operational Risk Score = Operational Ability to Pause Score
 ```
 
 ### Operational Ability to Pause Score
-The equation for the *Operational Ability to Pause Score* is:
+The Operational Ability to Pause is defined by the ability to meet the properties defined in the [Operational Ability to Pause](../20categories/40operation/ability-pause.md#ability-to-pause) section. The equation for the *Operational Ability to Pause Score* is:
+
 ```
 Operational Ability to Pause Score = (O001 + O003 + O004) x O005
 ```

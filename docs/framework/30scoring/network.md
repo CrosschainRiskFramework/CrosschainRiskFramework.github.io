@@ -1,4 +1,5 @@
 ## Network Consensus Risk Scoring
+The Network Consensus Risk Score assesses the risk posed by the [Network Consensus](../20categories/10network/network.md#network-consensus-risk) properties of the blockchains being bridged.
 
 The equation for the *Network Consensus Risk Score* is:
 
