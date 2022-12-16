@@ -14,5 +14,9 @@ Determining the trustworthiness of one crosschain protocol relative to other pro
 
 {% include-markdown "network.md" %}
 
+{% include-markdown "architecture.md" %}
+
+{% include-markdown "implementation.md" %}
+
 {% include-markdown "operational.md" %}
 
