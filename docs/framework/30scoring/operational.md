@@ -17,21 +17,10 @@ Operational Ability to Pause Score = (O001 + O003 + O004) x O005
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
-| O001        | Type of pausing access control:  |
-|             | * None: Score 0  |
-|             | * Single EOA controls pausing: Score 1 |
-|             | * Role Based Access Control with multiple accounts (EOA or contract): Score 5 |
-|             | * A multisig wallet controls pausing: Score is answer to Question ID O002. |
+| O001        | Type of pausing access control: <ul><li>None: Score 0.</li><li>Single EOA controls pausing: Score 1.</li><li>Role Based Access Control with multiple accounts (EOA or contract): Score 5.</li><li>A multisig wallet controls pausing: Score is answer to Question ID O002.</li></ul> |
 | O002        | Multisig Wallets: Is the threshold of the multisig wallet greater than one? Are all signers independent? If either answers is no, the score 0, otherwise score 5. |
-| O003        | Automated Pausing: Does the project operate services that monitor the health of the protocol? 
-|             | * No: Score 0 |
-|             | * Yes: The monitoring service contacts people who can pause the project if unexpected behavior is detected: Score 1.
-|             | * Yes: The monitoring service has the ability to pause the protocol if unexpected behavior is detected: Score 2. |
-|             | * Yes: The monitoring service contacts people who can pause the project and has the ability to pause the protocol if unexpected behavior is detected: Score 3. |
-| O004        | Geographic separation of pausers: Are people who can pause the project spread across time zones? |
-|             | * No: Score 0. |
-|             | * Across multiple timezones, but not complete coverage: Score 1. |
-|             | * Full coverage: Follow the sun support: Score 2. |
+| O003        | Automated Pausing: Does the project operate services that monitor the health of the protocol? <ul><li>No: Score 0.</li><li>Yes: The monitoring service contacts people who can pause the project if unexpected behavior is detected: Score 1.</li><li>Yes: The monitoring service has the ability to pause the protocol if unexpected behavior is detected: Score 2.</li><li>Yes: The monitoring service contacts people who can pause the project and has the ability to pause the protocol if unexpected behavior is detected: Score 3.</li></ul> |
+| O004        | Geographic separation of pausers: Are people who can pause the project spread across time zones? <ul><li>No: Score 0.</li><li>Across multiple timezones, but not complete coverage: Score 1.</li><li>Full coverage: Follow the sun support: Score 2.</li></ul> |
 | O005        | Shared keys: Are any accounts / private keys used for pausing the protocol shared with multiple people. If yes, score 0. If no, score 1. | 
 
 Rationale for scoring:
