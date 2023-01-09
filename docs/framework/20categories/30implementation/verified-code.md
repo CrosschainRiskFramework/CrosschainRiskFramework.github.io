@@ -11,6 +11,8 @@ The process of verifying source code on a block explorer like Etherscan typicall
 4. The verification tool compares the deployed bytecode with the recompiled bytecode. If the codes match, the contract is deemed verified.
 5. Once verified, the smart contract is marked “verified” and is curated under the “Verified Contracts'' in the “Blockchain” tab. 
 
+Additionally, one should verify that the security parameters that govern the logic of smart contracts are initialized as expected. Any discrepancies at the initialization of a smart contract could be a risk vector. For instance, in the [case of Celo’s Optics bridge](https://forum.celo.org/t/optics-recovery-mode/2452), the recovery mode timelock was initialized at only 1 second instead of the expected 1 day, leaving users’ funds at risk.
+
 *Considerations:*
 
 * What tool has been used to verify the source code?
