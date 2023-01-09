@@ -5,6 +5,7 @@ Source code verification for all deployed smart contracts is critical for user s
 All deployed contracts should have [source code uploaded and verified on Etherscan](https://docs.etherscan.io/tutorials/verifying-contracts-programmatically), or other block explorers specific to the chain if the contracts are deployed on an EVM-compatible chain. For instance, code for smart contracts on Polygon can be verified on [Polygonscan](https://mumbai.polygonscan.com/verifyContract), and those on Arbitrum can be verified on [Arbiscan](https://arbiscan.io/verifyContract). 
 
 The process of verifying source code on a block explorer like Etherscan typically includes the following steps:
+
 1. Enter the contract address that needs to be verified.  
 2. Input the compilation settings (like compiler type and version, the open-source license) to a compiler. 
 3. Provide the source code that makes up the smart contract.
