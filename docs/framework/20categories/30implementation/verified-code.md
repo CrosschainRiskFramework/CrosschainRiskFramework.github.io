@@ -17,23 +17,14 @@ Additionally, one should verify that the security parameters that govern the log
 
 * What tool has been used to verify the source code?
 
-
-
-
-Source code can be verified by different tools such as Etherscan, Sourcify, Tenderly, etc., but not all tools are created equal. The level of confidence around the source code verification must be assessed based on the tool used. For instance, for contracts deployed on Ethereum, [Etherscan’s verify contract code tool](https://etherscan.io/verifyContract) is considered a trustworthy tool.
+     Source code can be verified by different tools such as Etherscan, Sourcify, Tenderly, etc., but not all tools are created equal. The level of confidence around the source code verification must be assessed based on the tool used. For instance, for contracts deployed on Ethereum, [Etherscan’s verify contract code tool](https://etherscan.io/verifyContract) is considered a trustworthy tool.
 
 * Are all smart contracts of the application verified?
 
-
-
-
-It’s critical for the source code of all key smart contracts of a protocol to be verified. It’s possible for protocols to verify only certain smart contracts while hiding malicious code to give a false perception of its smart contracts being verified.
+    It’s critical for the source code of all key smart contracts of a protocol to be verified. It’s possible for protocols to verify only certain smart contracts while hiding malicious code to give a false perception of its smart contracts being verified.
 
 * Could the protocol be less transparent about their source code on purpose? 
 
-
-
-
-The rule should always be to trust, but verify. If the source code isn’t verified, a protocol can be a potential [rug](https://academy.binance.com/en/glossary/rug-pull), hiding the real intention of their smart contract. Or, the protocol could be following the practice of ‘security through obscurity', keeping the code unverified and thus private to prevent people from learning about how a specific feature works and potentially misusing it.
+    The rule should always be to trust, but verify. If the source code isn’t verified, a protocol can be a potential [rug](https://academy.binance.com/en/glossary/rug-pull), hiding the real intention of their smart contract. Or, the protocol could be following the practice of ‘security through obscurity', keeping the code unverified and thus private to prevent people from learning about how a specific feature works and potentially misusing it.
 
 For non-EVM compatible chains, the practice of source-code verification through block explorers is not a standard and is typically not supported. However, there often exist other tools or processes that are considered a standard for source code verification for specific programming languages used by different non-EVM chains. For instance, [Move Prover (MVP)](https://arxiv.org/abs/2110.08362) is used to verify smart contracts written in the Move programming language for chains like Aptos and Sui. Thus, entities building applications on these need to find different ways to ensure the trustworthiness of their deployed smart contracts.
