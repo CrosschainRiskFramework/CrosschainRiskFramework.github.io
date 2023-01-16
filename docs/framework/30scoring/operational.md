@@ -1,11 +1,11 @@
 ## Operational Risk Scoring
 
-The following aspects of Operational Risk Scoring are currently not taken into account when assessing the Operational Risk Score: [Operational Security](../20categories/40operation/operational-security.md#operational-security), [Decentralization of Operations](../20categories/40operation/decentralization.md#decentralization-of-operations), [Diversity of Codebase](../20categories/40operation/diversity-code.md#codebase-diversity), [Off-chain Security](../20categories/40operation/offchain-security.md#security-of-off-chain-systems), and [Vulnerability Response Planning](../20categories/40operation/vulnerability.md#vulnerability-response-plan).
+The following aspects of Operational Risk Scoring are currently not taken into account when assessing the Operational Risk Score: [Operational Security](../20categories/40operation/operational-security.md#operational-security), [Decentralization of Operations](../20categories/40operation/decentralization.md#decentralization-of-operations), [Diversity of Codebase](../20categories/40operation/diversity-code.md#codebase-diversity), and [Off-chain Security](../20categories/40operation/offchain-security.md#security-of-off-chain-systems).
 
 The equation for the *Operational Risk Score* is:
 
 ```
-Operational Risk Score = Operational Ability to Pause Score
+Operational Risk Score = Operational Ability to Pause Score x Vulnerability Response Planning Score / 10
 ```
 
 ### Operational Ability to Pause Score
@@ -14,6 +14,8 @@ The Operational Ability to Pause is defined by the ability to meet the propertie
 ```
 Operational Ability to Pause Score = (O001 + O003 + O004) x O005
 ```
+
+The *Operational Ability to Pause Score* ranges from 0 to 10.
 
 
 |Question ID  | Question                     |
@@ -28,3 +30,32 @@ Rationale for scoring:
 
 * The ideal configuration is Role Based Access Control, with active monitoring and a geographically dispersed support team. For decentralized projects, in addition to the automated monitoring system, pausing could be controlled a multisig wallet behind one or more of the accounts of the Role Based Access Control.
 * Shared keys indicates poor security management. This indicates that there may be other poor practices in the system that are not known.
+
+
+
+
+### Vulnerability Response Planning Score
+Vulnerability Response Planning is defined by the ability to meet the properties defined in the 
+[Vulnerability Response Planning](../20categories/40operation/vulnerability.md#vulnerability-response-plan) section. The equation for the *Vulnerability Response Planning Score* is:
+
+```
+Vulnerability Response Planning Score = O501 + O502 + O503 + O504
+```
+
+The *Vulnerability Response Planning Score* ranges from 0 to 10.
+
+
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| O501        | Is there a defined *Vulnerability Response Virtual Team*? If yes, score 1, otherwise score 0. |
+| O502        | Is there a vulnerability reporting mechanism that allows issues to be reported without making them public? If yes, score 3, otherwise score 0. |
+| O503        | Is there a defined triage process for vulnerabilities?  If yes, score 1, otherwise score 0. |
+| O504        | Can vulnerabilities fixes be deployed without needing to put code into a public repository? If yes, score 4, otherwise score 0. |
+| O505        | Are *Root Cause Analyses* published? If yes, score 1, otherwise score 0. |
+
+
+Rationale for scoring:
+
+* It is important that vulnerabilities can be reported, and then vulnerability fixes worked on, and then deployed without having to make them public. 
+
+
