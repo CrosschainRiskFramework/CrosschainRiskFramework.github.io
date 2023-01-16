@@ -23,6 +23,7 @@ nav:
   - Protocol Architecture Risk: "framework/20categories/20architecture/architecture.md"
   - Protocol Implementation Risk: "framework/20categories/30implementation/protocol-implementation-risk.md"
   - Protocol Operational Risk: "framework/20categories/40operation/protocol-operation-risk.md"
+  - Risk Scoring: "framework/30scoring/scoring.md"
   - Contributions: "authors/contributions.md"
   - FAQ: "faq/faq.md"
   - References: "reference/ref.md"
