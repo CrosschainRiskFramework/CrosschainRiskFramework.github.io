@@ -2,7 +2,7 @@
 
 Code audits are necessary to ensure that a protocol's code performs as per its intended logic. Code that has not been audited is far more likely to contain bugs than code that has. Any protocol that does not have code audits should be trusted less by users and developers. However, code audits should not be viewed as a comprehensive security solution. For example, protocols sometimes conduct audits on specific parts of their architecture or deploy unaudited code for changes/new features, which can be a potential source of risk outside of the initial audit.
 
-*Considerations:*
+**Considerations:**
 
 * Has the code been audited? How many audits have been completed? Were these audits conducted by different organizations?
 
