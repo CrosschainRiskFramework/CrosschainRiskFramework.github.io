@@ -1,6 +1,6 @@
 ## How to Contribute
 
-Development is done on GitHub in the https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io repository.
+Development is done on GitHub in the [https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io](https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io) repository.
 
 To add content, request new features or report issues, please open an issue on GitHub.
 
