@@ -2,7 +2,9 @@
 
 Building crosschain protocols involves creating complex on-chain and off-chain components while accounting for the peculiarities and pitfalls of different programming languages, frameworks, virtual machines, runtime environments, and protocols. Inevitably, such complexity increases the likelihood of bugs and vulnerabilities. This type of risk has thus far been the most common cause of bridge hacks witnessed over the last couple of years. 
 
-The lessons, patterns, and practices learned over the years in how to build secure systems and blockchain applications directly apply in the context of crosschain protocols. Exhaustively covering these in this document would be beyond the scope of this document. Instead, this section discusses some of the salient principles and considerations for thinking about crosschain implementation risk. In general, protocol developers should mitigate implementation risk by reducing its likelihood upfront, uncovering extant risk, and having controls to respond to materialized risk. 
+The best practices learned over the years in building secure systems and blockchain applications apply directly in the context of crosschain protocols. Discussing each of these would be beyond the scope of this document and largely duplicative. Instead, we refer the reader to resources such as [*Ethereum Smart Contract Best Practices*](https://consensys.github.io/smart-contract-best-practices/), which outlines [best practices, patterns, anti-patterns](https://consensys.github.io/smart-contract-best-practices/development-recommendations/), [common attacks](https://consensys.github.io/smart-contract-best-practices/attacks/), and [guiding philosophies](https://consensys.github.io/smart-contract-best-practices/general-philosophy/) for building and maintaining secure applications. It covers general principles such as the importance of simplicity, modularity, reuse of standard implementations, and planning for failures. All of which are critical considerations in crosschain protocols.
+
+ This section discusses some of the salient principles and considerations for thinking about crosschain implementation risk. In general, protocol developers should mitigate implementation risk by reducing its likelihood upfront, uncovering extant risk, and having controls to respond to materialized risk. 
 
 - **Reducing risk**
     - *Managing Complexity:* Generally, the higher the complexity of a protocol's design, code, and runtime environments, the higher the implementation risk. Various ways to gauge complexity include: the size and intricacy of codebases (e.g., cyclomatic complexity), the diversity of execution environments, and the number of moving and coordinating pieces. 
@@ -36,6 +38,7 @@ The rest of this section will discuss specific practices and considerations that
 {% include-markdown "open-source.md" %}
 {% include-markdown "verified-code.md" %}
 {% include-markdown "documentation.md" %}
+{% include-markdown "bug-bounty.md" %}
 
 ***
 ## Responding to Materialized Risk
