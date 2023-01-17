@@ -4,6 +4,7 @@ strict: true
 # mkdocs: https://www.mkdocs.org/user-guide/configuration/
 # Material theme: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
 repo_url: https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io
+edit_uri: blob/main/docs/
 theme:
   name: material
   icon:
