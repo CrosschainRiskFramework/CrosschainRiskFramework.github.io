@@ -38,6 +38,7 @@ The rest of this section will discuss specific practices and considerations that
 {% include-markdown "open-source.md" %}
 {% include-markdown "verified-code.md" %}
 {% include-markdown "documentation.md" %}
+{% include-markdown "bug-bounty.md" %}
 
 ***
 ## Responding to Materialized Risk
