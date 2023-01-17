@@ -20,15 +20,23 @@ These types of liquidity networks rely on the underlying messaging layer protoco
 
 From a security standpoint, such liquidity networks rely on the security properties of the underlying messaging layer. The worst-case scenario involves a complete loss of user and LP funds due to failures in the security of the messaging protocol.
 
-*Considerations*
+**Considerations:**
+
+*Safety*
 
 - What are the trust assumptions and security properties of the underlying messaging protocol?
 - Does the approach ensure atomicity of the exchange? Is there a possibility that one party might not get their owed funds? What are these conditions? Which party does this scenario affect?
 - How are midway failures in multi-hop routes handled?
 - Does the user always receive their requested asset, or are there scenarios where they might end up with intermediary assets (e.g., bridge-minted tokens)?
-- Is the role of an LP permissionless? How many LPs does the protocol have? Can these entities censor user swaps?
-- What are the fairness properties of the protocol? Does it disadvantage one party over another (e.g., optionality)? 
-- Can LPs grief users by refusing to fulfill exchange requests? If so, are there mechanisms to penalize such behavior (e.g., slashing)?
 - What are the trust assumptions placed on the off-chain mechanisms that support this protocol and the parties that operate them? 
+
+*Liveness*
+
+- Is the role of an LP permissionless? How many LPs does the protocol have? Can these entities censor user swaps?
 - Can the off-chain mechanisms that support the protocol censor transactions? 
+
+*Other*
+
+- What are the fairness properties of the protocol? Does it disadvantage one party over another (e.g., [optionality](https://eprint.iacr.org/2019/896))? 
+- Can LPs grief users by refusing to fulfill exchange requests? If so, are there mechanisms to penalize such behavior (e.g., slashing)?
 - How much liquidity does the protocol have across routes? How are liquidity shortages for in-flight transactions handled? 

@@ -14,7 +14,7 @@ The process of verifying source code on a block explorer like Etherscan typicall
 4. The verification tool compares the deployed bytecode with the recompiled bytecode. If the codes match, the contract is deemed verified.
 5. Once verified, the smart contract is marked “verified” and is curated under the “Verified Contracts'' in the “Blockchain” tab. 
 
-*Considerations:*
+**Considerations:**
 
 * What tool has been used to verify the source code?
 

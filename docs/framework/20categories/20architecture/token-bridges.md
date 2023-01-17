@@ -17,11 +17,16 @@ Thus the total supply of synthetic tokens across networks must match the number 
 
 From a design perspective, there are two inherent risks that this model creates: 1) funds locked on a source network create sizable honeypots that attract malicious actors 2) synthetic assets carry a perpetual risk for token holders. This risk is often hidden from token holders because bridge-specific synthetic assets are usually not distinctly identified as such. 
 
-*Considerations:*
+**Considerations:**
+The following are essential considerations for [*Users*](../../01intro/introduction.md#stakeholders) and [*Token Holders*](../../01intro/introduction.md#stakeholders)
 
-- Are there alternatives to using this model for the specific asset? i.e., is there a natively issued version of the asset on the destination network that could be used instead?
-- Are synthetic assets clearly labeled and identifiable to users?
-- How is the atomicity of the crosschain mechanism ensured? Does this introduce new trusted intermediaries (admins and bridge operators) to resolve failed transactions? 
+- Are synthetic assets clearly labeled and identifiable?
+- Are there alternatives to using this model for the specific asset? i.e., is there another version of the asset (or a substitute asset) that is natively issued on the destination and could be used instead of the bridge-wrapped asset?
+- Transaction Failure Scenarios:
+    - Does the protocol ensure atomicity of crosschain transactions? 
+    - If not, how are failed transactions handled?
+    - Do refunds require trusted intermediaries (admins and bridge operators)?
+- How efficiently are refunds processed?
 - What are the trust assumptions and security properties of the underlying messaging protocol?
 
 #### Burn and Mint 
@@ -30,7 +35,9 @@ Some assets have a specified issuer that can authoritatively mint original asset
 
 The risk posed by this mechanism is comparatively lower than *lock-and-mint* mechanisms for a couple of reasons: 1) it does not create honeypots that attract malicious actors, and 2) token holders possess original assets instead of bridge-specific [IOUs](https://www.investopedia.com/terms/i/iou.asp).  
 
-*Considerations:*
+**Considerations:**
 
-- How is the atomicity of the crosschain mechanism ensured? Does this introduce new trusted intermediaries (admins and bridge operators) to resolve failed transactions? 
 - What are the trust assumptions and security properties of the underlying messaging protocol?
+- Transaction Failure Scenarios:
+    - Does the protocol ensure atomicity of crosschain transactions? 
+    - If not, how are failed transactions handled?
