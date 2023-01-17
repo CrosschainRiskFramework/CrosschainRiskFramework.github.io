@@ -3,6 +3,7 @@ strict: true
 # For documentation on the mkdocs configuration see:
 # mkdocs: https://www.mkdocs.org/user-guide/configuration/
 # Material theme: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+repo_url: https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io
 theme:
   name: material
   features:
