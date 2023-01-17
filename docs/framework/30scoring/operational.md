@@ -35,7 +35,7 @@ Rationale for scoring:
 The Operational Ability to Pause is defined by the ability to meet the properties defined in the [Operational Ability to Pause](../20categories/40operation/ability-pause.md#ability-to-pause) section. The equation for the *Operational Ability to Pause Score* is:
 
 ```
-Operational Ability to Pause Score = (O101 + O103 + O014) x O105
+Operational Ability to Pause Score = (O101 + O103 + O104) x O105
 ```
 
 The *Operational Ability to Pause Score* ranges from 0 to 10.
