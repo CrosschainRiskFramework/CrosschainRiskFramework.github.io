@@ -1,30 +1,52 @@
 ## Operational Risk Scoring
 
-The following aspects of Operational Risk Scoring are currently not taken into account when assessing the Operational Risk Score: [Operational Security](../20categories/40operation/operational-security.md#operational-security), [Decentralization of Operations](../20categories/40operation/decentralization.md#decentralization-of-operations), [Diversity of Codebase](../20categories/40operation/diversity-code.md#codebase-diversity), and [Off-chain Security](../20categories/40operation/offchain-security.md#security-of-off-chain-systems).
+The following aspects of Operational Risk Scoring are currently not taken into account when assessing the Operational Risk Score: [Decentralization of Operations](../20categories/40operation/decentralization.md#decentralization-of-operations), [Diversity of Codebase](../20categories/40operation/diversity-code.md#codebase-diversity), and [Off-chain Security](../20categories/40operation/offchain-security.md#security-of-off-chain-systems).
 
 The equation for the *Operational Risk Score* is:
 
 ```
-Operational Risk Score = Operational Ability to Pause Score x Vulnerability Response Planning Score / 10
+Operational Risk Score = Operational Security Score x Operational Ability to Pause Score x Vulnerability Response Planning Score / 100
 ```
+
+### Operational Security Score
+Operational Security is defined by the ability to meet the properties defined in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section. The equation for the *Operational Security Score* is:
+
+```
+Operational Security Score = 5 + O001 + O002 + O003
+```
+
+The *Operational Security Score* ranges from 0 to 10.
+
+
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| O001        | Has sensitive information as defined in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section been identified? Has this information been documented? If yes, score 1. If no, score 0. |
+| O002        | Is a complete Operational Security process, as described in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section implemented? If yes, score 1. If no, score 0. |
+| O003        | Is there a bug bounty for the project?  How big is the bug bounty? <ul><li>There is no bug bounty: Score 0.</li><li>Less than US$10,000: Score 1.</li><li>US$10,000 but less than US$100,000: Score 2.</li><li>More than US$100,000: Score 3.</li></ul> |
+
+Rationale for scoring:
+
+* The constant **5** is added to the elements of the Operational Security Score. This is because Operational Security offers incremental improvement in the security of a system, and is not as fundamental as other aspects of a project.
+
+
+
 
 ### Operational Ability to Pause Score
 The Operational Ability to Pause is defined by the ability to meet the properties defined in the [Operational Ability to Pause](../20categories/40operation/ability-pause.md#ability-to-pause) section. The equation for the *Operational Ability to Pause Score* is:
 
 ```
-Operational Ability to Pause Score = (O001 + O003 + O004) x O005
+Operational Ability to Pause Score = (O101 + O103 + O014) x O105
 ```
 
 The *Operational Ability to Pause Score* ranges from 0 to 10.
 
-
 |Question ID  | Question                     |
 |-------------|------------------------------|
-| O001        | Type of pausing access control: <ul><li>None: Score 0.</li><li>Single EOA controls pausing: Score 1.</li><li>Role Based Access Control with multiple accounts (EOA or contract): Score 5.</li><li>A multisig wallet controls pausing: Score is answer to Question ID O002.</li></ul> |
-| O002        | Multisig Wallets: Is the threshold of the multisig wallet greater than one? Are all signers independent? If either answers is no, the score 0, otherwise score 5. |
-| O003        | Automated Pausing: Does the project operate services that monitor the health of the protocol? <ul><li>No: Score 0.</li><li>Yes: The monitoring service contacts people who can pause the project if unexpected behavior is detected: Score 1.</li><li>Yes: The monitoring service has the ability to pause the protocol if unexpected behavior is detected: Score 2.</li><li>Yes: The monitoring service contacts people who can pause the project and has the ability to pause the protocol if unexpected behavior is detected: Score 3.</li></ul> |
-| O004        | Geographic separation of pausers: Are people who can pause the project spread across time zones? <ul><li>No: Score 0.</li><li>Across multiple timezones, but not complete coverage: Score 1.</li><li>Full coverage: Follow the sun support: Score 2.</li></ul> |
-| O005        | Shared keys: Are any accounts / private keys used for pausing the protocol shared with multiple people. If yes, score 0. If no, score 1. | 
+| O101        | Type of pausing access control: <ul><li>None: Score 0.</li><li>Single EOA controls pausing: Score 1.</li><li>Role Based Access Control with multiple accounts (EOA or contract): Score 5.</li><li>A multisig wallet controls pausing: Score is answer to Question ID O102.</li></ul> |
+| O102        | Multisig Wallets: Is the threshold of the multisig wallet greater than one? Are all signers independent? If either answers is no, the score 0, otherwise score 5. |
+| O103        | Automated Pausing: Does the project operate services that monitor the health of the protocol? <ul><li>No: Score 0.</li><li>Yes: The monitoring service contacts people who can pause the project if unexpected behavior is detected: Score 1.</li><li>Yes: The monitoring service has the ability to pause the protocol if unexpected behavior is detected: Score 2.</li><li>Yes: The monitoring service contacts people who can pause the project and has the ability to pause the protocol if unexpected behavior is detected: Score 3.</li></ul> |
+| O104        | Geographic separation of pausers: Are people who can pause the project spread across time zones? <ul><li>No: Score 0.</li><li>Across multiple timezones, but not complete coverage: Score 1.</li><li>Full coverage: Follow the sun support: Score 2.</li></ul> |
+| O105        | Shared keys: Are any accounts / private keys used for pausing the protocol shared with multiple people. If yes, score 0. If no, score 1. | 
 
 Rationale for scoring:
 
