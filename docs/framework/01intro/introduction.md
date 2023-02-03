@@ -24,15 +24,15 @@ Asset Transfer involves moving the value of an asset from a source ledger to a d
 General-purpose messaging refers to the communication of any data across chains. It can enable asset exchanges and transfers but also orchestrate complex application behavior across chains for a broad range of use cases. Examples include coordinating and managing DAO governance and actions across chains. 
 
 ## Stakeholders
-Crosschain protocols can have several distinct stakeholders with direct or indirect involvement in the system. These stakeholders can be individuals, groups, or organizations and have different roles, constraints, goals, and incentives. Consequently, the types and magnitudes of risk borne by each stakeholder might vary considerably across protocols. Understanding the dynamics of crosschain risk from the perspective of different actors will aid in a more sound analysis. To this end, we identify four types of stakeholders in crosschain protocols:
+Crosschain protocols can have several distinct stakeholders with direct or indirect involvement in the system. These stakeholders can be individuals, groups, or organizations and have different roles, constraints, goals, and incentives. Consequently, the types and magnitudes of risk borne by each stakeholder might vary considerably across protocols. Understanding the dynamics of crosschain risk from the perspective of different actors will aid in a more sound analysis. To this end, we identify the main stakeholders in crosschain protocols below:
 
 #### Users
 Users are the primary customers of the service offered by a crosschain protocol. They interact with the system directly to exchange assets or transfer data and value across chains. A user might directly interface with a crosschain protocol (e.g., token bridge) or through an intermediary application. A user's involvement with a protocol is typically short-lived and ends once their crosschain transaction has settled.
 
-#### Liquidity Provider
+#### Liquidity Providers
 In a crosschain asset exchange, a _liquidity provider_ is the counter-party to a user. For a fee, it exchanges its assets in one network for a user's assets in another. It might compete with other liquidity providers to offer this service and have defined performance and service-level constraints in its operations. Liquidity providers typically maintain longer exposure to the risks of a protocol and might also need to account for market-related risks beyond protocol risks.  
 
-#### Bridge Token Holder
+#### Bridge-wrapped Token Holders
 A common approach to enabling the transfer of assets from one chain to another is through a lock-and-mint mechanism, in which crosschain protocols lock assets on one network and mint corresponding synthetic assets on another. These synthetic assets are, in effect, a liability of the bridge that can later be redeemed for the underlying asset. We refer to any entity that holds such synthetic assets as a _bridge token holder_. A _bridge token holder_ might or might not be a user of a crosschain protocol. More importantly, such stakeholders are exposed to the idiosyncratic risks of a protocol so long as they hold the asset. If a protocol's underlying assets are compromised the corresponding synthetic assets could lose some or all of their value.
 
 #### Bridge Validators
@@ -43,6 +43,17 @@ _Bridge operators_ are actors that can update or reconfigure key elements of a c
 
 #### Bridge Developers
 _Bridge developers_ design, build, test, and maintain the codebase behind a crosschain protocol. Given the complex nature of such systems, the possibility of introducing bugs and vulnerabilities is considerable. The experience and competence of such teams, their development practices, and the policies and procedures they put in place to respond to incidents significantly influence a protocol's level of [implementation risk](../20categories/30implementation/protocol-implementation-risk.md).
+
+
+In addition to the direct stakeholders discussed above, crosschain protocols also have indirect stakeholders. These entities have interest in or influence over the security and efficacy of crosschain protocols, even though they might not directly interact with them. Indirect stakeholders include: 
+
+- Blockchain Network Participants: Recent bridge hacks have shown how failures in crosschain protocols can cause significant disruptions and halts of the underlying blockchains, impacting all network participants. 
+
+- Crosschain Applications: Applications built atop crosschain protocols have independent economic value that could influence the security of the underlying bridge. In addition, they have their own stakeholders that are impacted by the operations of the crosschain protocol.
+
+- Bridge Protocol Investors: Investors of bridge protocols can directly or indirectly influence the operations and security of a protocol. For instance, the security guarantees of Proof-of-Stake bridges depend on the value of the bridge tokens staked. The market actions of investors could significantly influence the price of these tokens and consequently the security of the bridge.
+
+For brevity, the rest of this document primarily focuses only on direct stakeholders of crosschain protocols.
 
 ## Security Risks
 At its essence, crosschain communication creates a dependency relationship between two or more networks. Such dependency relationships typically involve state change in one network driving state change in another. These relationships can be _unidirectional_ or _bidirectional_, _transient_ or _persistent_. The goal of crosschain protocols is to enable and guarantee the integrity of these dependencies. Specifically, given two networks, a source, and a destination, where the state in the destination network is dependent on the state in the source network, crosschain protocols must guarantee the following core security properties:
