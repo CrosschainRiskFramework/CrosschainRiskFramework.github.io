@@ -1,6 +1,6 @@
 ## Operational Risk Scoring
 
-The following aspects of Operational Risk Scoring are currently not taken into account when assessing the Operational Risk Score: [Decentralization of Operations](../20categories/40operation/decentralization.md#decentralization-of-operations), [Diversity of Codebase](../20categories/40operation/diversity-code.md#codebase-diversity), and [Off-chain Security](../20categories/40operation/offchain-security.md#security-of-off-chain-systems).
+The following aspects of Operational Risk are currently not taken into account when assessing the Operational Risk Score: [Decentralization of Operations](../20categories/40operation/decentralization.md#decentralization-of-operations), [Diversity of Codebase](../20categories/40operation/diversity-code.md#codebase-diversity), and [Off-chain Security](../20categories/40operation/offchain-security.md#security-of-off-chain-systems).
 
 The equation for the *Operational Risk Score* is:
 
