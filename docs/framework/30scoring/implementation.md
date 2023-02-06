@@ -38,7 +38,7 @@ The *Code Auditing Score* ranges from 0 to 10.
 |Question ID  | Question                     |
 |-------------|------------------------------|
 | I011        | Has any version of the on-chain components of the system been audited? If yes, score 2. If no, score 0. |
-| I012        | Has any versions of the on-chain components of the system been audited by more than one audit organisation? If yes, score 2. If no, score 0. |
+| I012        | Has any version of the on-chain components of the system been audited by more than one audit organisation? If yes, score 2. If no, score 0. |
 | I013        | For the most recent audit, were all critical issues addressed? If yes, score 1. If no, score 0. |
 | I014        | Has the deployed version of the on-chain components of the system been audited? If yes, score 4. If no, score 0. |
 | I015        | Has any version of the off-chain components of the system been audited? If yes, score 2. If no, score 0. If the system contains no off-chain components, then score 2. |
