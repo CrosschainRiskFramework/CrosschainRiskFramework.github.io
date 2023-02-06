@@ -29,7 +29,7 @@ Implementation Risk Score = Code Auditing Score
 Code auditing is described in detail in the [Code Auditing](../20categories/30implementation/audit.md) section. The equation for the *Code Auditing Score* is:
 
 ```
-Code Audit Score = (I011 + I012 + I014 + I1015) x I013
+Code Audit Score = (I011 + I012 + I014 + I015) x I013
 ```
 
 The *Code Auditing Score* ranges from 0 to 10.
