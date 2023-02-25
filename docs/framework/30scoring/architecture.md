@@ -5,5 +5,5 @@ No aspects of [Architectural Risk](../20categories/20architecture/architecture.m
 The equation for the *Architecture Risk Score* is:
 
 ```
-Architectural Risk Score = 100
+Architectural Risk Score = 0
 ```
