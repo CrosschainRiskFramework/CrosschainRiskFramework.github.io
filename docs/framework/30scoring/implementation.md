@@ -22,26 +22,26 @@ and
 The equation for the *Implementation Risk Score* is:
 
 ```
-Implementation Risk Score = Code Auditing Score
+Implementation Risk Score = Code Auditing Score * 100 / 20
 ```
 
 ### Code Auditing Score
 Code auditing is described in detail in the [Code Auditing](../20categories/30implementation/audit.md) section. The equation for the *Code Auditing Score* is:
 
 ```
-Code Audit Score = (I011 + I012 + I014 + I015) x I013
+Code Audit Score = I011 + I012 + I014 + I015 + I013
 ```
 
-The *Code Auditing Score* ranges from 0 to 10.
+The *Code Auditing Score* ranges from 0 to 20.
 
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
-| I011        | Has any version of the on-chain components of the system been audited? If yes, score 2. If no, score 0. |
-| I012        | Has any version of the on-chain components of the system been audited by more than one audit organisation? If yes, score 2. If no, score 0. |
-| I013        | For the most recent audit, were all critical issues addressed? If yes, score 1. If no, score 0. |
-| I014        | Has the deployed version of the on-chain components of the system been audited? If yes, score 4. If no, score 0. |
-| I015        | Has any version of the off-chain components of the system been audited? If yes, score 2. If no, score 0. If the system contains no off-chain components, then score 2. |
+| I011        | Has any version of the on-chain components of the system been audited? If yes, score 0. If no, score 2. |
+| I012        | Has any version of the on-chain components of the system been audited by more than one audit organisation? If yes, score 0. If no, score 2. |
+| I013        | For the most recent audit, were all critical issues addressed? If yes, score 0. If no, score 10. |
+| I014        | Has the deployed version of the on-chain components of the system been audited? If yes, score 0. If no, score 4. |
+| I015        | Has any version of the off-chain components of the system been audited? If yes, score 0. If no, score 2. If the system contains no off-chain components, then score 0. |
 
 Rationale for scoring:
 
