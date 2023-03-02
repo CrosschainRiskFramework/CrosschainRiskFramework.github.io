@@ -72,8 +72,8 @@ Well Known Smart Contract Programming Language Risk Score = I700 + I701
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
-| I701        | Are bridge contracts on either chain the bridge connects written in a language other than Solidity? If yes score 20, otherwise score 0. |
-| I702        | With the exception of well known libraries (such as OpenZeppelin), do the bridge contracts contain any assembler code? If yes, score 5, otherwise score 0. |
+| I700        | Are bridge contracts on either chain the bridge connects written in a language other than Solidity? If yes score 20, otherwise score 0. |
+| I701        | With the exception of well known libraries (such as OpenZeppelin), do the bridge contracts contain any assembler code? If yes, score 5, otherwise score 0. |
 
 
 
