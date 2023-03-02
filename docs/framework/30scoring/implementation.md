@@ -37,7 +37,7 @@ The Role Based Access Control Risk Score depends on the permissioned control / o
 * There is no permissioned ownership feature: Score 0.
 * There a single EOA as the owner: Score 10.
 * Role Based Access Control has been implemented: Score 0.
-* There is no Role Based Access Control, but a threshold number of signers need to approve administrative actions: Score 5.
+* There is no Role Based Access Control, but a threshold number of signers need to approve administrative actions. If number of signers is five or more score 3, otherwise score 5. Additionally, if the number of signers that need to sign is more than 50%, score 0, otherwise score 5.
 
 
 
