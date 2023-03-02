@@ -26,7 +26,7 @@ Mixing of Control and Data Plane is described in the
 The Control and Data Plane are considered mixed if the answer to any of the following questions is yes:
 
 * Can Control Plane functions be called from Data Plane functions without some additional authentication checks?
-* If Control Plane messages are sent across the crosschain communications channel, are Control Plane messages signed by the same keys as Data Plan messages?
+* If Control Plane messages are sent across the crosschain communications channel, are Control Plane messages signed by the same keys as Data Plane messages?
 
 
 #### Role Based Access Control Risk Score
@@ -177,9 +177,8 @@ This is currently not accounted for and should be scored as 0.
 
 
 #### Ability to Ban Addresses Risk Score
-The ability to ban specific addresses is described in the [Ability to Ban Addresses](../20categories/30implementation/ban-address.md) section.
+The ability to ban specific addresses is described in the [Ability to Ban Addresses](../20categories/30implementation/ban-address.md) section. This capability is in contrast to the censorship resistance property that is of utmost importance to many protocols. So as to not downrank protocols that strive to provide censorship resistance over protocols that provide the ability to ban addresses, the ability to ban addresses is not scored. As such, the Ability to Ban Addresses Risk Score is always 0.
 
-This is currently not accounted for and should be scored as 0.
 
 
 
