@@ -64,7 +64,7 @@ This is currently not accounted for and should be scored as 0.
 
 
 #### Well Known Smart Contract Programming Language Risk Score
-The risks associated with not using a Well Known Smart Contract Programming Language is contained in the [Well Known Smart Contract Programming Language](../20categories/30implementation/known-language.md) section. The Well Known Smart Contract Programming Language Risk Score is calculated as:
+The risks associated with not using a Well Known Smart Contract Programming Language is contained in the [Well Known Smart Contract Programming Language](../20categories/30implementation/known-language.md) section. The Well Known Smart Contract Programming Language Risk Score is specific to a bridge between two chains. That is, a bridge system could be between a dozen chains. The score could be different for each source chain - target chain combination. The Well Known Smart Contract Programming Language Risk Score is calculated as:
 
 ```
 Well Known Smart Contract Programming Language Risk Score = I700 + I701
