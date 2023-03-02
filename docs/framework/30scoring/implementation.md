@@ -72,7 +72,7 @@ Well Known Smart Contract Programming Language Risk Score = I700 + I701
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
-| I700        | Are bridge contracts on either chain the bridge connects written in a language other than Solidity? If yes score 20, otherwise score 0. |
+| I700        | Are bridge contracts on either chain the bridge connects written in a language other than Solidity? If yes score 5, otherwise score 0. |
 | I701        | With the exception of well known libraries (such as OpenZeppelin), do the bridge contracts contain any assembler code? If yes, score 5, otherwise score 0. |
 
 
@@ -109,16 +109,15 @@ Code auditing is described in detail in the [Code Auditing](../20categories/30im
 Code Audit Score = I1011 + I1012 + I1014 + I1015 + I1013
 ```
 
-The *Code Auditing Score* ranges from 0 to 20.
 
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
-| I1011        | Has any version of the on-chain components of the system been audited? If yes, score 0. If no, score 2. |
-| I1012        | Has any version of the on-chain components of the system been audited by more than one audit organisation? If yes, score 0. If no, score 2. |
+| I1011        | How many times has the on-chain components of the system been audited? If none, score 50, and score 0 for questions I1012, I1013, and I1014. If once score 10, if twice or more score 0. |
+| I1012        | Has any version of the on-chain components of the system been audited by more than one audit organisation? If yes, score 0. If no, score 5. |
 | I1013        | For the most recent audit, were all critical issues addressed? If yes, score 0. If no, score 10. |
-| I1014        | Has the deployed version of the on-chain components of the system been audited? If yes, score 0. If no, score 4. |
-| I1015        | Has any version of the off-chain components of the system been audited? If yes, score 0. If no, score 2. If the system contains no off-chain components, then score 0. |
+| I1014        | Has the deployed version of the on-chain components of the system been audited? If yes, score 0. If no, score 20. |
+| I1015        | Has any version of the off-chain components of the system been audited? If yes, score 0. If no, score 20. If the system contains no off-chain components, then score 0. |
 
 Rationale for scoring:
 
