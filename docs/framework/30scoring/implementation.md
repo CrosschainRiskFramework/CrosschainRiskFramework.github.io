@@ -60,21 +60,13 @@ This is currently not accounted for and should be scored as 0.
 #### Well Known Platform Risk Score
 The risks associated with not using Well Known Platforms is contained in the [Well Known Platform](../20categories/30implementation/known-platform.md) section.
 
-This is currently not accounted for and should be scored as 0.
+Scoring of this category has proven to be controvertial. At present, the risk score for this category is 0.
 
 
 #### Well Known Smart Contract Programming Language Risk Score
-The risks associated with not using a Well Known Smart Contract Programming Language is contained in the [Well Known Smart Contract Programming Language](../20categories/30implementation/known-language.md) section. The Well Known Smart Contract Programming Language Risk Score is specific to a bridge between two chains. That is, a bridge system could be between a dozen chains. The score could be different for each source chain - target chain combination. The Well Known Smart Contract Programming Language Risk Score is calculated as:
+The risks associated with not using a Well Known Smart Contract Programming Language is contained in the [Well Known Smart Contract Programming Language](../20categories/30implementation/known-language.md) section. 
 
-```
-Well Known Smart Contract Programming Language Risk Score = I700 + I701
-```
-
-|Question ID  | Question                     |
-|-------------|------------------------------|
-| I700        | Are bridge contracts on either chain the bridge connects written in a language other than Solidity? If yes score 5, otherwise score 0. |
-| I701        | With the exception of well known libraries (such as OpenZeppelin), do the bridge contracts contain any assembler code? If yes, score 5, otherwise score 0. |
-
+Scoring of this category has proven to be controvertial. At present, the risk score for this category is 0.
 
 
 
