@@ -3,6 +3,8 @@ Like any software, smart contracts software can have bugs. This is true of both 
 
 Having the ability to upgrade a contract is inherently risky as it can lead to rug-pulling attacks, where the operators of a project change the contract logic and steal customer funds (for instance the [Hunter Defi](https://twitter.com/CertiKAlert/status/1523153063875575809) rug-pull). However, as a proportion of both the number of cypto rug pull attacks and as a proportion of the projects that use upgradable contracts, using contract upgrade as a method of stealing funds is very rare. We have no hard statistics on this; this is just an observation.
 
+Another major source of risk related to upgrading a contract is that vulnerabilities can either be introduced due to the new code, or the interaction of the new code with the old data. This was the source of the issue in the [Nomad hack in August 2022](https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd).
+
 The three common methodologies for upgrading smart contracts are:
 
 * [Data Holder Upgrade Pattern](https://www.youtube.com/watch?v=VhzafmGGmzo): Have a data holder contract and a separate business logic contract. The business logic contracts are upgraded, and connect to the existing data holder contracts. Issues with this approach are that new versions of the business logic contract need to be able to utilise old data formats stored in the data holder contract.
