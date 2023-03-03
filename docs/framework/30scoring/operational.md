@@ -5,24 +5,23 @@ The following aspects of Operational Risk are currently not taken into account w
 The equation for the *Operational Risk Score* is:
 
 ```
-Operational Risk Score = (Operational Security Score + Operational Ability to Pause Score + Vulnerability Response Planning Score) x 100 / 37 
+Operational Risk Score = (Operational Security Score + Operational Ability to Pause Score + Vulnerability Response Planning Score) x 100 / 29 
 ```
 
 ### Operational Security Score
 Operational Security is defined by the ability to meet the properties defined in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section. The equation for the *Operational Security Score* is:
 
 ```
-Operational Security Score = O001 + O002 + O003
+Operational Security Score = O001 + O002
 ```
 
-The *Operational Security Score* ranges from 0 to 10.
+The *Operational Security Score* ranges from 0 to 2.
 
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
 | O001        | Has sensitive information as defined in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section been identified? Has this information been documented? If yes, score 0. If no, score 1. |
 | O002        | Is a complete Operational Security process, as described in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section implemented? If yes, score 0. If no, score 1. |
-| O003        | Is there a bug bounty for the project?  How big is the bug bounty? <ul><li>There is no bug bounty: Score 8.</li><li>Less than US$10,000: Score 5.</li><li>US$10,000 but less than US$100,000: Score 2.</li><li>More than US$100,000: Score 0.</li></ul> |
 
 
 ### Operational Ability to Pause Score
