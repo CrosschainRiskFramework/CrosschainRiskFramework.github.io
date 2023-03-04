@@ -48,15 +48,28 @@ The risks associated with being able to upgrade contracts appear to be similar t
 
 
 #### Secret Storage Risk Score
-Secret Storage is described in the [Secret Storage](../20categories/30implementation/secret-storage.md) section.
+Secret Storage is described in the [Secret Storage](../20categories/30implementation/secret-storage.md) section. The *Secret Storage Risk Score* is defined by the equation below.
 
-This is currently not accounted for and should be scored as 0.
+```
+Secret Storage Risk Score = I401
+```
+
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| I401        | Are any private keys, symmetric keys, passwords, or passcodes used in the project stored on disk in a plain text file? If yes, score 20, if no score 0. |
+
 
 #### Product Development Maturity Risk Score
-Product Development Maturity is described in the [Product Development Maturity](../20categories/30implementation/maturity.md) section.
+Product Development Maturity is described in the [Product Development Maturity](../20categories/30implementation/maturity.md) section. The *Product Development Maturity Risk Score* is defined by the equation below.
 
+```
+Product Development Maturity Risk Score = I501
+```
 
-This is currently not accounted for and should be scored as 0.
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| I501        | Does the organisation building the project have a documented SDLC approach? If yes, score 0, if no score 20. |
+
 
 #### Well Known Platform Risk Score
 The risks associated with not using Well Known Platforms is contained in the [Well Known Platform](../20categories/30implementation/known-platform.md) section.
@@ -90,19 +103,28 @@ The Formal Verification Risk Score is 5 if the code has not been formally verifi
 
 
 #### Test Risk Score
-The risks associated with not thoroughly testing an application are described in the [Testing](../20categories/30implementation/testing.md) section.
-
-This is currently not accounted for and should be scored as 0.
-
-
-#### Code Auditing Score
-Code auditing is described in detail in the [Code Auditing](../20categories/30implementation/audit.md) section. The equation for the *Code Auditing Score* is:
+The risks associated with not thoroughly testing an application are described in the [Testing](../20categories/30implementation/testing.md) section. The *Test Risk Score* is defined by the equation below.
 
 ```
-Code Audit Score = I1011 + I1012 + I1014 + I1015 + I1013
+Test Risk Score = I901 + I902 + I903 + I904 + I905 + I906 
 ```
 
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| I901        | Is there a test plan documenting which tests scenarios should be tested? If yes, score 0, if no score 10. |
+| I902        | Are contracts unit tested? If yes, score 0, if no score 10. |
+| I903        | Are their system tests that check the operation of the entire system? If yes, score 0, if no score 10. |
+| I904        | Is their a continuous integration system that executes unit and system tests automatically on commit to a source code respository? If yes, score 0, if no score 10. |
+| I905        | Are any of the tests executed by the continuous integration system unreliable (that is, some times unexpectedly fail)? If yes, score 5, if no score 0. |
+| I906        | Can a product release occur if any test is failing? If yes, score 10, if no score 0. |
 
+
+#### Code Auditing Risk Score
+Code auditing is described in detail in the [Code Auditing](../20categories/30implementation/audit.md) section. The equation for the *Code Auditing Risk Score* is:
+
+```
+Code Audit Risk Score = I1011 + I1012 + I1014 + I1015 + I1013
+```
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
@@ -121,36 +143,58 @@ Rationale for scoring:
 
 
 #### Open Source Code Risk Score
-The risks of not using open source code for a project are discussed in the [Open Source Code](../20categories/30implementation/open-source.md) section.
-
-
-This is currently not accounted for and should be scored as 0.
-
-#### Verified Code on Block Explorer Risk Score
-The risks associated with not publishing code to blockchain explorers is covered in the 
-[Verified Code on Block Explorer](../20categories/30implementation/verified-code.md) section.
-
-
-This is currently not accounted for and should be scored as 0.
-
-
-#### Documentation Risk Score
-The risks associated with not documenting a project well are discussed in the [Documentation](../20categories/30implementation/documentation.md) section.
-
-This is currently not accounted for and should be scored as 0.
-
-
-#### Bug Bounty Risk Score
-Bug Bounties are described in detail in the [Bug Bounty](../20categories/30implementation/bug-bounty.md) section. The equation for the *Bug Bounty Score* is:
+The risks of not using open source code for a project are discussed in the [Open Source Code](../20categories/30implementation/open-source.md) section. The equation for the *Open Source Code Risk Score* is:
 
 ```
-Bug Bounty Score = I1401
+Open Source Code Risk Score = I1101 + I1102
 ```
-
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
-| I1401        | Is there a bug bounty for the project?  How big is the bug bounty? <ul><li>There is no bug bounty: Score 10.</li><li>Less than US$10,000: Score 5.</li><li>US$10,000 but less than US$100,000: Score 2.</li><li>More than US$100,000: Score 0.</li></ul> |
+| I1101       | Is the source code of the project in a public code respository? If yes, score 0, otherwise score 10. |
+| I1102       | Is it possible to develop code and deploy the project from a private repository? That is, can vulnerability fixes be resolved without publishing on the public code repsotory? If yes, score 0, otherwise score 20. |
+
+
+#### Verified Code on Block Explorer Risk Score
+The risks associated with not publishing code to blockchain explorers is covered in the 
+[Verified Code on Block Explorer](../20categories/30implementation/verified-code.md) section. The equation for the *Verified Code on Blockchain Explorer Risk Score* is:
+
+```
+Verified Code on Block Explorer Risk Score = I1201
+```
+
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| I1201       | Do all deployed contracts have verified code uploaded to block explorers? If yes, score 0, otherwise score 50. |
+
+
+#### Documentation Risk Score
+The risks associated with not documenting a project well are discussed in the [Documentation](../20categories/30implementation/documentation.md) section. The equation for the *Documentation Risk Score* is:
+
+```
+Documentation Risk Score = I1301 + I1302 + I1303 + I1304 + I1305 + I1306
+```
+
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| I1301       | Does the project have architectural documentation? If yes, score 0, otherwise score 5. |
+| I1302       | Does the project have a documented threat model? If yes, score 0, otherwise score 5. |
+| I1303       | Does the project have sequence diagrams for all major data flows? If yes, score 0, otherwise score 5. |
+| I1304       | Are there code comments in smart contract code? If yes, score 0, otherwise score 20. |
+| I1305       | Are there code comments in the off-chain code? If yes, score 0, otherwise score 5. |
+| I1306       | Are there code comments in the test code? If yes, score 0, otherwise score 5. |
+
+
+#### Bug Bounty Risk Score
+Bug Bounties are described in detail in the [Bug Bounty](../20categories/30implementation/bug-bounty.md) section. The equation for the *Bug Bounty Risk Score* is:
+
+```
+Bug Bounty Risk Score = I1401
+```
+
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| I1401        | Is there a bug bounty for the project?  How big is the bug bounty? <ul><li>There is no bug bounty: Score 15.</li><li>Less than US$10,000: Score 5.</li><li>US$10,000 but less than US$100,000: Score 2.</li><li>More than US$100,000: Score 0.</li></ul> |
 
 
 
@@ -162,10 +206,15 @@ Responding to Materialized Risk Score =
 ```
 
 #### Ability to Pause Risk Score
-The ability to pause a project is described in the [Ability to Pause Project](../20categories/30implementation/pause.md) section.
+The ability to pause a project is described in the [Ability to Pause Project](../20categories/30implementation/pause.md) section. The equation for the *Ability to Pause Risk Score* is:
 
+```
+Ability to Pause Score = I1501
+```
 
-This is currently not accounted for and should be scored as 0.
+|Question ID  | Question                     |
+|-------------|------------------------------|
+| I1501       | Can all data plane code paths be paused? If yes score 0, otherwise score 20. |
 
 
 #### Ability to Ban Addresses Risk Score
