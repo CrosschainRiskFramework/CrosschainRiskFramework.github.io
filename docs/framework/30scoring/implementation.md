@@ -44,7 +44,8 @@ The Role Based Access Control Risk Score depends on the permissioned control / o
 #### Upgradable Risk Score
 Upgradable Risk is decribed in the [Upgradability](../20categories/30implementation/upgrade.md) section.
 
-This is currently not accounted for and should be scored as 0.
+The risks associated with being able to upgrade contracts appear to be similar to the risks associated with not being able to upgrade a contract. As such, the Upgradable Risk Score is always 0.
+
 
 #### Secret Storage Risk Score
 Secret Storage is described in the [Secret Storage](../20categories/30implementation/secret-storage.md) section.
