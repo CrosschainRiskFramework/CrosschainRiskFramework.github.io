@@ -24,6 +24,7 @@ The rest of this section will discuss specific practices and considerations that
 
 {% include-markdown "mixing-control-data-flow.md" %}
 {% include-markdown "access-control.md" %}
+{% include-markdown "protocol-design.md" %}
 {% include-markdown "upgrade.md" %}
 {% include-markdown "secret-storage.md" %}
 {% include-markdown "maturity.md" %}
