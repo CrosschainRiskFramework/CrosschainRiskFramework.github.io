@@ -4,7 +4,8 @@ Implementation Risk Scoring is based on the [Implementation Risk](../20categorie
 The equation for the *Implementation Risk Score* is:
 
 ```
-Implementation Risk Score = Maximum of (Reducing Implementation Risk Score, Uncovering Extant Risk Score, and Responding to Materialized Risk Score)
+Implementation Risk Score = Lowest of (Temp Implementation Risk Score, 100)
+Temp Implementation Risk Score = Maximum of (Reducing Implementation Risk Score, Uncovering Extant Risk Score, and Responding to Materialized Risk Score)
 ```
 
 ### Reducing Implementation Risk

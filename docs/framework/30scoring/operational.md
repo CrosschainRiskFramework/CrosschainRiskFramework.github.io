@@ -5,7 +5,8 @@ The following aspects of Operational Risk are currently not taken into account w
 The equation for the *Operational Risk Score* is:
 
 ```
-Operational Risk Score = (Operational Security Score + Operational Ability to Pause Score + Vulnerability Response Planning Score) x 100 / 29 
+Operational Risk Score = Lowest of (Temp Operational Risk Score, 100)
+Temp Operational Risk Score = Operational Security Score + Operational Ability to Pause Score + Vulnerability Response Planning Score
 ```
 
 ### Operational Security Score
@@ -20,8 +21,8 @@ The *Operational Security Score* ranges from 0 to 2.
 
 |Question ID  | Question                     |
 |-------------|------------------------------|
-| O001        | Has sensitive information as defined in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section been identified? Has this information been documented? If yes, score 0. If no, score 1. |
-| O002        | Is a complete Operational Security process, as described in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section implemented? If yes, score 0. If no, score 1. |
+| O001        | Has sensitive information as defined in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section been identified? Has this information been documented? If yes, score 0. If no, score 3. |
+| O002        | Is a complete Operational Security process, as described in the [Operational Security](../20categories/40operation/operational-security.md#operational-security) section implemented? If yes, score 0. If no, score 3. |
 
 
 ### Operational Ability to Pause Score
@@ -63,10 +64,10 @@ The *Vulnerability Response Planning Score* ranges from 0 to 10.
 |Question ID  | Question                     |
 |-------------|------------------------------|
 | O501        | Is there a defined *Vulnerability Response Virtual Team*? If yes, score 0, otherwise score 1. |
-| O502        | Is there a vulnerability reporting mechanism that allows issues to be reported without making them public? If yes, score 0, otherwise score 3. |
-| O503        | Is there a defined triage process for vulnerabilities?  If yes, score 0, otherwise score 1. |
-| O504        | Can vulnerabilities fixes be deployed without needing to put code into a public repository? If yes, score 0, otherwise score 4. |
-| O505        | Are *Root Cause Analyses* published? If yes, score 0, otherwise score 1. |
+| O502        | Is there a vulnerability reporting mechanism that allows issues to be reported without making them public? If yes, score 0, otherwise score 40. |
+| O503        | Is there a defined triage process for vulnerabilities?  If yes, score 0, otherwise score 5. |
+| O504        | Can vulnerabilities fixes be deployed without needing to put code into a public repository? If yes, score 0, otherwise score 10. |
+| O505        | Are *Root Cause Analyses* published? If yes, score 0, otherwise score 5. |
 
 
 Rationale for scoring:
