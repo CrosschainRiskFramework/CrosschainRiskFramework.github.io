@@ -1,0 +1,40 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Crosschain Risk Framework
+message: >-
+  If you use this framework, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Ermyas
+    family-names: Abebe
+  - given-names: Peter
+    family-names: Robinson
+  - given-names: Arjun
+    family-names: Chand
+  - given-names: Mark
+    family-names: Murdock
+  - given-names: David
+    family-names: Hyland-Wood
+repository-code: >-
+  https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io
+url: 'https://crosschainriskframework.github.io/'
+license: Apache-2.0
+version: 0.1.0
+date-released: '2023-02-01'
+preferred-citation:
+  type: generic
+  title: "Crosschain Risk Framework"
+  authors:
+  - given-names: Ermyas
+    family-names: Abebe
+  - given-names: Peter
+    family-names: Robinson
+  - given-names: Arjun
+    family-names: Chand
+  - given-names: Mark
+    family-names: Murdock
+  - given-names: David
+    family-names: Hyland-Wood
