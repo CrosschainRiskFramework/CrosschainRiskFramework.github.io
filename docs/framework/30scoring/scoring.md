@@ -10,13 +10,12 @@ A project is likely to receive different scores over time. Based on this risk fr
 
 Determining the trustworthiness of one crosschain protocol relative to other protocols is an extremely complex task. This risk score model below is just a very preliminary step. Please provide feedback to help us improve this scoring system.
 
-{% include-markdown "overview.md" %}
+{% include-markdown "./overview.md" %}
 
-{% include-markdown "network.md" %}
+{% include-markdown "./network.md" %}
 
-{% include-markdown "architecture.md" %}
+{% include-markdown "./architecture.md" %}
 
-{% include-markdown "implementation.md" %}
+{% include-markdown "./implementation.md" %}
 
-{% include-markdown "operational.md" %}
-
+{% include-markdown "./operational.md" %}

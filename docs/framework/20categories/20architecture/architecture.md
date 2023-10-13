@@ -7,8 +7,8 @@ Risks that stem from the security properties, assumptions, trade-offs, and limit
 </figure>
 
 
-{% include-markdown "messaging.md" %}
-{% include-markdown "coordination.md" %}
-{% include-markdown "token-bridges.md" %}
-{% include-markdown "liquidity-networks.md" %}
-{% include-markdown "bridge-aggregation-protocols.md" %}
+{% include-markdown "./messaging.md" %}
+{% include-markdown "./coordination.md" %}
+{% include-markdown "./token-bridges.md" %}
+{% include-markdown "./liquidity-networks.md" %}
+{% include-markdown "./bridge-aggregation-protocols.md" %}
