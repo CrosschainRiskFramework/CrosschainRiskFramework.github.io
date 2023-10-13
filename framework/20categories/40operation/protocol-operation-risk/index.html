@@ -1,0 +1,758 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../30implementation/protocol-implementation-risk/">
+      
+      
+        <link rel="next" href="../../../30scoring/scoring/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>Protocol Operational Risk - Crosschain Risk Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6a10b989.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#protocol-operation-risk" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Crosschain Risk Framework" class="md-header__button md-logo" aria-label="Crosschain Risk Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Crosschain Risk Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Protocol Operational Risk
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Crosschain Risk Framework" class="md-nav__button md-logo" aria-label="Crosschain Risk Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Crosschain Risk Framework
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01intro/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../categories-of-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Categories of Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10network/network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Consensus Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20architecture/architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Architecture Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30implementation/protocol-implementation-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Implementation Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Protocol Operational Risk
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Operational Risk
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operational-security" class="md-nav__link">
+    Operational Security
+  </a>
+  
+    <nav class="md-nav" aria-label="Operational Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identification-of-sensitive-information" class="md-nav__link">
+    Identification of Sensitive Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-threats" class="md-nav__link">
+    Analysis of Threats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-weaknesses" class="md-nav__link">
+    Analysis of Weaknesses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-of-risk" class="md-nav__link">
+    Assessment of Risk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-of-countermeasures" class="md-nav__link">
+    Application of Countermeasures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ability-to-pause" class="md-nav__link">
+    Ability to Pause
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codebase-diversity" class="md-nav__link">
+    Codebase Diversity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decentralization-of-operations" class="md-nav__link">
+    Decentralization of Operations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-of-off-chain-systems" class="md-nav__link">
+    Security of off-chain systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vulnerability-response-plan" class="md-nav__link">
+    Vulnerability Response Plan
+  </a>
+  
+    <nav class="md-nav" aria-label="Vulnerability Response Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identify-a-vulnerability-response-virtual-team" class="md-nav__link">
+    Identify a Vulnerability Response Virtual Team
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-mechanism" class="md-nav__link">
+    Reporting Mechanism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triage" class="md-nav__link">
+    Triage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-validating-and-deploying-a-fix" class="md-nav__link">
+    Creating, Validating, and Deploying a Fix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-a-root-cause-analysis" class="md-nav__link">
+    Publishing a Root Cause Analysis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../30scoring/scoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Risk Scoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../authors/contributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../faq/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="protocol-operation-risk">Protocol Operation Risk</h1>
+<!-- BEGIN INCLUDE ./operational-security.md -->
+<h3 id="operational-security">Operational Security</h3>
+<p><a href="https://www.fortinet.com/resources/cyberglossary/operational-security">Operational Security</a> (also known as OPSEC) is a process used to protect sensitive information. The idea is to determine how to protect sensitive information by viewing operations from the perspective of an attacker. The processes originated during the <a href="https://en.wikipedia.org/wiki/Operations_security#History">Vietnam War</a>. The following sections discuss the five steps of the Operational Security process.</p>
+<h4 id="identification-of-sensitive-information">Identification of Sensitive Information</h4>
+<p>The first step of Operational Security is identifying what information needs to be protected, and the relative sensitivity level of each type of information. In the context of a crosschain protocol, sensitive information will to include:</p>
+<ul>
+<li>Private Keys used to sign blockchain transactions.</li>
+<li>Private Keys used to attest to the validity of information in the crosschain protocol.</li>
+<li>Private Keys used as part of blockchain consensus protocols.</li>
+<li>Private Keys associated with a <a href="https://aws.amazon.com/what-is/ssl-certificate/">Transport Layer Security (TLS) web server certificate</a>. </li>
+<li>Private Keys used with key agreement and asymmetric encryption protocols. </li>
+<li>Private Keys used with <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP</a> and other signed and encrypted email.</li>
+<li>Passwords.</li>
+<li>Information about and code fixes for security vulnerabilities that have not yet been deployed into production.</li>
+</ul>
+<p>Sensitive information could also include:</p>
+<ul>
+<li>The organization's <a href="https://en.wikipedia.org/wiki/Organizational_chart">Org Chart</a>. This allows attackers to identify specific individuals to target with <a href="https://www.trendmicro.com/vinfo/us/security/definition/spear-phishing">Spear Phishing</a> attacks. Note that social media platforms such as <a href="https://www.linkedin.com/">LinkedIn</a> are used by attackers to determine organizations' org charts.</li>
+<li>Identities of validators or other entities that help operate the crosschain protocol. Attackers could target entities involved in the protocol with Spear Phishing attacks.</li>
+<li>Internal organizational procedures. Sensitive procedures include obvious ones such as vulnerability response procedures and what security software is installed on company computers, but also includes whether employees use company issued computers or use their own computer (that is <a href="https://en.wikipedia.org/wiki/Bring_your_own_device">Bring Your Own Device</a>), software development practices, and HR policies.</li>
+<li>Architecture and design information. Most crosschain protocols publish their system architecture and design information; hoping that this will provide users of their protocol greater assurance of the trustworthiness of the protocol. However, publishing design information makes it easier for attackers to identify potential weak points in the system.</li>
+<li>Source code. Most crosschain protocol code is open source. This allows everyone to review the code, thus helping to provide users with assurance that the code has been written with security in mind. However, attackers are also able to view the code, and may be able to identify vulnerabilities in the code.  </li>
+<li>Known issues with source code. As most crosschain protocol code is open source, it is common for reported issues to be also publicly available. Sometimes the reported issues, though appearing to be innocuous, may highlight security issues.</li>
+<li>Server log file information. This information is likely to indicate the usage of the protocol, which may be commercially sensitive. It may also provide insights into unexpected behavior within the protocol. Attackers may use this unexpected behavior to mount attacks.</li>
+</ul>
+<h4 id="analysis-of-threats">Analysis of Threats</h4>
+<p>The second step of Operational Security is identifying possible actors for each of the categories of sensitive information and analyzing their capabilities. For crosschain protocols threats are likely to come from several groups:</p>
+<ul>
+<li>Attackers aiming to steal funds from the crosschain protocol. These attackers can range in sophistication from people new to blockchain to state sponsored hackers such as North Korea's <a href="https://en.wikipedia.org/wiki/Lazarus_Group">Lazarus Group</a>.</li>
+<li>Attackers or competitors aiming to discredit or reduce trust in the crosschain protocol.</li>
+<li><a href="https://www.youtube.com/watch?v=Jiis5Kr_QU0">General Front Running Bots</a> viewing transactions in the transaction pool and submitting similar transactions ahead of the original transactions. These bots could see an attack in progress and would then attempt to execute the attack repeatedly automatically. </li>
+<li><a href="https://en.wikipedia.org/wiki/White_hat_(computer_security)">White Hat Hacker</a> hoping to earn a bug bounty for identifying an issue.</li>
+<li>University researchers aiming to identify vulnerabilities in protocols. If they can claim credit for finding the vulnerability, then they will be able to write an academic paper about the issue, and gain academic recognition. This is particularly important for <a href="https://en.wikipedia.org/wiki/Doctor_of_Philosophy">Doctoral Candidates</a> who need to contribute some original research to complete their doctorate.</li>
+<li>Disgruntled employees and other <a href="https://www.cisa.gov/defining-insider-threats">insiders</a> acting maliciously.</li>
+</ul>
+<h4 id="analysis-of-weaknesses">Analysis of Weaknesses</h4>
+<p>Given the information being protected, and the possible threat actors, assess the current safeguards that are in place. From there, and determine what weaknesses exist.</p>
+<h4 id="assessment-of-risk">Assessment of Risk</h4>
+<p>The next step is to rank each of the weaknesses to determine the likelihood of the attack happening and the likely impact of the attack. The likely impact will include the immediate financial loss, reputational damage, and the time to address the attack. The more likely an attack and the higher the likely loss, the higher the priority should be to mitigate the weakness.</p>
+<h4 id="application-of-countermeasures">Application of Countermeasures</h4>
+<p>The final step of Operational Security is to mitigate risks. The range of possible countermeasures is vast and beyond the scope of this document. However, two important mitigations are <a href="https://en.wikipedia.org/wiki/Coordinated_vulnerability_disclosure">Responsible Disclosure</a> and <a href="https://en.wikipedia.org/wiki/Bug_bounty_program">Bug Bounty Programs</a>. White Hackers will have a means of being compensated for finding issues with a Bug Bounty Program. University researchers will have a means of reporting their findings and be sure to be able to claim recognition with a Responsible Disclosure process. Not having these programs in place may lead White Hat Hackers to attack the system and return some percentage of their attack earnings, while retaining the rest as a <em>Bug Bounty</em>, and may lead university researchers to publish their results prior to contacting the crosschain project. </p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./ability-pause.md -->
+<h3 id="ability-to-pause">Ability to Pause</h3>
+<p>The pausing capability described in the <a href="../../30implementation/pause/">Ability to Pause Implementation Risk section</a>
+is only effective if the <code>pause()</code> function can be executed expeditiously. Typically, attacks on protocols are mounted in time periods ranging from minutes to hours. As such, pausing a project several hours after an attack has commenced 
+is unlikely to be effective, as by this time, the project may have already been drained of funds.</p>
+<p>To prevent malicious parties unnecessarily halting the project by calling the <code>pause()</code> function, <code>pause()</code> functions need to have some form of <a href="../../30implementation/access-control/">access control</a>. </p>
+<p>For projects operated by a single organization, a simple administration set-up could be used. However, as described below, this has serious issues. For example, a single administrator account (that is an <em>owner</em> account) could be the only party authorized to call the <code>pause()</code> function. However, to be responsive to the need to pause the project, the private key belonging to the administrator account would need to be shared with support staff who live in timezones around the world. The issue with sharing a single private key is that it would be impossible to determine which support staff member used the key to pause the project. Additionally, if one of the support staff left the company or were compromised, then the shared key would need to be changed.</p>
+<p>A better approach to using a shared key is to provide each support staff member with their own administrator account, and provide all accounts with the <em>Pauser Role</em>. The advantage of this approach over using a shared key is that the account that pauses the project can be associated with a specific support staff member. Additionally, if one of the support staff left the company or were compromised, then only their account would need to be disabled. This would allow the other support staff to operate without changing their keys.</p>
+<p>For projects that are operated by multiple organizations the pausing capability should be controlled by a <a href="https://medium.com/gauntlet-networks/multisig-transactions-with-gnosis-safe-f5dbe67c1c2d">multi-signature wallet</a>. Multi-signature wallets have a threshold number of owners that must vote for a proposed transaction. In the case of pausing, the proposed transaction would be to call the <code>pause()</code> function. Within the application contract, the multi-signature wallet contract would be authorized to call the <code>pause()</code> function.</p>
+<p>Many projects also incorporate services that monitor the operation of the project. The services could be authorized to call the <code>pause()</code> function automatically based on the detection of anomalous conditions. This automatic pausing capability needs to operate in parallel with the other manual approaches described above.</p>
+<p>The pausing operations described above typically are performed by <a href="../../../01intro/introduction/#bridge-operators">Bridge Operators</a>. Granting <a href="../../../01intro/introduction/#bridge-validators">Bridge Validators</a> the right to pause bridges has merit as the validators role is to verify state updates. They are likely to be able to detect anomalous behavior. </p>
+<p>Things to consider when setting up a multi-signature wallet and the threshold, are:</p>
+<ul>
+<li>How timezone dispersed the owners are. If they are mostly located in the one timezone region, then pausing will be difficult if an attack is mounted when most are asleep. The threshold for pausing could be lowered to match the number of owners in various timezones across the world. In this way, the project to be paused even if the time an attack is mounted is when most owners are asleep.</li>
+<li>How engaged are the owners. Owners who are volunteers may not be as responsive as is needed to pause a project expeditiously.</li>
+<li>If the threshold is too low, then perhaps a subset of owners who are not happy with the project's direction could choose to disrupt the project by pausing the project.</li>
+<li>How independent are the owners? If multiple owners rely on a single party to hold or operate their keys, then that party effectively has multiple votes.</li>
+<li>Attackers could target owners, aiming to gain access to their key. They could pause the project if they can gain access to the threshold number of keys.</li>
+</ul>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./diversity-code.md -->
+<h3 id="codebase-diversity">Codebase Diversity</h3>
+<p>Is there just one implementation, or have multiple parties implemented the protocol?</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./decentralization.md -->
+<h3 id="decentralization-of-operations">Decentralization of Operations</h3>
+<p><a href="../../20architecture/messaging/#third-party-attestation-protocols">Third-party Attestation Protocols</a> rely on sets of independent parties. For example, in a <a href="../../20architecture/messaging/#proof-of-authority">Proof of Authority</a> protocol messages are deemed valid if at least <code>M</code> of <code>N</code> parties sign messages. The <a href="../../20architecture/messaging/#third-party-attestation-protocols">Third-party Attestation Protocols</a> section described a set of considerations that should be taken into account when reviewing these protocols. This section highlights the critical importance of ensuring the operation of a protocol delivers on the security guarantees of the protocol design. </p>
+<p>When external parties attempt to audit the security of the protocol deployment, they will reason about the security of the protocol based on the threshold number of signers (<code>M</code>) and the total number of signers (<code>N</code>). They will expect that at least <code>M</code> parties would need to be compromised, or choose to maliciously sign a value, for a malicious message to be trusted. If one party controls multiple signers, then the true security of the system is different to what it first appears. For example, if one party controls <code>M - 1</code> signers, then an attacker would only need to compromise that party, and one of the other independent parties. This is what occurred in the <a href="https://rekt.news/ronin-rekt/">Ronin bridge hack</a>.</p>
+<p>Another operational consideration is latency and compensation. Parties might only be compensated if they sign messages. If a message is submitted to a contract immediately after (<code>M</code>) parties have signed a message, then it may be that the (<code>M</code>) parties that have lowest latency between each other sign most or all of the messages. In this situation, parties with high latency relative to other parties are not as heavily incentivized as parties that have low latency.</p>
+<p>All parties could be compensated to participate, whether their signature is one of the <code>M</code> signatures used or not. In this situation, parties that have high latency relative to other parties are still compensated. Additionally, this means that parties that are temporarily offline are also compensated. A challenge for protocols like this is to prove that all <code>N</code> signers are usually online and are actively participating in the protocol. </p>
+<p>Complex inter-node communications mechanisms can be setup to <em>ping</em> nodes, to check that the parties are participating in the protocol. However, the question then is how to prove that a party did not reply and how to prove this in a forum, probably on-chain, that can be used to slash parties not following the protocol.</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./offchain-security.md -->
+<h3 id="security-of-off-chain-systems">Security of off-chain systems</h3>
+<p>TODO</p>
+<p>(e.g. validators)
+Standard security practices such as ISO27001</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./vulnerability.md -->
+<h3 id="vulnerability-response-plan">Vulnerability Response Plan</h3>
+<p>A Vulnerability Response Plan is a process of agreed steps to take when an issue is reported with a crosschain protocol (or any other software system). The term vulnerability should be used carefully. When an issue is first reported, it should be considered a possible <em>Security Issue</em>. A <em>Security Issue</em> could be classified as a <em>Vulnerability</em> (also known as a <em>Security Vulnerability</em>) if the issue can be exploited to cause some sort of damage to the crosschain protocol. </p>
+<h4 id="identify-a-vulnerability-response-virtual-team">Identify a Vulnerability Response Virtual Team</h4>
+<p>The Vulnerability Response Virtual Team is a cross functional team that will manage the vulnerability response process. The team should include domain experts such as the lead protocol designer, system architects, and lead engineer, and representatives from teams such as DevOps, SecOps, Product Management, Public Relations, and Executive Management. The team is a virtual team as it draws on team members on an as needs basis. </p>
+<p>If the team is too large, then the probability of information about the vulnerability leaking increases. Additionally, the more people in the team, the more people who have their focus diverted from their core work. Having the team too small may mean that people who could provide useful insights are excluded. Experts could be brought into a small team on an as needs basis. However, this approach assumes that members of the team can identify the correct people to temporarily bring into the team.</p>
+<h4 id="reporting-mechanism">Reporting Mechanism</h4>
+<p>Organizations should identify and advertise how they expect vulnerabilities to be reported. External parties such as White Hat Hackers and University Researchers (see Section <a href="../operational-security/">Operational Security</a>) need a mechanism communicate with the Vulnerability Response Virtual Team. This could be via a group email alias or via a web form. </p>
+<p>People within the organization should have a defined way of reporting vulnerabilities. Using the standard bug tracking system will advertise the issue to anyone who can access the system. Additionally, the true significance of the issue may not be fully understood, and other <em>higher priority</em> issues may be resolved ahead of the vulnerability. Reporting to an individual such as a <em>manager</em> again might mean that the significance of the issue is not fully understood. Allowing the person to directly contact the Vulnerability Response Virtual Team, possibly by the same mechanism as external parties, will ensure the issue is appropriately triaged.</p>
+<p>Once a vulnerability has been reported to the Vulnerability Response Virtual Team, someone from the team needs to take responsibility as the contact point for the person who reported the issue (from now on, <em>the vulnerability reporter</em>) for the duration of the vulnerability response.  They need to assure the <em>the vulnerability reporter</em> that they are being taken seriously, and that the issue is being triaged. They should provide a realistic schedule for when they will respond to the <em>the vulnerability reporter</em> with the results of the triage process. </p>
+<h4 id="triage">Triage</h4>
+<p>Once a possible Security Issue has been reported to the Vulnerability Response Virtual Team, the issue needs to be triaged. The team can analyze the issue against the following criteria:</p>
+<ul>
+<li>Scope: This could be:<ul>
+<li>Fundamental cryptographic building block: For example, an issue found in a cryptographic algorithm such as SHA256 would affect all protocols and systems using that protocol, and their implementations in all programming languages.</li>
+<li>A protocol or system: For example, an issue found in a communications protocol such as Transport Layer Security (TLS) would affect all applications that use TLS, independent of programming language.</li>
+<li>Software Library: All applications and systems using a software library. </li>
+<li>Crosschain Protocol: The issue just pertains to this crosschain protocol. If the protocol is implemented in a variety of programming languages, does the issue apply to all languages, or just one implementation.</li>
+</ul>
+</li>
+<li>On-chain or off-chain components: Does the issue relate to contracts that are on-chain or off-chain services?</li>
+<li>Not deployed, Deployed, or Historic: Does the issue relate to code that has never been deployed, is currently deployed, or was deployed previously, but has subsequently been superseded?</li>
+<li>Direct Impact: What is the direct impact of exploiting the issue? Could funds be stolen? Could a <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack">Denial of Service (DOS)</a> be mounted against the protocol? Could private information such as customer data be stolen?</li>
+<li>Reputational Impact: Could the issue cause reputational loss?</li>
+</ul>
+<p>Contact <em>the vulnerability reporter</em> once the triage process has been completed. Discuss the findings of the process and give feedback to the <em>the vulnerability reporter</em>. They may highlight some misunderstandings that the Vulnerability Response Virtual Team has. If the Vulnerability Response Virtual Team feels that there is no substantive issue, it would be good if they could convince the <em>the vulnerability reporter</em> of this, so that they don't go public with their perception that there is a serious issue with the protocol. Assuming there is a vulnerability, the <em>the vulnerability reporter</em> needs to be given the planned schedule of events that will culminate in the vulnerability fix being deployed and the issue being publicly announced.</p>
+<h4 id="creating-validating-and-deploying-a-fix">Creating, Validating, and Deploying a Fix</h4>
+<p>Once how the vulnerability will be addressed is determined, the code for the fix will need to be written, tested, and then deployed. Even if the project uses an open source repository for their main development effort, a private repository must be used for developing, testing and deploying the vulnerability fix code. The reason for this is that submitting vulnerability fix code to a public repository is tantamount to publishing the vulnerability. Even if the time between submitting the vulnerability fix code and deploying it is a matter of ten minutes, this will be long enough for an attacker who is already aware of the vulnerability. The attacker may have been preparing to mount an attack. Faced with the prospect of the vulnerability fix code being deployed soon, the attacker will launch their attack. </p>
+<p>Prior to deploying the fix, it may be helpful to again reach out to the <em>the vulnerability reporter</em> to check that they too believe the fix will address the vulnerability.</p>
+<h4 id="publishing-a-root-cause-analysis">Publishing a Root Cause Analysis</h4>
+<p>Immediately after the vulnerability code has been deployed, a <a href="https://about.gitlab.com/handbook/security/security-engineering-and-research/application-security/appsec-rcas.html">Root Cause Analysis</a> should be published. This should identify what the issue was, possible impacts if it had been exploited, how it was resolved, actions that users should take, any bug bounty that has been paid, and, most importantly, it should attribute finding of the vulnerability to the <em>the vulnerability reporter</em>. The publication of this analysis should be coordinated with the <em>the vulnerability reporter</em> as they may wish to publish their own press release. The details of the analysis should be checked with the <em>the vulnerability reporter</em> to ensure they agree with what has been said in the analysis. </p>
+<!-- END INCLUDE -->
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.tracking", "toc.integrate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>

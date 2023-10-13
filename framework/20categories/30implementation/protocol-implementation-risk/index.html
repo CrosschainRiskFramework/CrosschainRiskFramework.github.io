@@ -1,0 +1,1036 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../20architecture/architecture/">
+      
+      
+        <link rel="next" href="../../40operation/protocol-operation-risk/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>Protocol Implementation Risk - Crosschain Risk Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6a10b989.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#protocol-implementation-risk" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Crosschain Risk Framework" class="md-header__button md-logo" aria-label="Crosschain Risk Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Crosschain Risk Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Protocol Implementation Risk
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Crosschain Risk Framework" class="md-nav__button md-logo" aria-label="Crosschain Risk Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Crosschain Risk Framework
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01intro/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../categories-of-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Categories of Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10network/network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Consensus Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20architecture/architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Architecture Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Protocol Implementation Risk
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Implementation Risk
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reducing-risk" class="md-nav__link">
+    Reducing Risk
+  </a>
+  
+    <nav class="md-nav" aria-label="Reducing Risk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mixing-of-control-and-data-plane" class="md-nav__link">
+    Mixing of Control and Data Plane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-based-access-control" class="md-nav__link">
+    Role Based Access Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgradable" class="md-nav__link">
+    Upgradable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-storage" class="md-nav__link">
+    Secret Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-development-maturity" class="md-nav__link">
+    Product Development Maturity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#well-known-platform" class="md-nav__link">
+    Well Known Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#well-known-smart-contract-programming-language" class="md-nav__link">
+    Well Known Smart Contract Programming Language
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uncovering-extant-risk" class="md-nav__link">
+    Uncovering Extant Risk
+  </a>
+  
+    <nav class="md-nav" aria-label="Uncovering Extant Risk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formal-verification" class="md-nav__link">
+    Formal Verification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-auditing" class="md-nav__link">
+    Code Auditing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-source-code" class="md-nav__link">
+    Open Source Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verified-code-on-block-explorer" class="md-nav__link">
+    Verified Code on Block Explorer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-bounty" class="md-nav__link">
+    Bug Bounty
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responding-to-materialized-risk" class="md-nav__link">
+    Responding to Materialized Risk
+  </a>
+  
+    <nav class="md-nav" aria-label="Responding to Materialized Risk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ability-to-pause-project" class="md-nav__link">
+    Ability to Pause Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ability-to-ban-addresses" class="md-nav__link">
+    Ability to Ban Addresses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40operation/protocol-operation-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Operational Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../30scoring/scoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Risk Scoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../authors/contributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../faq/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="protocol-implementation-risk">Protocol Implementation Risk</h1>
+<p>Building crosschain protocols involves creating complex on-chain and off-chain components while accounting for the peculiarities and pitfalls of different programming languages, frameworks, virtual machines, runtime environments, and protocols. Inevitably, such complexity increases the likelihood of bugs and vulnerabilities. This type of risk has thus far been the most common cause of bridge hacks witnessed over the last couple of years. </p>
+<p>The best practices learned over the years in building secure systems and blockchain applications apply directly in the context of crosschain protocols. Discussing each of these would be beyond the scope of this document and largely duplicative. Instead, we refer the reader to resources such as <a href="https://consensys.github.io/smart-contract-best-practices/"><em>Ethereum Smart Contract Best Practices</em></a>, which outlines <a href="https://consensys.github.io/smart-contract-best-practices/development-recommendations/">best practices, patterns, anti-patterns</a>, <a href="https://consensys.github.io/smart-contract-best-practices/attacks/">common attacks</a>, and <a href="https://consensys.github.io/smart-contract-best-practices/general-philosophy/">guiding philosophies</a> for building and maintaining secure applications. It covers general principles such as the importance of simplicity, modularity, reuse of standard implementations, and planning for failures. All of which are critical considerations in crosschain protocols.</p>
+<p>This section discusses some of the salient principles and considerations for thinking about crosschain implementation risk. In general, protocol developers should mitigate implementation risk by reducing its likelihood upfront, uncovering extant risk, and having controls to respond to materialized risk. </p>
+<ul>
+<li>
+<p><strong>Reducing risk</strong></p>
+<ul>
+<li><em>Managing Complexity:</em> Generally, the higher the complexity of a protocol's design, code, and runtime environments, the higher the implementation risk. Various ways to gauge complexity include: the size and intricacy of codebases (e.g., cyclomatic complexity), the diversity of execution environments, and the number of moving and coordinating pieces. </li>
+<li><em>Assurances of Correctness:</em> Ensuring the correctness of the implementation of a protocol against its specification, at different levels of granularity, under a range of inputs and conditions is critical. There are numerous techniques for attaining varying degrees of confidence about the correctness of a protocol, ranging from formal verification to different types of testing. Rigorously employing such techniques reduces implementation risk. </li>
+<li><em>Principles of Least Privilege:</em> Ensuring that fine-grained access controls are in-place reduces the impact of compromised entities or credentials.</li>
+<li><em>Principles of Diffuse Privilege:</em> Ensuring that control of critical operations is decentralized offers checks and balances that mitigate the likelihood and impact of implementation risk.</li>
+<li><em>Nascency Risk:</em> Cross-chain protocols are built to operate across disparate networks. Some of these ecosystems use tools, frameworks and execution environments that are less mature or well understood. This increases implementation risk.</li>
+</ul>
+</li>
+<li>
+<p><strong>Uncovering extant risk:</strong> Protocols should enable, encourage and incentivize external review and scrutiny of their codebase. This enables vulnerabilities to be surfaced by good-faith actors and reduces the risk of exploits. Some practices that are critical aids to this include up-to-date audits, bug bounties, open-source codebases, and good documentation. </p>
+</li>
+<li>
+<p><strong>Responding to materialized risk:</strong> Despite best efforts, hacks and exploits are likely to occur. Protocol implementations should include efficient mechanisms for responding to such incidents. Capabilities that enable this include the ability to monitor, detect anomalies, and pause protocols.</p>
+</li>
+</ul>
+<p>The rest of this section will discuss specific practices and considerations that expand on the above framework.</p>
+<hr />
+<h2 id="reducing-risk">Reducing Risk</h2>
+<!-- BEGIN INCLUDE ./mixing-control-data-flow.md -->
+<h3 id="mixing-of-control-and-data-plane">Mixing of Control and Data Plane</h3>
+<p>The terms <em>Control Plane</em> and <em>Data Plane</em> come from networking [<a href="https://en.wikipedia.org/wiki/Control_plane">Wikipedia</a>]. In the
+context of networking, the Control Plane configures the network topology 
+and routing tables, and the Data Plane is the information that is 
+communicated across the network. In the context of computing, the 
+Control Plane is the configuration of the system, and the Data Plane
+is the data processing. </p>
+<p>Functions in smart contracts can be ones that control the configuration 
+of the contract. These can be thought of as Control Plane functions. 
+For example, a function to pause the contract is a Control Plane function. 
+Data Plane functions are functions that process data. For example, a 
+function to mint some tokens is a Data Plane function.</p>
+<p>Poor project design can result in smart contract functions that contain 
+both Control Plane and Data Plane logic. Mixing these two planes in the 
+one function dramatically increases the risk of the project. An attacker 
+may be able to compromise the Data Plane part of a mixed processing function, 
+and then use that to change the configuration of the project, accessing the 
+Control Plane part of the mixed function. This can lead to the attacker 
+having the ability to control aspects of the project such as minting tokens.</p>
+<p><strong>Example</strong></p>
+<p>As example of this type of issue being exploited is the 
+<a href="https://rekt.news/polynetwork-rekt/">August 2021 PolyNetwork issue</a>. The 
+PolyNetwork code was written such that its <code>EthCrossChainManager</code> contract
+was the owner of the <code>EthCrossChainData</code> contract. The <code>EthCrossChainData</code> 
+contract held important information including the public keys used to verify
+crosschain requests. Doing this allows for function calls for <code>EthCrossChainData</code>
+to go via the <code>EthCrossChainManager</code> contract. Access from the <code>EthCrossChainManager</code> contract
+to the <code>EthCrossChainData</code> contract could be deemed part of the Control Plane. 
+The <code>EthCrossChainManager</code> contract also had a function 
+<code>verifyHeaderAndExecuteTx</code> that was used to process  Data Plane requests. 
+The attacker was able to create a carefully constructed call to
+<code>verifyHeaderAndExecuteTx</code> that allowed the Data Plane request to modify
+data in the <code>EthCrossChainData</code>, that ultimately led to the attacker being 
+able to steal funds. </p>
+<p>The PolyNetwork code would not have been vulnerable to this type 
+of attack if there had been a clear separation of Control Plane and Data 
+Plane. For example, rather than doing updates to the <code>EthCrossChainData</code> 
+contract via the <code>EthCrossChainManager</code> contract, updates could have been 
+only allowed from an Externally Owned Account (EOA) or a MultiSig Wallet
+account.</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./access-control.md -->
+<h3 id="role-based-access-control">Role Based Access Control</h3>
+<p><a href="https://en.wikipedia.org/wiki/Role-based_access_control">Role Based Access Control (RBAC)</a> 
+allows different entites to be responsible for different configuration actions. 
+Systems that are managed by a single entity are inherently less secure 
+than those with narrowly-scoped privileges for different entities and specific contexts.</p>
+<p>With 
+contracts, this can be used to limit which accounts can execute which functions. For 
+example, imagine a contract that operates as a crosschain bridge. It could have a role 
+called <code>PAUSER</code>. This role could be required to call a function that enables 
+pausing of the contract. Any transaction submitted by an account that did not 
+have the <code>PAUSER</code> role would be reverted.</p>
+<p>Simplistic contracts might have a single role, <code>OWNER</code>, that can only be assigned
+to one account. For these contracts, the <code>owner</code> account is the only account 
+that can submit transactions that call configuration functions without reverting.</p>
+<p>The greater degree of flexibility afforded by Role Based Access Control compared 
+to simplistic <code>OWNER</code> style access control has security implications. For example, 
+a contract might be able to mint new tokens, and thus have a <code>MINTER</code> role to control
+this action. Minting new tokens could change the tokenomics of the contract, and hence 
+must only be executed if there is agreement between administrators. Access to this 
+configuration action might be limited to a multi-signature wallet account. The same 
+contract might have a <code>PAUSER</code> role that can be used to stop data processing within 
+the contract. The action to pause the contract needs to occur as quickly as possible,
+to halt an in-progress attack. However, access to the role needs to be limited to trusted
+accounts, to prevent attackers causing a Denial of Service attack on the contract, by
+continually pausing the contract. Using a multi-signature wallet to control this action
+is not ideal, as multiple parties would need to work together to pause the contract, thus 
+allowing attacks to continue longer than they otherwise would. In this situation, 
+multiple trusted accounts could be granted <code>PAUSER</code> role. Any one of the accounts 
+could then pause the contract.</p>
+<p>For a small project, when a contract is deployed, it might be tempting to use 
+simplistic <code>OWNER</code> style access control. 
+However, it is better to deploy a contract configured for fine grain
+Role Based Access Control, where all roles are initially assigned to the one account.
+In this way, as the project using the contract matures, new accounts can be granted
+roles and the original account's access can be revoked.
+It should be noted that the benefits of RBAC are only realised once 
+access for different roles is allocated to additional accounts. </p>
+<p>For Ethereum based projects, the OpenZeppelin project has an example
+contract <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/AccessControl.sol">AccessControl.sol</a>
+that can be used to implement Role Based Access Control. Using this template,
+checking an address has been granted a role becomes as simple as calling 
+the function <code>hasRole</code>.
+The code below shows how this would work in practice.</p>
+<pre><code class="language-solidity">contract Example is Pausable, AccessControl {
+    constructor() {
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _setupRole(PAUSER_ROLE, msg.sender);
+    }
+
+    function pause() external {
+        require(hasRole(PAUSER_ROLE, msg.sender), &quot;Must have PAUSER role&quot;);
+        _pause();
+    }
+}
+</code></pre>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./upgrade.md -->
+<h3 id="upgradable">Upgradable</h3>
+<p>Like any software, smart contracts software can have bugs. This is true of both code that appears to be extremely simple and more complex code. Additionally, applications may require new features. As such, many projects have the ability to upgrade their smart contract code.</p>
+<p>Having the ability to upgrade a contract is inherently risky as it can lead to rug-pulling attacks, where the operators of a project change the contract logic and steal customer funds (for instance the <a href="https://twitter.com/CertiKAlert/status/1523153063875575809">Hunter Defi</a> rug-pull). However, as a proportion of both the number of cypto rug pull attacks and as a proportion of the projects that use upgradable contracts, using contract upgrade as a method of stealing funds is very rare. We have no hard statistics on this; this is just an observation.</p>
+<p>Another major source of risk related to upgrading a contract is that vulnerabilities can either be introduced due to the new code, or the interaction of the new code with the old data. This was the source of the issue in the <a href="https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd">Nomad hack in August 2022</a>.</p>
+<p>An important consideration is the processes and controls that govern contract upgrades. That is, who can perform upgrades, how decentralised is this privilege, are there timelocks such that upgrades take effect at some time after the upgrade is triggered. Many of these governance considerations are covered in the <a href="../access-control/">Role Based Access Control</a> section.</p>
+<p>The three common methodologies for upgrading smart contracts are:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=VhzafmGGmzo">Data Holder Upgrade Pattern</a>: Have a data holder contract and a separate business logic contract. The business logic contracts are upgraded, and connect to the existing data holder contracts. Issues with this approach are that new versions of the business logic contract need to be able to utilise old data formats stored in the data holder contract.</li>
+<li><a href="https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies">Transparent Upgrade Proxy Pattern</a>: Have a transparent upgrade proxy contract and a business logic contract. The business logic contract executes in the context of the upgrade proxy contract. The upgrade logic resides in the proxy contract. Issues with this approach are that extreme caution needs to be exercised to ensure there are no storage slot collisions between the proxy and the business logic contracts, and between different versions of the business logic contract.</li>
+<li>Transparent Upgrade Proxy Pattern with Upgradable Upgrade Logic: As per the Transparent Upgrade Proxy Pattern described above, but with the upgrade logic in the business logic contract. The advantage of this approach is that governance that exists in the business logic contract can be used to approve the upgrade. Issues with this approach over and above the issues with the Transparent Upgrade Proxy Pattern approach is that bugs with the business logic contract can interfere with the upgrade logic, thus preventing upgrade, or enabling an attacker to maliciously upgrade the contract.</li>
+</ul>
+<p>In summary, having the ability to upgrade the contracts of a project has risks. However, not having the ability to upgrade contracts, thus resolving bugs, has other, possibly larger risks.</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./secret-storage.md -->
+<h3 id="secret-storage">Secret Storage</h3>
+<p>Most projects use cryptographic keys to operate the system. 
+These keys could be stored in a network HSM or a hardware 
+wallet, and not in a file on disk on a server. </p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./maturity.md -->
+<h3 id="product-development-maturity">Product Development Maturity</h3>
+<p>Organisations that lack software development practices are likely to create lower quality software than organisations that have defined development practices. These practices are called the <a href="https://www.geeksforgeeks.org/top-5-sdlcsoftware-developement-life-cycle-methodologies/">Software Development Lifecycle (SDLC)</a>.</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./known-platform.md -->
+<h3 id="well-known-platform">Well Known Platform</h3>
+<p>More people are likely to be able to review and understand projects 
+that are created in environments that they are familiar with. The 
+majority of the blockchain developers in the world understand 
+Ethereum and the Ethereum Virtual Machine (EVM). Hence, projects 
+that use blockchains that support the EVM, or that are forks or 
+Ethereum, are inherently less risky than projects that involve 
+other blockchains.</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./known-language.md -->
+<h3 id="well-known-smart-contract-programming-language">Well Known Smart Contract Programming Language</h3>
+<p>More people are likely to be able to review and understand code 
+that has been created in programming languages that they are 
+familiar with. Solidity is the smart contract programming 
+language known by most blockchain developers. Hence, projects 
+that use Solidity are inherently less risky than projects that 
+use other smart contract programming languages.</p>
+<p>Solidity Assembler can be used to implement complex features not 
+available in standard Solidity. Assembler code is more complex 
+than Solidity code and is more likely to contain bugs and have 
+unexpected consequences.</p>
+<!-- END INCLUDE -->
+
+<hr />
+<h2 id="uncovering-extant-risk">Uncovering Extant Risk</h2>
+<!-- BEGIN INCLUDE ./formal-verification.md -->
+<h3 id="formal-verification">Formal Verification</h3>
+<p>Formally verified code should prove that the code matches the 
+specification. Hence, formal verification can not detect bugs 
+in the design of the project. However, it will pick-up 
+implementation bugs that testing might miss.</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./testing.md -->
+<h3 id="testing">Testing</h3>
+<p>Code that is not tested is far more likely to contain bugs than code that has been tested. Comprehensive tests allow new features to be added without fear of breaking existing functionality. Hence, the more comprehensive the testing of the project, the less risky the project is. </p>
+<p>Testing falls into several categories:</p>
+<ul>
+<li>Unit Testing: Checks the operation of a single component, module, class, or contract in isolation. Because of the low level nature of this testing, it should be possible to check all error conditions. <a href="https://en.wikipedia.org/wiki/Mock_object">Mocking</a> can be used to simulate the behavior of real components that are relied upon by the component to be tested.</li>
+<li>Integration Testing: Checks the operation of multiple components together. </li>
+<li>System Testing: Checks the operation of the entire product. This testing could check the system with no data, simulating a new install, with prefilled data simulating multiple years of operation, or could use real world data. A type of System Testing is Upgrade Testing. This type of testing checks that existing version(s) of the system can be upgraded to the new version of the system. System testing is also known as Regression Testing or End to End Testing. </li>
+<li>Performance Testing: Measures the latency, speed of operation, gas usage, transactions per second, or some other metric. These tests can be used to check that the performance of a system has not degraded from one software release to the next. Performance testing can be done at the unit, integration or system level. </li>
+<li>Acceptance Testing: Checks that the software can be deployed and that the deployed software operates as expected.</li>
+<li>Interoperability Testing: Checks that two software products can communicate based on a standard.</li>
+</ul>
+<p>Testing can be automated or manual. Automated tests allows software to be tested using scripts. <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> is a form of automated testing that runs a test script when code is committed to a source code repository. Manual testing requires people to perform a sequence of tests. As manual testing is labor intensive, there is the risk that it is performed for some software releases and not other software releases. As such, it is preferable to only rely on manual testing to do some Acceptance Testing, and not to rely on it to perform other forms of testing, for instance System Testing. </p>
+<p>Tests can be <a href="https://en.wikipedia.org/wiki/Happy_path">happy path</a> tests that only check the operation of the software in ideal conditions. <a href="https://en.wikipedia.org/wiki/Happy_path">Unhappy path</a> tests check what occurs when an error condition arises. Tests should check both happy and unhappy paths. </p>
+<p><a href="https://en.wikipedia.org/wiki/Code_coverage">Code Coverage</a> describes what percentage of the code is tested, based on the lines of code. It provides a rough metric of how well code has been tested. It can be used to determine whether, when new code is added, more or less code overall is being tested. </p>
+<p><strong>Considerations</strong></p>
+<p><em>Unit Testing</em></p>
+<ul>
+<li>Mocking can lead to <a href="https://softwareengineering.stackexchange.com/questions/356236/definition-of-brittle-unit-tests">brittle</a> tests. That is, if complex behavior is simulated in some mocked code, then the mocking code will need to be modified when the component it is mocking changes. An additional problem is that the component being mocked might change, but developers fail to update the mock of the component. In this case, the unit test passes, despite the fact that the component being tested would fail at integration and system testing. </li>
+</ul>
+<p><em>Code Coverage</em></p>
+<ul>
+<li>Code coverage should be higher for complex pieces of code. </li>
+</ul>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./audit.md -->
+<h3 id="code-auditing">Code Auditing</h3>
+<p>Code audits are necessary to ensure that a protocol's code performs as per its intended logic. Code that has not been audited is far more likely to contain bugs than code that has. Any protocol that does not have code audits should be trusted less by users and developers. However, code audits should not be viewed as a comprehensive security solution. For example, protocols sometimes conduct audits on specific parts of their architecture or deploy unaudited code for changes/new features, which can be a potential source of risk outside of the initial audit.</p>
+<p><strong>Considerations:</strong></p>
+<ul>
+<li>
+<p>Has the code been audited? How many audits have been completed? Were these audits conducted by different organizations?</p>
+<p>Several audits, ideally by different organizations, are more likely to uncover more potential vulnerabilities.</p>
+</li>
+<li>
+<p>When was the most recent audit? Has the protocol been upgraded since the last audit? How often is the protocol's code audited? </p>
+<p>Ensuring audits are up-to-date with code changes and are conducted frequently offers more assurance about their validity.</p>
+</li>
+<li>
+<p>What was the scope of the audit? Does it cover all of the key on-chain components?</p>
+<p>Wide audit scope offers assurances around more parts of the protocol. At a minimum, however, audits should cover all core on-chain contracts. </p>
+</li>
+<li>
+<p>Is the deployed version of the protocol's code audited?</p>
+</li>
+<li>
+<p>What were the findings of the audit? Were there critical findings that were left unaddressed? What are the scenarios in which these could be exploited?</p>
+<p>Sometimes findings are "acknowledged" by team members but not addressed either because the attack scenarios are mitigated by other means, are considered difficult to pull off, or the requested changes are difficult to make. Understanding these findings enables a better assessment of the potential implementation risks.</p>
+</li>
+<li>
+<p>What are the audit firm's track record and reputation?</p>
+<p>Not all audit firms are created equal. The level of confidence around the audit might need to be weighted by their track record, reputation, or other measures of the caliber of the team.</p>
+</li>
+<li>
+<p>Have changes made in response to audit findings been audited? If not, how significant are these changes?</p>
+<p>The critical bug that led to the <a href="https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd">Nomad hack in August 2022</a> was introduced during a response to the auditor's findings. While Nomad's team was under the impression that the post-remediation code changes were re-audited by the auditor, it was, in fact, not the case. The auditor's report only certified the state of the codebase prior to the changes. </p>
+</li>
+</ul>
+<p>While code audits are vital to ensure the robustness of a protocol, they do not guarantee security. In the past, protocols have been compromised despite completing several audits. Thus, audits should only be one of the risk management strategies used by protocols, but not their entire security stack against hacks.</p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./open-source.md -->
+<h3 id="open-source-code">Open Source Code</h3>
+<p>If the code is stored in a public Github repository, it allows people 
+to review the code and the test system. If many people view the code, 
+then it is likely that defects in the code will be found. Additionally, 
+it allows for the assessment of such things as the number of tests.</p>
+<p>Some people argue that a private Github repository is more secure, 
+believing that issues can be hidden from attackers. However, 
+attackers who are sufficiently motivated often obtain access 
+of private repository or to a copy of the code, and are then 
+able to exploit any vulnerabilities. Not having the repository 
+public then hinders white hat developers from helping, in the 
+case of an attack.</p>
+<p>When using a public repository, it is important that issues that 
+relate to vulnerabilities and code fixes for vulnerabilities are 
+not put on the public repository before a release including the 
+vulnerability fix has been deployed. Not doing this equates to 
+publishing vulnerabilities that can be used to exploit the 
+project. The approach that should be taken is to review and 
+test the vulnerability fix using the private repo, deploy 
+from the private repo, and the push the fix to the public 
+repo. </p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./verified-code.md -->
+<h3 id="verified-code-on-block-explorer">Verified Code on Block Explorer</h3>
+<p>Source code verification for all deployed smart contracts is critical for user safety. It ensures that the source code of a protocol’s smart contract is the same as the one executed at the contract address. Moreover, it allows users interacting with a protocol’s smart contract to read and audit it. This enables them to determine what code has been deployed and what types of risks the user is taking by interacting with the protocol. As a result, if a protocol’s code isn’t verified, it is considered less transparent and should be trusted less by users and developers. </p>
+<p>All deployed contracts should have <a href="https://docs.etherscan.io/tutorials/verifying-contracts-programmatically">source code uploaded and verified on Etherscan</a>, or other block explorers specific to the chain if the contracts are deployed on an EVM-compatible chain. For instance, code for smart contracts on Polygon can be verified on <a href="https://mumbai.polygonscan.com/verifyContract">Polygonscan</a>, and those on Arbitrum can be verified on <a href="https://arbiscan.io/verifyContract">Arbiscan</a>.  For non-EVM compatible chains, the practice of source-code verification through block explorers is not a standard and is typically not supported. However, there often exist other tools or processes that are considered a standard for source code verification for specific programming languages used by different non-EVM chains. For instance, <a href="https://arxiv.org/abs/2110.08362">Move Prover (MVP)</a> is used to verify smart contracts written in the Move programming language for chains like Aptos and Sui. Thus, entities building applications on these need to find different ways to ensure the trustworthiness of their deployed smart contracts.</p>
+<p>Additionally, one should verify that the security parameters that govern the logic of smart contracts are initialized as expected. Any discrepancies at the initialization of a smart contract could be a risk vector. For instance, in the <a href="https://forum.celo.org/t/optics-recovery-mode/2452">case of Celo’s Optics bridge</a>, the recovery mode timelock was initialized at only 1 second instead of the expected 1 day, leaving users’ funds at risk.</p>
+<p>The process of verifying source code on a block explorer like Etherscan typically includes the following steps:</p>
+<ol>
+<li>Enter the contract address that needs to be verified.  </li>
+<li>Input the compilation settings (like compiler type and version, the open-source license) to a compiler. </li>
+<li>Provide the source code that makes up the smart contract.</li>
+<li>The verification tool compares the deployed bytecode with the recompiled bytecode. If the codes match, the contract is deemed verified.</li>
+<li>Once verified, the smart contract is marked “verified” and is curated under the “Verified Contracts'' in the “Blockchain” tab. </li>
+</ol>
+<p><strong>Considerations:</strong></p>
+<ul>
+<li>
+<p>What tool has been used to verify the source code?</p>
+<p>Source code can be verified by different tools such as Etherscan, Sourcify, Tenderly, etc., but not all tools are created equal. The level of confidence around the source code verification must be assessed based on the tool used. For instance, for contracts deployed on Ethereum, <a href="https://etherscan.io/verifyContract">Etherscan’s verify contract code tool</a> is considered a trustworthy tool.</p>
+</li>
+<li>
+<p>Are all smart contracts of the application verified?</p>
+<p>It’s critical for the source code of all key smart contracts of a protocol to be verified. It’s possible for protocols to verify only certain smart contracts while hiding malicious code to give a false perception of its smart contracts being verified.</p>
+</li>
+<li>
+<p>Could the protocol be less transparent about their source code on purpose? </p>
+<p>The rule should always be to trust, but verify. If the source code isn’t verified, a protocol can be a potential <a href="https://academy.binance.com/en/glossary/rug-pull">rug</a>, hiding the real intention of their smart contract. Or, the protocol could be following the practice of ‘security through obscurity', keeping the code unverified and thus private to prevent people from learning about how a specific feature works and potentially misusing it.</p>
+</li>
+</ul>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./documentation.md -->
+<h3 id="documentation">Documentation</h3>
+<p>More documentation makes a project easier to analyze. A lack 
+of documentation can lead to confusion and issues being 
+missed. Projects that have good documentation are easier 
+to maintain.</p>
+<p>Types of documentation a good project should have are:</p>
+<ul>
+<li>Architecture document that includes the component and deployment architecture.</li>
+<li>Thread model that includes all parts of the project.</li>
+<li>Sequence diagrams for all major data flows.</li>
+<li>Test plan describing how the project will be tested.</li>
+<li>Smart contract code comments at the contract and function level.</li>
+<li>Off-chain code with comments at the class and method level.</li>
+<li>Test code with at least a class level comment.</li>
+</ul>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./bug-bounty.md -->
+<h3 id="bug-bounty">Bug Bounty</h3>
+<p>A public bug bounty program incentivizes <a href="https://en.wikipedia.org/wiki/White_hat_(computer_security)">whitehats</a> to uncover and safely disclose vulnerabilities that might exist in a protocol. This increases the number of people that can thoroughly scrutinize a codebase and prevent exploits by malicious actors. Bug bounties have to offer adequate compensation and have clear scope covering the protocol's critical elements. The process requires trust and transparency and should ideally be managed by an independent third party (e.g., <a href="https://immunefi.com/">Immunefi</a>).</p>
+<!-- END INCLUDE -->
+
+<hr />
+<h2 id="responding-to-materialized-risk">Responding to Materialized Risk</h2>
+<!-- BEGIN INCLUDE ./pause.md -->
+<h3 id="ability-to-pause-project">Ability to Pause Project</h3>
+<p>This section described the implementation risks associated with being able to pause a project. 
+Operational risks related to pausing are covered in the <a href="../../40operation/ability-pause/">Ability to Pause Operational Risk section</a>.</p>
+<p>All Data Plane functions should be <em>pausable</em>. For example, a bridge contract could 
+have a function that could transfer coins based on actions on another blockchain. 
+The ability to <em>pause</em> a function in a 
+project allows administrators to stop functions from successfully 
+executing. If there is a vulnerability that is being actively 
+exploited in a project, having the ability to pause a function 
+could stop the exploitation of the project midway through the 
+attack.</p>
+<p>For Ethereum based projects, the OpenZeppelin project has an example 
+ contract <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/security/Pausable.sol">Pausable.sol</a>
+that can be used to implement pausing. Using this template, 
+pausing a function becomes as simple as adding a modifier <code>whenNotPaused</code>. 
+The code below shows how this would work in practice.</p>
+<pre><code class="language-solidity">contract Example is Pausable {
+    function pause() external onlyOwner {
+        _pause();
+    }
+    function transfer(
+        address _sender,
+        address _tokenContract,
+        address _recipient,
+        uint256 _amount
+    ) external whenNotPaused {
+        // Only executed when not paused
+</code></pre>
+<p>When analyzing whether a project can be paused, it is important
+to check whether all data processing functions can be paused, or
+just some parts of the project. </p>
+<p><strong>Example</strong></p>
+<p>For example, in <a href="https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd">August 2022 the Nomad Bridge</a> had an issue (see <a href="https://rekt.news/nomad-rekt/">Rekt</a> for an analysis of the issue from 
+people outside the team). An attacker was able to determine a methodology for stealing funds using the <code>Replica</code> 
+contract's <code>process()</code> function. Depite most of the Data Plane processing functions 
+in the project being pausable, the <code>process()</code> function was not. This meant that the 
+attack was able to proceed without the administrators of the project being able to stop it. </p>
+<!-- END INCLUDE -->
+<!-- BEGIN INCLUDE ./ban-address.md -->
+<h3 id="ability-to-ban-addresses">Ability to Ban Addresses</h3>
+<p>Addresses may be associated with stolen funds. Tornado Cash was 
+a project that had sanctions placed against it due to its 
+association with stolen funds. Projects that have the 
+ability to block these addresses, or freeze in-transit funds 
+are more likely to avoid this type of regulatory risk.</p>
+<!-- END INCLUDE -->
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.tracking", "toc.integrate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>

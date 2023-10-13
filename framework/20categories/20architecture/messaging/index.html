@@ -1,0 +1,644 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>Messaging - Crosschain Risk Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6a10b989.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#messaging-protocol" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Crosschain Risk Framework" class="md-header__button md-logo" aria-label="Crosschain Risk Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Crosschain Risk Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Messaging
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Crosschain Risk Framework" class="md-nav__button md-logo" aria-label="Crosschain Risk Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Crosschain Risk Framework
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01intro/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../categories-of-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Categories of Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10network/network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Consensus Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Architecture Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30implementation/protocol-implementation-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Implementation Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40operation/protocol-operation-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Operational Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../30scoring/scoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Risk Scoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../authors/contributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../faq/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Messaging</h1>
+
+<h3 id="messaging-protocol">Messaging Protocol</h3>
+<p>Messaging protocols provide the following two foundational capabilities that are relied upon by crosschain applications built on top of them.</p>
+<ol>
+<li>Transmission of state information from a source network to a destination network in a timely manner</li>
+<li>Ensuring the validity and finality of any information sent from a source network to a destination network</li>
+</ol>
+<p>Messaging protocols must ensure the transmission of all crosschain messages (capability 1) while providing strong guarantees about their validity and finality (capability 2) in the source network. The former mainly highlights <a href="https://en.wikipedia.org/wiki/Safety_and_liveness_properties#Liveness">liveness</a> and censorship resistance property, while the latter emphasizes <a href="https://en.wikipedia.org/wiki/Safety_and_liveness_properties#Safety">safety</a>. The architecture of crosschain protocols is largely differentiated by how they offer guarantees around safety. An ideal construction would introduce no additional trust assumptions beyond what is assumed about the underlying networks. For a message sent from a source network to a destination network, this would involve the destination networks independently:</p>
+<ol>
+<li>Validating that a state transition that resulted in a given message is valid according to the state transition rules of the source network and</li>
+<li>Verifying that the message has been finalized according to its consensus rules of the source network</li>
+</ol>
+<p>A protocol that performs one or both of the above verifications to ensure the validity of a remote network's state is considered <em>trustless</em> or <em>trust-minimized</em>. Conversely, a protocol that relies on intermediaries or a subset of network validators vouching for the validity of a remote state is considered <em>trusted</em>, or <em>semi-trusted</em>. In line with this, four broad architectural patterns are identified below. Not all crosschain protocols in the wild neatly fit into these categories, and some employ hybrid approaches. </p>
+<h4 id="state-validating-protocols">State Validating Protocols</h4>
+<p>In <em>State Validating Protocols</em>, a destination chain independently verifies that any state it receives is valid and final according to the source network's state transition and consensus rules. This model inherits the security guarantees of the underlying networks without introducing new trust assumptions.  </p>
+<p>The only examples of such architecture, at present, are the native bridges between layer-one networks and their associated rollups (Optimistic and Zero-Knowledge rollups). In such models, there is, in effect, only a single source of truth, the state of the layer-one network. This is different from crosschain communication across independent layer-one networks. Hence, while this model offers significant security advantages, applying it across separate networks is currently not viable. However, with advances in <a href="https://ethereum.org/en/zero-knowledge-proofs/">Zero-Knowledge cryptography</a>, this could change. Efforts such as <a href="https://docs.ethhub.io/ethereum-roadmap/ethereum-2.0/stateless-clients/">stateless Ethereum</a> focus on having succinct proofs of the network's state that clients can independently verify. An example of a protocol that offers similar properties is the <a href="https://minaprotocol.com/">Mina protocol</a>. Such capabilities could eventually enable state-validating protocols across distinct layer-ones.</p>
+<figure>
+<p><img alt="State Validating Protocols" src="../images/state-validating-bridges.png" width="650" />
+  </p>
+<figcaption>State Validating Crosschain Protocols</figcaption>
+</figure>
+<p><strong>Considerations:</strong> While this approach offers strong security guarantees from a design perspective, it is worth noting that <a href="../../30implementation/protocol-implementation-risk/">implementation</a> and <a href="../../40operation/protocol-operation-risk/">operational</a> risks are still present.</p>
+<h4 id="consensus-verifying-protocols">Consensus Verifying Protocols</h4>
+<p>In <em>Consensus Verifying Protocols</em>, a destination network independently verifies that a crosschain state has been finalized according to the consensus rules of the source chain. This is typically achieved by running the light-client protocol of the source chain on the destination chain. 
+Examples of this type of verification include checking that sufficient proof-of-work has been expended on a block, in the case of Proof-of-Work protocols, or that a quorum of network validators has signed a block in BFT-based protocols. Similar to <em>State Validating protocols</em>, this approach does not introduce new trust assumptions beyond what's employed by the underlying network protocols. </p>
+<p>However, light-client consensus verifications differ from the consensus verifications performed by full nodes and do not offer the same security guarantees. For instance, the Ethereum <a href="https://github.com/ethereum/annotated-spec/blob/master/altair/sync-protocol.md">light-client protocol</a> relies on verifying the attestations of a small subset of randomly selected validators, called the sync committee, in place of the complete <a href="https://arxiv.org/abs/1710.09437">Casper FFG</a> consensus protocol employed by full nodes. Because of the smaller size of this validator set and the lack of slashing, this model offers relatively weaker security guarantees. In addition, unlike <em>State Validating Protocols</em> discussed above <em>Consensus Verifying Protocols</em> do not execute and verify the validity of transactions and hence offer lesser security.</p>
+<p>A significant constraint to the overall viability of such approaches is the complexity associated with building and maintaining such protocols and the costs associated with operating them. In addition, the cost of running such infrastructure is a function of the source network's block production rate rather than the demand for crosschain messaging. Hence, such bridges might need to charge high fees and gain significant usage to offset operational costs. </p>
+<p>There are two distinct models of such protocols based on whether the consensus verification is performed on-chain or off-chain. </p>
+<h5 id="on-chain-consensus-verification">On-chain Consensus Verification</h5>
+<p>This model involves performing light-client verification of a source chain's consensus in the execution environment of the destination. First, block headers from a source network are sent to a destination network by off-chain actors called <em>Relayers</em>. The destination chain then performs consensus verification on the block, typically through logic implemented in a smart contract. A user can then prove that a state exists in the source network using a <a href="https://computersciencewiki.org/index.php/Merkle_proof">Merkle proof</a> against the verified block header on the destination. This proof can then be used to trigger a subsequent transaction on the destination chain. </p>
+<p>Because of the constraints of most smart contract languages and blockchain execution environments, such models can be complicated to build and prohibitively expensive to operate (e.g., gas costs).</p>
+<figure>
+<p><img alt="On-chain Consensus Validating Bridges" src="../images/consensus-verifying-bridges.png" width="650" />
+  </p>
+<figcaption>On-chain Consensus Verifying Protocols</figcaption>
+</figure>
+<p><strong>Considerations:</strong></p>
+<p><em>Safety:</em></p>
+<ul>
+<li>What are the security properties of the light-client protocols of the underlying networks?</li>
+<li>How does the protocol deal with the security limitations and potential attack vectors of the associated light-client protocols (e.g., Eclipse Attacks, Long-range attacks)? What is the likelihood of such attacks?</li>
+<li>How long can the bridge go without receiving new blocks before the bridge's security is affected?</li>
+<li>The increased complexity of building such protocols significantly increases <a href="../../30implementation/protocol-implementation-risk/">implementation</a> risk.</li>
+</ul>
+<p><em>Liveness:</em></p>
+<ul>
+<li>Is the role of relaying blocks across chains permissionless? If the role is permissioned, then Relayers can censor or delay transactions.</li>
+<li>What are the costs of operating the bridge? Are these sustainable under low-demand scenarios? </li>
+<li>What are the financial incentives for relayers? Given these entities incur network fees associated with relaying blocks to different destination networks, how are they compensated? Is this model sustainable?</li>
+</ul>
+<p><em>Other:</em></p>
+<ul>
+<li>Can the on-chain implementation adapt to changes in the source network's consensus protocol? What are there challenges and constraints to making such changes?</li>
+</ul>
+<h5 id="validity-proof-based-consensus-verification">Validity-Proof based Consensus Verification</h5>
+<p>In this model, an off-chain system called a <em>Prover</em> generates a <a href="https://z.cash/technology/zksnarks/">SNARK</a> proof that a state in a source network has been finalized according to its consensus protocol. The proof is sent to a destination chain, which then verifies its validity using logic implemented in a smart contract (<em>Verifier</em>). Hence, this model shifts most of the complexity and cost of performing light-client consensus verification off-chain while retaining the security advantages of crosschain consensus verification.</p>
+<p>These types of bridges are also referred to as Zero-knowledge Bridges (ZK Bridges). However, this terminology is misleading, as such protocols rely only on the <em>succinctness</em> properties of SNARKs and do not apply information hiding (i.e., Zero-knowledge).</p>
+<figure>
+<p><img alt="Validity Proof Protocols" src="../images/zk-bridges.png" width="700" />
+  </p>
+<figcaption>Validaity Proof Protocols (ZK Bridges)</figcaption>
+</figure>
+<p><strong>Considerations:</strong></p>
+<p>The same considerations as those laid out for <em>On-chain Consensus Verification</em> schemes apply to these protocols. Additional considerations include:</p>
+<p><em>Safety:</em></p>
+<ul>
+<li>What are the trusted setup assumptions of the underlying cryptographic mechanisms? </li>
+<li>The increased complexity of building such protocols increases implementation risk.</li>
+</ul>
+<p><em>Liveness:</em></p>
+<ul>
+<li>Is the role of prover permissionless? If not, how many provers are there? What are the criteria for becoming a prover? How are they coordinated? <ul>
+<li>Provers can technically censor transactions or become a source of liveness issues for the network</li>
+<li>Carrying out an eclipse attack against a single prover is more tractable than several provers</li>
+<li>How are provers incentivized?</li>
+<li>The computations performed by a prover can be expensive, which might discourage participation.</li>
+</ul>
+</li>
+</ul>
+<h4 id="third-party-attestation-protocols">Third-party Attestation Protocols</h4>
+<p>The above approaches derive their security guarantees from the underlying chains because they involve each chain locally verifying, to some extent, the validity of the state from another chain. This avoids introducing additional trust assumptions and offers better security guarantees. However, such protocols are complex and costly to build, operate, and scale across diverse ecosystems. </p>
+<p>Hence, most crosschain protocols introduce intermediary sources of trust in the form of third-party attestors (also referred to as validators). These third-party attestors attest to the validity of crosschain messages from a source network and then send them to a destination network. A destination network accepts as valid any state that is certified by a majority of the trusted third-party attestors. Hence the safety and liveness properties of such protocols rely on a threshold of honest attestors (M of N security model).</p>
+<figure>
+<p><img alt="Third-party Attestation Protocols" src="../images/external-validator-set-bridges.png" width="650" />
+  </p>
+<figcaption>Third-party Attestation Protocols</figcaption>
+</figure>
+<figure>
+<p><img alt="Third-party Attestation Protocols with Intermediary Network" src="../images/external-validator-network-bridges.png" width="700" />
+  </p>
+<figcaption>Third-party Attestation Protocols with Intermediary Network</figcaption>
+</figure>
+<p>Protocols in this category vary widely on at least the following three dimensions:</p>
+<ol>
+<li>Coordination mechanism: Off-chain communication, Dedicated intermediary network</li>
+<li>Cryptographic mechanism: Multi-Signature, Threshold signature, Trusted Execution Environment (e.g., Intel SGX)</li>
+<li>Security model (Proof-of-Authority, Proof-of-Stake)</li>
+</ol>
+<p>The security model of these protocols defines the security properties of and assumptions about the third-party attestors. 
+There are generally two models, Proof-of-Authority and Proof-of-Stake, which are further discussed below.</p>
+<h5 id="proof-of-authority">Proof-of-Authority</h5>
+<p>Proof-of-Authority models rely on reputable legal entities serving as attestors. These bridges assume that a) such parties are strongly incentivized to maintain their reputation and would thus not act maliciously and b) that in the event of misbehavior, stakeholders can pursue legal recourse against such entities. These assumptions are difficult to reason about and rely on external structural assurances (e.g., legal systems) instead of internal protocol mechanisms.</p>
+<p><strong>Considerations:</strong></p>
+<p><em>Safety:</em></p>
+<ul>
+<li>How many distinct attestors does the protocol have? What are the specific honesty threshold assumptions for guaranteeing safety and liveness? What are the particular characteristics of the cryptographic schemes used?</li>
+<li>How reputable are these entities? How important are trust and reputation to the operation of the businesses of these entities?</li>
+<li>Are there contractual terms governing the operation of these entities? In what jurisdictions are the entities domiciled?</li>
+<li>How do the above disincentives to misbehavior compare against the TVL or total volume transacted by layers atop the messaging bridge?</li>
+<li>Can the claims around decentralization be verified on-chain? For instance: <ul>
+<li>The number of validators and the threshold for achieving a quorum. Multi-signature schemes are easier to verify on-chain compared to MPC or threshold signature schemes. </li>
+<li>The active validator set. While a bridge might employ many validators, it is possible that only a few actively participate in validating and attesting to messages. This could be because the economics of validating messages are not worthwhile to some validators. This means that the effective validator set is smaller, and the decentralization and security guarantees of the bridge weaker. The <a href="https://rekt.news/ronin-rekt/">Ronin bridge hack</a> highlights an example of this scenario.</li>
+</ul>
+</li>
+</ul>
+<p><em>Liveness</em>:</p>
+<ul>
+<li>Can regulations coerce these entities to censor transactions?</li>
+<li>Do such entities have competing interests with users of this bridge? e.g., Trading firms that might benefit from cross-domain MEV?</li>
+</ul>
+<h5 id="proof-of-stake">Proof-of-Stake</h5>
+<p>Proof-of-Stake models rely on validators having financial incentives to behave honestly according to the rules of the protocol. This is typically achieved by having each validator stake funds in the protocol that can be slashed if the validator misbehaves. Unlike proof-of-authority schemes, this offers an immediate and in-protocol method of punishing malicious behavior. </p>
+<p><strong>Considerations:</strong></p>
+<p><em>Safety:</em></p>
+<ul>
+<li>How many distinct attestors does the protocol have? What are the specific thresholds for guaranteeing safety and liveness? What are the particular characteristics of the cryptographic schemes used?</li>
+<li>Can the claims around decentralization be verified on-chain? For instance: <ul>
+<li>The distribution of staked tokens across validators (i.e., concentrated amongst few parties vs. diffuse across many parties)</li>
+<li>The number of validators and the threshold for achieving a quorum (multi-signature schemes might be easier to verify on-chain than threshold signature schemes). </li>
+<li>The active validator set. While a bridge might employ many validators, it is possible that only a few actively participate in validating and attesting to messages. </li>
+</ul>
+</li>
+<li>What exactly is staked by validators? Is it a bridge-specific token? What are the dynamics that drive the value of such tokens? How liquid is the token?</li>
+<li>How does the value of staked funds compare against the volume of assets transacted across the bridge?</li>
+<li>What is the cost of bribing or corrupting a threshold of such validators to violate safety or liveness?</li>
+<li>How does the bridge adapt to active misbehavior by a portion of the validators?</li>
+</ul>
+<p><em>Liveness</em>:</p>
+<ul>
+<li>Can regulations coerce these entities to censor transactions?</li>
+<li>Do such entities have competing interests with users of this bridge? e.g., Trading firms that might benefit from cross-domain MEV?</li>
+</ul>
+<h4 id="optimistic-protocols">Optimistic Protocols</h4>
+<p>Optimistic crosschain protocols rely on two types of <a href="../../../01intro/introduction/#stakeholders">bridge validators</a>, <em>Attestors</em> and <em>Watchers</em>. These validators have different names in different protocols. <em>Attestors</em> certify the validity of crosschain messages from a source network and submit them to destination networks. Attestors lock some stake in the source network that can be slashed in the case of proveable misbehavior. <em>Watchers</em> observe these attestations on-chain and submit fraud proofs within a time window if they are invalid. If invalid attestations are submitted, the responsible attestors are slashed, and the watcher that reported the fraud is rewarded. The <em>Watcher</em> role can either be permissioned or permissionless. </p>
+<p>Such bridges assume that: a) attestors are incentivized to sign only legitimate transactions because their bonded funds will be slashed if not, b) if an attestor signs a fraudulent transaction, at least one honest watcher will report the fraud within the allotted fraud window, and c) watchers are disincentivized from submitting invalid fraud reports. </p>
+<p>Thus, optimistic bridges have a 1 of N security model, which relies on one honest actor watching the system to verify crosschain transactions correctly. A large number of active watchers increases the security of such protocols. An ideal construction of such a protocol involves a permissionless watcher set. Such a model would make it difficult for an attacker to bribe a set of known watchers to overlook fraud. However, a permissionless watcher set might involve notable liveness tradeoffs for some protocols. </p>
+<p><strong>Considerations:</strong></p>
+<p>Attestors:</p>
+<ul>
+<li>How many attestors are employed by the bridge to sign and validate transactions? Is this set of attestors centralized? If so, can the attestors conduct a Denial-of-Service (DoS) attack by not signing a Merkle root? In such cases, will the system halt?</li>
+<li>What exactly is the bonded stake of attestors? Is it a bridge-specific token? What are the dynamics that drive the value of such tokens?</li>
+<li>What is the cost of bribing or corrupting the attestors to violate safety? Is this correlated with the price of a token?</li>
+<li>Can attestors censor messages? Can such entities be removed from the set of attestors to prevent censorship?</li>
+<li>How will the liveness of an application be affected if an attestor faces downtime? Will the application stop receiving messages?</li>
+</ul>
+<p>Watchers:</p>
+<ul>
+<li>Is the watcher role permissionless?</li>
+<li>If not, how many watchers are watching the network to detect fraudulent transactions? </li>
+<li>Is this role decentralized in terms of the distinct entities involved? Are watchers geographically distributed and operating for high availability? Are there ways of verifying that these entities are active?  </li>
+<li>How are watchers incentivized? Is the model sustainable? How does the protocol ensure watchers do not get front-run?</li>
+<li>Is the optimistic bridge “spam-proof” – meaning can an actor watching the system arbitrarily dispute transactions without penalty? Can such actors permanently halt a communication channel by spamming it?</li>
+<li>Can watchers censor messages? Can such entities be removed from the set of actors watching the system to prevent censorship?</li>
+<li>Do the actors watching the system have competing interests with users of the bridge? e.g., trading firms that could benefit from front-running a significant volume crosschain transaction or from cross-domain MEV?</li>
+</ul>
+<p>A number of protocols employ a hybrid approach to bridging that leverages different approaches for a more robust crosschain solution. For example, Celer Inter-chain Message (Celer IM), utilizes a proof of stake approach by default but offers an optimistic-rollup inspired security model as a fallback solution in the worst-case scenario where validators behave maliciously in the PoS approach. </p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.tracking", "toc.integrate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>

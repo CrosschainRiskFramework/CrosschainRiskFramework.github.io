@@ -1,0 +1,665 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="../../20categories/categories-of-risk/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>Introduction - Crosschain Risk Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6a10b989.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Crosschain Risk Framework" class="md-header__button md-logo" aria-label="Crosschain Risk Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Crosschain Risk Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Crosschain Risk Framework" class="md-nav__button md-logo" aria-label="Crosschain Risk Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Crosschain Risk Framework
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CrosschainRiskFramework/CrosschainRiskFramework.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-crosschain-interaction" class="md-nav__link">
+    Types of Crosschain Interaction
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Crosschain Interaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asset-exchange" class="md-nav__link">
+    Asset Exchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-transfer" class="md-nav__link">
+    Asset Transfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-purpose-messaging" class="md-nav__link">
+    General-purpose Messaging
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stakeholders" class="md-nav__link">
+    Stakeholders
+  </a>
+  
+    <nav class="md-nav" aria-label="Stakeholders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liquidity-providers" class="md-nav__link">
+    Liquidity Providers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridge-wrapped-token-holders" class="md-nav__link">
+    Bridge-wrapped Token Holders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridge-validators" class="md-nav__link">
+    Bridge Validators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridge-operators" class="md-nav__link">
+    Bridge Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridge-developers" class="md-nav__link">
+    Bridge Developers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-risks" class="md-nav__link">
+    Security Risks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20categories/categories-of-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Categories of Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20categories/10network/network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Consensus Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20categories/20architecture/architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Architecture Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20categories/30implementation/protocol-implementation-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Implementation Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20categories/40operation/protocol-operation-risk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocol Operational Risk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30scoring/scoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Risk Scoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authors/contributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="introduction">Introduction</h1>
+<p>With several layer-one protocols gaining meaningful traction over the last few years and layer-two protocols taking <a href="https://vitalik.ca/general/2021/12/06/endgame.html">center stage in the scalability roadmap for Ethereum</a>, it is increasingly becoming clear that the future will be multichain. This thesis is further reinforced by emerging patterns such as <a href="https://www.alchemy.com/overviews/modular-vs-monolithic-blockchains">modular blockchains</a>, <a href="https://medium.com/1kxnetwork/application-specific-blockchains-9a36511c832">application-specific chains</a>, and <a href="https://medium.com/starkware/fractal-scaling-from-l2-to-l3-7fe238ecfb4f">fractal scaling</a>. A multichain world is one in which disparate chains co-exist as thriving ecosystems. </p>
+<p>In the absence of a countervailing force, the proliferation of chains would naturally lead to increased fragmentation and the siloing of ecosystems. Crosschain protocols directly address this problem by enabling interoperation across distinct chains. They reduce fragmentation, enable scalability, and improve market efficiency. In addition, such protocols potentially open up new design spaces for novel crosschain native applications and use cases. Hence, crosschain protocols have emerged as a crucial building block enabling the multichain future. </p>
+<p>The growth and adoption of such protocols over the last couple of years have been astounding. The total value locked in token bridges on Ethereum alone, which only offers a partial picture of the scale of adoption of such protocols, reached a high of US$27B in late 2021. There are currently numerous crosschain-focused projects and significant venture capital funding backing such efforts.</p>
+<p>The flip side to this rapid growth and adoption has been the slew of high-profile hacks and failures of these protocols. Between 2021 and 2022, more than <a href="https://defillama.com/hacks">US$2.5B was stolen in bridge hacks</a>, which is more than two-thirds of all DeFI hacks in that period. In addition, roughly US$1B was at risk from vulnerabilities discovered in such protocols. The knock-on effects of these failures included extended disruptions to underlying chains and increased regulatory scrutiny. Overall, these events have undermined confidence in crosschain infrastructure and the viability of a multichain future. They have also highlighted shortcomings in how crosschain protocols are designed, built, and operated today and the need to understand their risks and challenges better.</p>
+<p>To this end, this document provides a high-level systematic overview of the security risks in crosschain protocols by identifying, classifying, and analyzing the risk elements inherent in the design, implementation, and operation of such infrastructure. In addition, it offers a set of risk controls and best practices to mitigate the likelihood and severity of risks. While this document provides a general toolkit for reasoning about crosschain protocols, it does not directly analyze individual protocols. </p>
+<p>While this document is still a work in progress, its ultimate objective is to enable progress toward more secure, robust, and decentralized crosschain protocols that can serve as solid foundations for a multichain future. We highly encourage contributions and feedback from the community towards this end.</p>
+<h2 id="types-of-crosschain-interaction">Types of Crosschain Interaction</h2>
+<p>Broadly defined, crosschain protocols enable the exchange of data and value across chains through one of the following three types of interactions:</p>
+<h4 id="asset-exchange">Asset Exchange</h4>
+<p>Asset Exchange involves coordinating the transfer of ownership of an asset in one <a href="../../../faq/faq/#what-is-a-network">network</a> with a corresponding transfer of ownership in another. This enables two or more parties to swap assets across networks under pre-agreed exchange terms.</p>
+<h4 id="asset-transfer">Asset Transfer</h4>
+<p>Asset Transfer involves moving the value of an asset from a source ledger to a destination ledger. It enables assets in one network to be used inside applications in another. For instance, a user might want to transfer her ETH from Ethereum to Avalanche so she can use it as collateral in a lending protocol on Avalanche. This typically involves locking an asset in the source ledger and minting a synthetic representation on the destination ledger.</p>
+<h4 id="general-purpose-messaging">General-purpose Messaging</h4>
+<p>General-purpose messaging refers to the communication of any data across chains. It can enable asset exchanges and transfers but also orchestrate complex application behavior across chains for a broad range of use cases. Examples include coordinating and managing DAO governance and actions across chains. </p>
+<h2 id="stakeholders">Stakeholders</h2>
+<p>Crosschain protocols can have several distinct stakeholders with direct or indirect involvement in the system. These stakeholders can be individuals, groups, or organizations and have different roles, constraints, goals, and incentives. Consequently, the types and magnitudes of risk borne by each stakeholder might vary considerably across protocols. Understanding the dynamics of crosschain risk from the perspective of different actors will aid in a more sound analysis. To this end, we identify the main stakeholders in crosschain protocols below:</p>
+<h4 id="users">Users</h4>
+<p>Users are the primary customers of the service offered by a crosschain protocol. They interact with the system directly to exchange assets or transfer data and value across chains. A user might directly interface with a crosschain protocol (e.g., token bridge) or through an intermediary application. A user's involvement with a protocol is typically short-lived and ends once their crosschain transaction has settled.</p>
+<h4 id="liquidity-providers">Liquidity Providers</h4>
+<p>In a crosschain asset exchange, a <em>liquidity provider</em> is the counter-party to a user. For a fee, it exchanges its assets in one network for a user's assets in another. It might compete with other liquidity providers to offer this service and have defined performance and service-level constraints in its operations. Liquidity providers typically maintain longer exposure to the risks of a protocol and might also need to account for market-related risks beyond protocol risks.  </p>
+<h4 id="bridge-wrapped-token-holders">Bridge-wrapped Token Holders</h4>
+<p>A common approach to enabling the transfer of assets from one chain to another is through a lock-and-mint mechanism, in which crosschain protocols lock assets on one network and mint corresponding synthetic assets on another. These synthetic assets are, in effect, a liability of the bridge that can later be redeemed for the underlying asset. We refer to any entity that holds such synthetic assets as a <em>bridge token holder</em>. A <em>bridge token holder</em> might or might not be a user of a crosschain protocol. More importantly, such stakeholders are exposed to the idiosyncratic risks of a protocol so long as they hold the asset. If a protocol's underlying assets are compromised the corresponding synthetic assets could lose some or all of their value.</p>
+<h4 id="bridge-validators">Bridge Validators</h4>
+<p>Crosschain protocols typically coordinate several off-chain systems and actors that collectively ensure the integrity of state communication across chains. Such entities might be responsible for verifying, validating, proving, attesting, or relaying crosschain states. How different protocols coordinate and incentivize such actors to offer specific security properties varies significantly. However, in general, <em>bridge validators</em> are the primary entities that ensure the security and continued operation of a crosschain protocol and thus represent a significant source of potential risk to the overall system.</p>
+<h4 id="bridge-operators">Bridge Operators</h4>
+<p><em>Bridge operators</em> are actors that can update or reconfigure key elements of a crosschain protocol (e.g., upgrading on-chain smart contracts, updating validator registries, or moving contract funds). How many bridge operators a protocol has, what they are allowed to change and what policies govern their actions can significantly influence the risk profile of a protocol and varies considerably across projects.</p>
+<h4 id="bridge-developers">Bridge Developers</h4>
+<p><em>Bridge developers</em> design, build, test, and maintain the codebase behind a crosschain protocol. Given the complex nature of such systems, the possibility of introducing bugs and vulnerabilities is considerable. The experience and competence of such teams, their development practices, and the policies and procedures they put in place to respond to incidents significantly influence a protocol's level of <a href="../../20categories/30implementation/protocol-implementation-risk/">implementation risk</a>.</p>
+<p>In addition to the direct stakeholders discussed above, crosschain protocols also have indirect stakeholders. These entities have interest in or influence over the security and efficacy of crosschain protocols, even though they might not directly interact with them. Indirect stakeholders include: </p>
+<ul>
+<li>
+<p>Blockchain Network Participants: Recent bridge hacks have shown how failures in crosschain protocols can cause significant disruptions and halts of the underlying blockchains, impacting all network participants. </p>
+</li>
+<li>
+<p>Crosschain Applications: Applications built atop crosschain protocols have independent economic value that could influence the security of the underlying bridge. In addition, they have their own stakeholders that are impacted by the operations of the crosschain protocol.</p>
+</li>
+<li>
+<p>Bridge Protocol Investors: Investors of bridge protocols can directly or indirectly influence the operations and security of a protocol. For instance, the security guarantees of Proof-of-Stake bridges depend on the value of the bridge tokens staked. The market actions of investors could significantly influence the price of these tokens and consequently the security of the bridge.</p>
+</li>
+</ul>
+<p>For brevity, the rest of this document primarily focuses only on direct stakeholders of crosschain protocols.</p>
+<h2 id="security-risks">Security Risks</h2>
+<p>At its essence, crosschain communication creates a dependency relationship between two or more networks. Such dependency relationships typically involve state change in one network driving state change in another. These relationships can be <em>unidirectional</em> or <em>bidirectional</em>, <em>transient</em> or <em>persistent</em>. The goal of crosschain protocols is to enable and guarantee the integrity of these dependencies. Specifically, given two networks, a source, and a destination, where the state in the destination network is dependent on the state in the source network, crosschain protocols must guarantee the following core security properties:</p>
+<ol>
+<li>Only states that are valid and final in the source network are communicated to the destination network</li>
+<li>All relevant state transitions in the source network are relayed to the destination network in a timely manner</li>
+<li>Any invariants that emerge from the crosschain interactions are preserved</li>
+</ol>
+<p>This document primarily discusses and assesses the risk of crosschain protocols by considering factors that affect these core security requirements. </p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.tracking", "toc.integrate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
